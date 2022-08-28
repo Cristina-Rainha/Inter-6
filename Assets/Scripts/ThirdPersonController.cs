@@ -75,7 +75,7 @@ public class ThirdPersonController : MonoBehaviour
         }
 
         mSprinting = Input.GetKey(KeyCode.LeftShift);
-        
+
         Vector3 movement = new Vector3(x, 0, z).normalized;
         Vector3 rotatedMovement = Quaternion.Euler(0, myCamera.transform.rotation.eulerAngles.y, 0) * movement;
         Vector3 verticalMovement = Vector3.up * mSpeedY;
