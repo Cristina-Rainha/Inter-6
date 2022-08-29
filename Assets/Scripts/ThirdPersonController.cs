@@ -41,6 +41,11 @@ public class ThirdPersonController : MonoBehaviour
     void Update()
     {
         Movemente();
+
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            myAnimator.SetTrigger("Fortnitro");
+        }
     }
 
     private void Movemente()

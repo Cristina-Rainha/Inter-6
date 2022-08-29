@@ -3846,7 +3846,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100120, guid: 5917c0e93d180a842b61d1ebc62a195c, type: 3}
       propertyPath: m_Name
-      value: BasicMotionsDummyModel
+      value: BasicMotionsDummyModel2
       objectReference: {fileID: 0}
     - target: {fileID: 100120, guid: 5917c0e93d180a842b61d1ebc62a195c, type: 3}
       propertyPath: m_TagString
@@ -4442,7 +4442,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1670849780}
-  m_LocalRotation: {x: 0.12342419, y: 0.0000000068872326, z: -8.566005e-10, w: 0.99235404}
+  m_LocalRotation: {x: 0.12342419, y: 0.000000015424643, z: -0.0000000019184425, w: 0.99235404}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4535,7 +4535,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874023573}
-  m_LocalRotation: {x: 0.1234242, y: 0.0000000065264922, z: -9.0144725e-10, w: 0.99235404}
+  m_LocalRotation: {x: 0.1234242, y: 0.00000001578538, z: -0.0000000018735438, w: 0.99235404}
   m_LocalPosition: {x: 0, y: 3, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
