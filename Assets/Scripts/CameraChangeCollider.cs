@@ -15,7 +15,7 @@ public class CameraChangeCollider : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "null")
         {
             if(cam1.activeSelf)
             { 
@@ -31,6 +31,27 @@ public class CameraChangeCollider : MonoBehaviour
                 virtualCamera.m_Lens.NearClipPlane = -1000;
                 virtualCamera.m_Lens.FarClipPlane = 5000;
             }
+        }
+    }//not in use
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            cam1.SetActive(false);
+            cam2.SetActive(true);
+            myCamera.orthographic = false;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            cam1.SetActive(true);
+            cam2.SetActive(false);
+            myCamera.orthographic = true;
+            virtualCamera.m_Lens.NearClipPlane = -1000;
+            virtualCamera.m_Lens.FarClipPlane = 5000;
         }
     }
 }
