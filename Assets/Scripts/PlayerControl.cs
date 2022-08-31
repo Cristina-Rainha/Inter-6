@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ThirdPersonController : MonoBehaviour
+public class PlayerControl : MonoBehaviour
 {
     //private
     private CharacterController myController;
@@ -34,10 +34,10 @@ public class ThirdPersonController : MonoBehaviour
     [SerializeField] private float desiredRotation = 0f;
     [SerializeField] private float rotationSpeed = 15f;
     [SerializeField] private float jumpForce = 1f;
-    
+
     [Header("Player Animation")]
-    [SerializeField] private float disiredAnimationSpeed = 0f;
-    [SerializeField] private float AnimationBlendSpeed = 2f;
+    [SerializeField] private float disiredAnimationSpeed = 4f;
+    [SerializeField] private float AnimationBlendSpeed = 4f;
 
     private void Awake()
     {
@@ -48,19 +48,20 @@ public class ThirdPersonController : MonoBehaviour
     {
         MoveInput = mInputSystem.Player.Move;
         MoveInput.Enable();
-        
+
         JumpInput = mInputSystem.Player.Jump;
         JumpInput.Enable();
         JumpInput.performed += ctx => mJumping = true;
-        
+        JumpInput.canceled += ctx => mJumping = false;
+
         Sprintinput = mInputSystem.Player.Sprint;
         Sprintinput.Enable();
         Sprintinput.performed += ctx => mSprinting = true;
         Sprintinput.canceled += ctx => mSprinting = false;
-        
+
         UseInput = mInputSystem.Player.Use;
         UseInput.Enable();
-        
+
         DanceInput = mInputSystem.Player.Dance;
         DanceInput.Enable();
         DanceInput.performed += DanceFortinitro;
@@ -85,7 +86,7 @@ public class ThirdPersonController : MonoBehaviour
     void Update()
     {
         Movemente();
-        Debug.Log(mJumping);
+        Debug.Log(myController.isGrounded);
     }
 
     private void Movemente()
@@ -99,20 +100,20 @@ public class ThirdPersonController : MonoBehaviour
         }
         if (!myController.isGrounded)
         {
-            mSpeedY += mGravity * Time.deltaTime;   
+            mSpeedY += mGravity * Time.deltaTime;
         }
-        else if(mSpeedY < 0)
+        else if (mSpeedY < 0)
         {
             mSpeedY = 0;
         }
-        myAnimator.SetFloat("SpeedY",mSpeedY / jumpForce);
+        myAnimator.SetFloat("SpeedY", mSpeedY / jumpForce);
 
-        if (mJumping && mSpeedY <= 0)
+        if (mSpeedY < 0)
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, Vector3.down, out hit, 1f, groundLayer))
+            if (Physics.Raycast(transform.position, Vector3.down, out hit, 2f, groundLayer))
             {
-                //mJumping = false;
+                mJumping = false;
                 myAnimator.SetTrigger("Land");
             }
         }
@@ -121,7 +122,7 @@ public class ThirdPersonController : MonoBehaviour
         Vector3 rotatedMovement = Quaternion.Euler(0, myCamera.transform.rotation.eulerAngles.y, 0) * movement;
         Vector3 verticalMovement = Vector3.up * mSpeedY;
 
-        myController.Move((verticalMovement +(rotatedMovement * (mSprinting ? sprintSpeed : moveSpeed))) * Time.deltaTime);
+        myController.Move((verticalMovement + (rotatedMovement * (mSprinting ? sprintSpeed : moveSpeed))) * Time.deltaTime);
 
         if (rotatedMovement.magnitude > 0)
         {
@@ -134,7 +135,7 @@ public class ThirdPersonController : MonoBehaviour
         }
 
         myAnimator.SetFloat("Speed", Mathf.Lerp(myAnimator.GetFloat("Speed"), disiredAnimationSpeed, AnimationBlendSpeed * Time.deltaTime));
-            
+
         Quaternion currentRotation = transform.rotation;
         Quaternion TargetRotation = Quaternion.Euler(0, desiredRotation, 0);
         transform.rotation = Quaternion.Lerp(currentRotation, TargetRotation, rotationSpeed * Time.deltaTime);

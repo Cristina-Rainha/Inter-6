@@ -14,10 +14,7 @@ public class InteractionZone : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && insideInterationZone)
-        {
-            canvasText.SetActive(true);
-        }
+      
     }
 
     private void OnTriggerEnter(Collider other)
@@ -38,6 +35,14 @@ public class InteractionZone : MonoBehaviour
             virtualCamera.m_Lens.OrthographicSize = 6;
             canvasPanel.SetActive(false);
             canvasText.SetActive(false);
+        }
+    }
+
+    private void OpenTextBox()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && insideInterationZone)
+        {
+            canvasText.SetActive(true);
         }
     }
 }
