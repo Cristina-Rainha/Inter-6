@@ -317,6 +317,67 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Interact",
+            "id": "1fa1a70b-2e8a-4d15-a6b5-1121d6726f17",
+            "actions": [
+                {
+                    "name": "Use",
+                    "type": "Button",
+                    "id": "d366f5a8-d73e-43ea-ba8f-a6f5acc78650",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "cadf11db-c170-43b8-a737-200e502b3cfc",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Use",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1149078d-a472-441d-9c94-7b21d5f43909",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Use",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1afab349-ef14-423c-bc2e-0867146d873f",
+                    "path": "<XInputController>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Use",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c849dad8-b8bb-45ca-89ab-16cb9713bcc0",
+                    "path": "<DualShockGamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Use",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

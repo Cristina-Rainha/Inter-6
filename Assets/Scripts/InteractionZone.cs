@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class InteractionZone : MonoBehaviour
 {
@@ -12,11 +13,24 @@ public class InteractionZone : MonoBehaviour
 
     bool insideInterationZone;
 
-    private void Update()
-    {
-      
-    }
+    //Input Action
+    private PlayerInputSystem mInputSystem;
+    private InputAction InteractInput;
 
+    private void Awake()
+    {
+        mInputSystem = new PlayerInputSystem();
+    }
+    private void OnEnable()
+    {
+        InteractInput = mInputSystem.Player.Use;
+        InteractInput.Enable();
+        InteractInput.performed += OpenTextBox;
+    }
+    private void OnDisable()
+    {
+        InteractInput.Disable();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -38,9 +52,9 @@ public class InteractionZone : MonoBehaviour
         }
     }
 
-    private void OpenTextBox()
+    public void OpenTextBox(InputAction.CallbackContext ctx)
     {
-        if (Input.GetKeyDown(KeyCode.E) && insideInterationZone)
+        if (insideInterationZone)
         {
             canvasText.SetActive(true);
         }

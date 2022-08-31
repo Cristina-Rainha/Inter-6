@@ -36,8 +36,8 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private float jumpForce = 1f;
 
     [Header("Player Animation")]
-    [SerializeField] private float disiredAnimationSpeed = 4f;
-    [SerializeField] private float AnimationBlendSpeed = 4f;
+    [SerializeField] private float disiredAnimationSpeed = 0f;
+    [SerializeField] private float AnimationBlendSpeed = 2f;
 
     private void Awake()
     {
@@ -86,7 +86,6 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         Movemente();
-        Debug.Log(myController.isGrounded);
     }
 
     private void Movemente()

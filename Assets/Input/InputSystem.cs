@@ -339,6 +339,67 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Interact"",
+            ""id"": ""1fa1a70b-2e8a-4d15-a6b5-1121d6726f17"",
+            ""actions"": [
+                {
+                    ""name"": ""Use"",
+                    ""type"": ""Button"",
+                    ""id"": ""d366f5a8-d73e-43ea-ba8f-a6f5acc78650"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""cadf11db-c170-43b8-a737-200e502b3cfc"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Use"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1149078d-a472-441d-9c94-7b21d5f43909"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Use"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1afab349-ef14-423c-bc2e-0867146d873f"",
+                    ""path"": ""<XInputController>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Use"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c849dad8-b8bb-45ca-89ab-16cb9713bcc0"",
+                    ""path"": ""<DualShockGamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Use"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -350,6 +411,9 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_Use = m_Player.FindAction("Use", throwIfNotFound: true);
         m_Player_Dance = m_Player.FindAction("Dance", throwIfNotFound: true);
+        // Interact
+        m_Interact = asset.FindActionMap("Interact", throwIfNotFound: true);
+        m_Interact_Use = m_Interact.FindAction("Use", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -470,6 +534,39 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Interact
+    private readonly InputActionMap m_Interact;
+    private IInteractActions m_InteractActionsCallbackInterface;
+    private readonly InputAction m_Interact_Use;
+    public struct InteractActions
+    {
+        private @PlayerInputSystem m_Wrapper;
+        public InteractActions(@PlayerInputSystem wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Use => m_Wrapper.m_Interact_Use;
+        public InputActionMap Get() { return m_Wrapper.m_Interact; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(InteractActions set) { return set.Get(); }
+        public void SetCallbacks(IInteractActions instance)
+        {
+            if (m_Wrapper.m_InteractActionsCallbackInterface != null)
+            {
+                @Use.started -= m_Wrapper.m_InteractActionsCallbackInterface.OnUse;
+                @Use.performed -= m_Wrapper.m_InteractActionsCallbackInterface.OnUse;
+                @Use.canceled -= m_Wrapper.m_InteractActionsCallbackInterface.OnUse;
+            }
+            m_Wrapper.m_InteractActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Use.started += instance.OnUse;
+                @Use.performed += instance.OnUse;
+                @Use.canceled += instance.OnUse;
+            }
+        }
+    }
+    public InteractActions @Interact => new InteractActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -477,5 +574,9 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnUse(InputAction.CallbackContext context);
         void OnDance(InputAction.CallbackContext context);
+    }
+    public interface IInteractActions
+    {
+        void OnUse(InputAction.CallbackContext context);
     }
 }
