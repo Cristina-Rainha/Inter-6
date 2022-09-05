@@ -11,7 +11,14 @@ public class VariableHolder : MonoBehaviour
     public static bool yellowItem = false;
     public static bool redItem = false;
 
-
+    void Start()
+    {
+        pinkItem = false;
+        blueItem = false;
+        greenItem = false;
+        yellowItem = false;
+        redItem = false;
+    }
     private void Update()
     {
     }
