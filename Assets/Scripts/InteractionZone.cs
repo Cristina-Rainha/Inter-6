@@ -10,6 +10,7 @@ public class InteractionZone : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     [SerializeField] private GameObject canvasPanel;
     [SerializeField] private GameObject canvasText;
+    [SerializeField] private GameObject fireflys;
 
     bool insideInterationZone;
 
@@ -38,6 +39,7 @@ public class InteractionZone : MonoBehaviour
             insideInterationZone = true;
             virtualCamera.m_Lens.OrthographicSize = 4;
             canvasPanel.SetActive(true);
+            fireflys.SetActive(true);
         }
     }
 
@@ -49,6 +51,7 @@ public class InteractionZone : MonoBehaviour
             virtualCamera.m_Lens.OrthographicSize = 6;
             canvasPanel.SetActive(false);
             canvasText.SetActive(false);
+            fireflys.SetActive(false);
         }
     }
 
