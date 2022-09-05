@@ -10,8 +10,14 @@ public class InteractionZone : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     [SerializeField] private GameObject canvasPanel;
     [SerializeField] private GameObject canvasText;
+    [SerializeField] private GameObject canvasText2;
     [SerializeField] private GameObject fireflys;
+    [SerializeField] private GameObject NPC;
 
+    //animator
+    private Animator myAnimator;
+
+    //bool
     bool insideInterationZone;
 
     //Input Action
@@ -31,7 +37,14 @@ public class InteractionZone : MonoBehaviour
     private void OnDisable()
     {
         InteractInput.Disable();
+        canvasText.SetActive(false);
+        canvasText2.SetActive(false);
     }
+    void Start()
+    {
+        myAnimator = GetComponent<Animator>();
+    }
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -61,5 +74,16 @@ public class InteractionZone : MonoBehaviour
         {
             canvasText.SetActive(true);
         }
+        if (insideInterationZone && VariableHolder.pinkItem)
+        {
+            canvasText2.SetActive(true);
+            StartCoroutine(Wait());
+        }
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(2);
+        NPC.SetActive(false);
     }
 }

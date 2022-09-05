@@ -61,6 +61,7 @@ public class PlayerControl : MonoBehaviour
 
         UseInput = mInputSystem.Player.Use;
         UseInput.Enable();
+        UseInput.performed += CollectItem;
 
         DanceInput = mInputSystem.Player.Dance;
         DanceInput.Enable();
@@ -85,7 +86,7 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
-        Movemente();
+       Movemente();
     }
 
     private void Movemente()
@@ -107,14 +108,15 @@ public class PlayerControl : MonoBehaviour
         }
         myAnimator.SetFloat("SpeedY", mSpeedY / jumpForce);
 
-        if (mSpeedY < 0)
+        if (!mJumping && mSpeedY < 0)
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, Vector3.down, out hit, 2f, groundLayer))
+            if (Physics.Raycast(transform.position, Vector3.down, out hit, 1f, groundLayer))
             {
-                mJumping = false;
                 myAnimator.SetTrigger("Land");
+                mJumping = false;
             }
+            Debug.DrawRay(transform.position, Vector3.down, Color.yellow, 1f);
         }
         
         Vector3 movement = new Vector3(moveDirection.x, 0, moveDirection.z).normalized;
@@ -139,9 +141,14 @@ public class PlayerControl : MonoBehaviour
         Quaternion TargetRotation = Quaternion.Euler(0, desiredRotation, 0);
         transform.rotation = Quaternion.Lerp(currentRotation, TargetRotation, rotationSpeed * Time.deltaTime);
     }
-
+    
     private void DanceFortinitro(InputAction.CallbackContext ctx)
     {
         myAnimator.SetTrigger("Fortnitro");
+    }
+
+    private void CollectItem(InputAction.CallbackContext ctx)
+    {
+     
     }
 }
