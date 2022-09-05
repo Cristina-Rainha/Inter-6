@@ -50,7 +50,7 @@ public class PlayerControl : MonoBehaviour
         MoveInput.Enable();
 
         JumpInput = mInputSystem.Player.Jump;
-        JumpInput.Enable();
+        //JumpInput.Enable();
         JumpInput.performed += ctx => mJumping = true;
         JumpInput.canceled += ctx => mJumping = false;
 
