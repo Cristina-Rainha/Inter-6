@@ -64,6 +64,7 @@ public class InteractionZone : MonoBehaviour
             virtualCamera.m_Lens.OrthographicSize = 6;
             canvasPanel.SetActive(false);
             canvasText.SetActive(false);
+            canvasText2.SetActive(false);
             fireflys.SetActive(false);
         }
     }
