@@ -16,6 +16,9 @@ public class Interaction : MonoBehaviour
 
     //UI
     [SerializeField] private List<TextMeshProUGUI> UseText;
+    [SerializeField] private GameObject KeyboardControls;
+    [SerializeField] private GameObject XboxControls;
+    [SerializeField] private GameObject PS4Controls;
 
     void Awake()
     {
@@ -48,6 +51,9 @@ public class Interaction : MonoBehaviour
             foreach (TextMeshProUGUI text in UseText)
             {
                 text.text = "B";
+                KeyboardControls.SetActive(false);
+                XboxControls.SetActive(true);
+                PS4Controls.SetActive(false);
             }
         }
     }
@@ -58,6 +64,9 @@ public class Interaction : MonoBehaviour
             foreach (TextMeshProUGUI text in UseText)
             {
                 text.text = "O";
+                KeyboardControls.SetActive(false);
+                XboxControls.SetActive(false);
+                PS4Controls.SetActive(true);
             }
         }
     }
@@ -69,6 +78,9 @@ public class Interaction : MonoBehaviour
             foreach (TextMeshProUGUI text in UseText)
             {
                 text.text = "E";
+                KeyboardControls.SetActive(true);
+                XboxControls.SetActive(false);
+                PS4Controls.SetActive(false);
             }
         }
     }

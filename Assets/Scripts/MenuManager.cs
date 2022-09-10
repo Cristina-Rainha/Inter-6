@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class MenuManager : MonoBehaviour
 {
@@ -10,8 +11,9 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject menu;
     [SerializeField] private GameObject options;
     [SerializeField] private GameObject credits;
-    [SerializeField] private Button back;
+    
     [SerializeField] private Button primarybutton;
+    [SerializeField] private Button back;
 
     public void StartGame()
     {

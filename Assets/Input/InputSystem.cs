@@ -431,6 +431,15 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PauseGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""9412d5e8-9dcc-43cd-acc5-910c5dd66bb2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -994,6 +1003,50 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""action"": ""KeyboardInput"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d143831f-39c2-4bd6-9f50-359f1d929988"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eb6cc9c9-a0e9-48f4-92ea-0ff294cac8f9"",
+                    ""path"": ""<XInputController>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""75457a0f-0200-4c38-9ba8-1fe67f7e6fbe"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""71572f09-86f1-4d31-b8df-2dc24a9cb619"",
+                    ""path"": ""<DualShockGamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1015,6 +1068,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
         m_UI_XboxInput = m_UI.FindAction("XboxInput", throwIfNotFound: true);
         m_UI_PS4Input = m_UI.FindAction("PS4Input", throwIfNotFound: true);
         m_UI_KeyboardInput = m_UI.FindAction("KeyboardInput", throwIfNotFound: true);
+        m_UI_PauseGame = m_UI.FindAction("PauseGame", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1175,6 +1229,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_XboxInput;
     private readonly InputAction m_UI_PS4Input;
     private readonly InputAction m_UI_KeyboardInput;
+    private readonly InputAction m_UI_PauseGame;
     public struct UIActions
     {
         private @PlayerInputSystem m_Wrapper;
@@ -1182,6 +1237,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
         public InputAction @XboxInput => m_Wrapper.m_UI_XboxInput;
         public InputAction @PS4Input => m_Wrapper.m_UI_PS4Input;
         public InputAction @KeyboardInput => m_Wrapper.m_UI_KeyboardInput;
+        public InputAction @PauseGame => m_Wrapper.m_UI_PauseGame;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1200,6 +1256,9 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                 @KeyboardInput.started -= m_Wrapper.m_UIActionsCallbackInterface.OnKeyboardInput;
                 @KeyboardInput.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnKeyboardInput;
                 @KeyboardInput.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnKeyboardInput;
+                @PauseGame.started -= m_Wrapper.m_UIActionsCallbackInterface.OnPauseGame;
+                @PauseGame.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnPauseGame;
+                @PauseGame.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnPauseGame;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -1213,6 +1272,9 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                 @KeyboardInput.started += instance.OnKeyboardInput;
                 @KeyboardInput.performed += instance.OnKeyboardInput;
                 @KeyboardInput.canceled += instance.OnKeyboardInput;
+                @PauseGame.started += instance.OnPauseGame;
+                @PauseGame.performed += instance.OnPauseGame;
+                @PauseGame.canceled += instance.OnPauseGame;
             }
         }
     }
@@ -1234,5 +1296,6 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
         void OnXboxInput(InputAction.CallbackContext context);
         void OnPS4Input(InputAction.CallbackContext context);
         void OnKeyboardInput(InputAction.CallbackContext context);
+        void OnPauseGame(InputAction.CallbackContext context);
     }
 }
