@@ -30,6 +30,11 @@ public class SceneControl : MonoBehaviour
         UIinput.Disable();
     }
 
+    private void Start()
+    {
+        Time.timeScale = 1f;
+    }
+
     public void Menu()
     {
         SceneManager.LoadScene(sceneMenu);

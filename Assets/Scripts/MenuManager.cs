@@ -15,6 +15,11 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Button primarybutton;
     [SerializeField] private Button back;
 
+    private void Start()
+    {
+        Time.timeScale = 1f;
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene(scene);
