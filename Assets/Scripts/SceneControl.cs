@@ -9,6 +9,8 @@ public class SceneControl : MonoBehaviour
 {
     private PlayerInputSystem mInputSystem;
     private InputAction UIinput;
+    private InputAction XboxInput;
+    private InputAction PS4Input;
 
     [SerializeField] private string sceneMenu;
     [SerializeField] private GameObject pauseMenu;
@@ -24,10 +26,20 @@ public class SceneControl : MonoBehaviour
         UIinput = mInputSystem.UI.PauseGame;
         UIinput.Enable();
         UIinput.performed += Pause;
+
+        XboxInput = mInputSystem.UI.XboxInput;
+        XboxInput.Enable();
+        XboxInput.performed += XboxInputControl;
+
+        PS4Input = mInputSystem.UI.PS4Input;
+        PS4Input.Enable();
+        PS4Input.performed += PS4InputControl;
     }
     void OnDisable()
     {
         UIinput.Disable();
+        XboxInput.Disable();
+        PS4Input.Disable();
     }
 
     private void Start()
@@ -60,8 +72,29 @@ public class SceneControl : MonoBehaviour
             {
                 pauseMenu.SetActive(true);
                 Time.timeScale = 0f;
-                menuButton.Select();
                 Cursor.lockState= CursorLockMode.None;
+            }
+        }
+    }
+
+    private void XboxInputControl(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            if (pauseMenu.activeSelf)
+            {
+                menuButton.Select();
+            }
+        }
+    }
+
+    private void PS4InputControl(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            if (pauseMenu.activeSelf)
+            {
+                menuButton.Select();
             }
         }
     }

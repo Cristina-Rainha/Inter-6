@@ -984,6 +984,39 @@
                 },
                 {
                     "name": "",
+                    "id": "577d0ef1-faae-40b0-8769-7cdbf3ff5776",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "KeyboardInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "29e8a730-dc3b-4507-bd43-4cdc74cf86be",
+                    "path": "<Mouse>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "KeyboardInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "03b4b632-2e50-4625-8347-0bc009b23f69",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "KeyboardInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d143831f-39c2-4bd6-9f50-359f1d929988",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
