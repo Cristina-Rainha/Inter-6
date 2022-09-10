@@ -86,17 +86,15 @@ public class MenuManager : MonoBehaviour
     }
     private void XboxInputControl(InputAction.CallbackContext ctx)
     {
-        primarybutton.Select();
         Cursor.lockState = CursorLockMode.Locked;
     }
     private void PS4InputControl(InputAction.CallbackContext ctx)
     {
-        primarybutton.Select();
         Cursor.lockState = CursorLockMode.Locked;
+
     }
     private void KeyboardInputControl(InputAction.CallbackContext ctx)
     {
-        primarybutton.OnDeselect(null);
         Cursor.lockState = CursorLockMode.None;
     }
 }

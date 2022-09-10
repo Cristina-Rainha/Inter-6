@@ -28,11 +28,11 @@ public class SceneControl : MonoBehaviour
         UIinput.performed += Pause;
 
         XboxInput = mInputSystem.UI.XboxInput;
-        XboxInput.Enable();
+        //XboxInput.Enable();
         XboxInput.performed += XboxInputControl;
 
         PS4Input = mInputSystem.UI.PS4Input;
-        PS4Input.Enable();
+        //PS4Input.Enable();
         PS4Input.performed += PS4InputControl;
     }
     void OnDisable()
@@ -72,6 +72,7 @@ public class SceneControl : MonoBehaviour
             {
                 pauseMenu.SetActive(true);
                 Time.timeScale = 0f;
+                menuButton.Select();
                 Cursor.lockState= CursorLockMode.None;
             }
         }
@@ -83,7 +84,7 @@ public class SceneControl : MonoBehaviour
         {
             if (pauseMenu.activeSelf)
             {
-                menuButton.Select();
+                //menuButton.Select();
             }
         }
     }
@@ -94,7 +95,7 @@ public class SceneControl : MonoBehaviour
         {
             if (pauseMenu.activeSelf)
             {
-                menuButton.Select();
+                //menuButton.Select();
             }
         }
     }
