@@ -39,6 +39,7 @@ public class InteractionZone : MonoBehaviour
         InteractInput.Disable();
         canvasText.SetActive(false);
         canvasText2.SetActive(false);
+        virtualCamera.m_Lens.OrthographicSize = 6;
     }
     void Start()
     {
