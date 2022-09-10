@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class SceneControl : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class SceneControl : MonoBehaviour
 
     [SerializeField] private string sceneMenu;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private Button menuButton;
 
 
     void Awake()
@@ -21,29 +23,40 @@ public class SceneControl : MonoBehaviour
     {
         UIinput = mInputSystem.UI.PauseGame;
         UIinput.Enable();
-        UIinput.performed += LoadMenu;
+        UIinput.performed += Pause;
     }
     void OnDisable()
     {
         UIinput.Disable();
     }
 
-    public void StartGame()
+    public void Menu()
     {
         SceneManager.LoadScene(sceneMenu);
     }
 
-    private void LoadMenu(InputAction.CallbackContext ctx)
+    public void ExitPlayMode()
+    {
+        //Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
+    }
+
+    private void Pause(InputAction.CallbackContext ctx)
     {
         if (ctx.performed)
         {
             if (pauseMenu.activeSelf)
             {
                 pauseMenu.SetActive(false);
+                Time.timeScale = 1f;
+                Cursor.lockState = CursorLockMode.Locked;
             }
             else
             {
                 pauseMenu.SetActive(true);
+                Time.timeScale = 0f;
+                menuButton.Select();
+                Cursor.lockState= CursorLockMode.None;
             }
         }
     }
