@@ -933,7 +933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1560,7 +1560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8e3a7be404897b4fb362cef35b74c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: Ortho (Edu)
+  scene: Ortho
   menu: {fileID: 0}
   options: {fileID: 0}
   credits: {fileID: 1939488315}
@@ -1873,7 +1873,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: "Eduardo Yukio Ishimoto RA:125111354841\r\nEric Bormann RA: 125111355607\r\nFernando
+    Prado Rosell RA: 125111347673\r\nGustavo Duran Domingues RA:125111345167\r\nGustavo
+    Schiapati Fernandez RA: 125111370035\r\nIsabella Novaes Bello RA: 125111356230\r\nJo\xE3o
+    Victor Pussinelli Klein Rodrigues RA: 125111343350\r\nMiri\xE3 Moreno RA: 125111373960"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1900,15 +1903,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 110
+  m_fontSizeBase: 110
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 32
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
