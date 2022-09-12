@@ -31,10 +31,10 @@ public class VariableHolder : MonoBehaviour
         greenNpc = false;
         yellowNpc = false;
         redNpc = false;
-        
     }
     private void Update()
     {
-        Debug.Log(pinkNpc);
+        Debug.Log("Pink Item: " + pinkItem);
+        Debug.Log("Red Item: " + redItem);
     }
 }

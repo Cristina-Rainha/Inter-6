@@ -7,11 +7,16 @@ using UnityEngine.InputSystem;
 public class InteractionZoneItems : MonoBehaviour
 {
     [SerializeField] private GameObject canvasPanel;
-    [SerializeField] private GameObject canvasText;
-    
+    [SerializeField] private GameObject item;
+
     //bool
     private bool inside;
-  
+    [SerializeField] private bool pinkObj;
+    [SerializeField] private bool blueObj;
+    [SerializeField] private bool greenObj;
+    [SerializeField] private bool yellowObj;
+    [SerializeField] private bool redObj;
+
     //Input Action
     private PlayerInputSystem mInputSystem;
     private InputAction InteractInput;
@@ -50,17 +55,16 @@ public class InteractionZoneItems : MonoBehaviour
 
     public void collect(InputAction.CallbackContext ctx)
     {
-        if(inside && VariableHolder.pinkNpc)
+        if (inside && VariableHolder.pinkItem == false && pinkObj)
         {
             VariableHolder.pinkItem = true;
-            gameObject.SetActive(false);
-            Debug.Log("Pink Item Collected");
+            item.SetActive(false);
         }
-        if(inside && VariableHolder.redNpc)
+
+        if (inside && VariableHolder.redItem == false && redObj)
         {
             VariableHolder.redItem = true;
-            gameObject.SetActive(false);
-            Debug.Log("Red Item Collected");
+            item.SetActive(false);
         }
     }
 }
