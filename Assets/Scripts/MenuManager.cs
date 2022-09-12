@@ -81,8 +81,8 @@ public class MenuManager : MonoBehaviour
     }
     public void CloseGame()
     {
-        //Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit();
+        //UnityEditor.EditorApplication.isPlaying = false;
     }
     private void XboxInputControl(InputAction.CallbackContext ctx)
     {

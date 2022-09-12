@@ -54,8 +54,8 @@ public class SceneControl : MonoBehaviour
 
     public void ExitPlayMode()
     {
-        //Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit();
+        //UnityEditor.EditorApplication.isPlaying = false;
     }
 
     private void Pause(InputAction.CallbackContext ctx)

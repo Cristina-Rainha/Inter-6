@@ -1560,7 +1560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8e3a7be404897b4fb362cef35b74c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: Ortho
+  scene: Ortho (Edu)
   menu: {fileID: 0}
   options: {fileID: 0}
   credits: {fileID: 1939488315}
