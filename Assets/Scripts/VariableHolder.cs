@@ -11,6 +11,13 @@ public class VariableHolder : MonoBehaviour
     public static bool yellowItem = false;
     public static bool redItem = false;
 
+    public static bool pinkNpc = false;
+    public static bool blueNpc = false;
+    public static bool greenNpc = false;
+    public static bool yellowNpc = false;
+    public static bool redNpc = false;
+    
+
     void Start()
     {
         pinkItem = false;
@@ -18,8 +25,16 @@ public class VariableHolder : MonoBehaviour
         greenItem = false;
         yellowItem = false;
         redItem = false;
+
+        pinkNpc = false;
+        blueNpc = false;
+        greenNpc = false;
+        yellowNpc = false;
+        redNpc = false;
+        
     }
     private void Update()
     {
+        Debug.Log(pinkNpc);
     }
 }

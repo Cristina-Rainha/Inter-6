@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ortho.unity
     guid: 5fa0e2cde84197148b3b4820bf0c0605
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Ortho (Edu).unity
     guid: 9fef72770d84c85489b09903a5ae6924
   m_configObjects: {}

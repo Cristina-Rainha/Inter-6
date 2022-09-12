@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] private string scene;
+    [SerializeField] private int scene;
     [SerializeField] private GameObject menu;
     [SerializeField] private GameObject options;
     [SerializeField] private GameObject credits;

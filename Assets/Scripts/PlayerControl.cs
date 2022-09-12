@@ -151,4 +151,28 @@ public class PlayerControl : MonoBehaviour
     {
      
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("pink"))
+        {
+            VariableHolder.pinkNpc = true;
+        }
+        if (other.CompareTag("red"))
+        {
+            VariableHolder.redNpc = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("pink"))
+        {
+            VariableHolder.pinkNpc = false;
+        }
+        if (other.CompareTag("red"))
+        {
+            VariableHolder.redNpc = false;
+        }
+    }
 }

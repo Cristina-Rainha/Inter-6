@@ -76,7 +76,12 @@ public class InteractionZone : MonoBehaviour
         {
             canvasText.SetActive(true);
         }
-        if (insideInterationZone && VariableHolder.pinkItem)
+        if (insideInterationZone && VariableHolder.pinkItem && VariableHolder.pinkNpc)
+        {
+            canvasText2.SetActive(true);
+            StartCoroutine(Wait());
+        }
+        if (insideInterationZone && VariableHolder.redItem && VariableHolder.redNpc)
         {
             canvasText2.SetActive(true);
             StartCoroutine(Wait());

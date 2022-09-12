@@ -6,6 +6,7 @@ TagManager:
   tags:
   - InteractionZone
   - pink
+  - red
   layers:
   - Default
   - TransparentFX

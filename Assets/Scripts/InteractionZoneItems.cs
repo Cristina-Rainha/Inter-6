@@ -50,11 +50,17 @@ public class InteractionZoneItems : MonoBehaviour
 
     public void collect(InputAction.CallbackContext ctx)
     {
-        if(inside)
+        if(inside && VariableHolder.pinkNpc)
         {
             VariableHolder.pinkItem = true;
             gameObject.SetActive(false);
             Debug.Log("Pink Item Collected");
+        }
+        if(inside && VariableHolder.redNpc)
+        {
+            VariableHolder.redItem = true;
+            gameObject.SetActive(false);
+            Debug.Log("Red Item Collected");
         }
     }
 }
