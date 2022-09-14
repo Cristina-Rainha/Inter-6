@@ -38956,7 +38956,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1395243303}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1770473416
+--- !u!65 &1770473420
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38967,8 +38967,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.79660714, y: 1.3066505, z: 1.5968949}
-  m_Center: {x: 0.00034433612, y: -0.5725631, z: 2.4409836e-14}
+  m_Size: {x: 1.0897348, y: 2.7199614, z: 1.8551265}
+  m_Center: {x: 0.13693486, y: -0.71867025, z: -0.0042874212}
 --- !u!1 &1774122362 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2989938009437577805, guid: fd39c6b3c48cf28449e939b59c91dd70,
@@ -41578,6 +41578,7 @@ GameObject:
   - component: {fileID: 1924996292}
   - component: {fileID: 1924996295}
   - component: {fileID: 1924996296}
+  - component: {fileID: 1924996297}
   m_Layer: 0
   m_Name: Sphere_PINK
   m_TagString: Untagged
@@ -41697,6 +41698,24 @@ MonoBehaviour:
   greenObj: 0
   yellowObj: 0
   redObj: 0
+--- !u!114 &1924996297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924996290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1927294715
 GameObject:
   m_ObjectHideFlags: 0
@@ -57780,8 +57799,6 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: d20041a4933d0e84f80c1c1674234ac7, type: 2}
-  - {fileID: 2100000, guid: 311313efa011949e98b6761d652ad13c, type: 2}
-  - {fileID: 2100000, guid: 106f3ff43a17d4967a2b64c7a92e49ec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -57880,7 +57897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 1
-  outlineColor: {r: 0.8941177, g: 0, b: 1, a: 1}
+  outlineColor: {r: 0.89411783, g: 0, b: 1, a: 1}
   outlineWidth: 10
   precomputeOutline: 0
   bakeKeys: []
