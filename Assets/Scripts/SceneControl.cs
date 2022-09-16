@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.Rendering.PostProcessing;
 
 public class SceneControl : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class SceneControl : MonoBehaviour
     private InputAction XboxInput;
     private InputAction PS4Input;
 
+    [SerializeField] private GameObject volume;
     [SerializeField] private string sceneMenu;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private Button menuButton;
@@ -45,6 +47,7 @@ public class SceneControl : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1f;
+        volume.SetActive(true);
     }
 
     public void Menu()
