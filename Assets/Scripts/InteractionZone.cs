@@ -11,8 +11,8 @@ public class InteractionZone : MonoBehaviour
     [SerializeField] private GameObject canvasPanel;
     [SerializeField] private GameObject canvasText;
     [SerializeField] private GameObject canvasText2;
-    [SerializeField] private GameObject fireflys;
     [SerializeField] private GameObject NPC;
+    [SerializeField] private GameObject Item;
 
     //animator
     private Animator myAnimator;
@@ -53,7 +53,6 @@ public class InteractionZone : MonoBehaviour
             insideInterationZone = true;
             virtualCamera.m_Lens.OrthographicSize = 4;
             canvasPanel.SetActive(true);
-            fireflys.SetActive(true);
         }
     }
 
@@ -66,7 +65,6 @@ public class InteractionZone : MonoBehaviour
             canvasPanel.SetActive(false);
             canvasText.SetActive(false);
             canvasText2.SetActive(false);
-            fireflys.SetActive(false);
         }
     }
 
@@ -75,16 +73,19 @@ public class InteractionZone : MonoBehaviour
         if (insideInterationZone)
         {
             canvasText.SetActive(true);
+            Item.SetActive(true);
         }
         if (insideInterationZone && VariableHolder.pinkItem && VariableHolder.pinkNpc)
         {
             canvasText2.SetActive(true);
             StartCoroutine(Wait());
+            VariableHolder.pinkQuest = true;
         }
         if (insideInterationZone && VariableHolder.redItem && VariableHolder.redNpc)
         {
             canvasText2.SetActive(true);
             StartCoroutine(Wait());
+            VariableHolder.redQuest = true;
         }
     }
 
