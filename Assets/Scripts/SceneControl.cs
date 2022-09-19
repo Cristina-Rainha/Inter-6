@@ -16,7 +16,9 @@ public class SceneControl : MonoBehaviour
     [SerializeField] private GameObject volume;
     [SerializeField] private string sceneMenu;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject ControlePanel;
     [SerializeField] private Button menuButton;
+    [SerializeField] private Button controleButton;
 
 
     void Awake()
@@ -55,6 +57,20 @@ public class SceneControl : MonoBehaviour
         SceneManager.LoadScene(sceneMenu);
     }
 
+    public void ControlMenu()
+    {
+        if (ControlePanel.activeSelf == false)
+        {
+            ControlePanel.SetActive(true);
+            controleButton.Select();
+        }
+        else
+        {
+            ControlePanel.SetActive(false);
+            menuButton.Select();
+        }
+    }
+
     public void ExitPlayMode()
     {
         Application.Quit();
@@ -68,6 +84,7 @@ public class SceneControl : MonoBehaviour
             if (pauseMenu.activeSelf)
             {
                 pauseMenu.SetActive(false);
+                ControlePanel.SetActive(false);
                 Time.timeScale = 1f;
                 Cursor.lockState = CursorLockMode.Locked;
             }
