@@ -84,7 +84,7 @@ public class SceneControl : MonoBehaviour
             if (pauseMenu.activeSelf)
             {
                 pauseMenu.SetActive(false);
-                ControlePanel.SetActive(false);
+                //ControlePanel.SetActive(false);
                 Time.timeScale = 1f;
                 Cursor.lockState = CursorLockMode.Locked;
             }

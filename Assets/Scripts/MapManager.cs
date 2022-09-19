@@ -31,7 +31,10 @@ public class MapManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("player is on range " + playerOnRange);
+        if (!playerOnRange && pauseMap.activeSelf == true)
+        {
+           pauseMap.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
