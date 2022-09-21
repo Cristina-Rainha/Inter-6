@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class MapManager : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMap;
+    [SerializeField] private GameObject interectPronp;
 
     private PlayerInputSystem mInputSystem;
     private InputAction InterectInput;
@@ -42,6 +43,7 @@ public class MapManager : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerOnRange = true;
+            interectPronp.SetActive(true);
         }
     }
 
@@ -50,6 +52,7 @@ public class MapManager : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerOnRange = false;
+            interectPronp.SetActive(false);
         }
     }
 
