@@ -14,13 +14,15 @@ public class FireflyIndicator : MonoBehaviour
     void Start()
     {
         fireflyParticles.Stop();
-        fireflyLight.intensity = 1;
+        fireflyLight.intensity = 10;
     }
 
     private void Update()
     {
         RedQuest();
         PinkQuest();
+
+        fireflyParticles.transform.position = Vector3.Lerp(fireflyParticles.transform.position, transform.position, Time.deltaTime * 15);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -72,27 +74,27 @@ public class FireflyIndicator : MonoBehaviour
             //Debug.Log("red quest" + distance);
             if(distance < 40)
             {
-                fireflyLight.intensity = 5;
+                fireflyLight.intensity = 10;
             }
             
             if(distance < 30)
             {
-                fireflyLight.intensity = 20;
+                fireflyLight.intensity = 40;
             }
 
             if (distance < 20)
             {
-                fireflyLight.intensity = 40;
+                fireflyLight.intensity = 60;
             }
 
             if (distance < 10)
             {
-                fireflyLight.intensity = 60;
+                fireflyLight.intensity = 80;
             }
 
             if (distance < 5)
             {
-                fireflyLight.intensity = 80;
+                fireflyLight.intensity = 100;
             }
 
             if (distance < 2)
@@ -111,27 +113,27 @@ public class FireflyIndicator : MonoBehaviour
             //Debug.Log("pink quest" + distance);
             if (distance < 40)
             {
-                fireflyLight.intensity = 5;
+                fireflyLight.intensity = 10;
             }
 
             if (distance < 30)
             {
-                fireflyLight.intensity = 20;
+                fireflyLight.intensity = 40;
             }
 
             if (distance < 20)
             {
-                fireflyLight.intensity = 40;
+                fireflyLight.intensity = 60;
             }
 
             if (distance < 10)
             {
-                fireflyLight.intensity = 60;
+                fireflyLight.intensity = 80;
             }
 
             if (distance < 5)
             {
-                fireflyLight.intensity = 80;
+                fireflyLight.intensity = 100;
             }
 
             if (distance < 2)
