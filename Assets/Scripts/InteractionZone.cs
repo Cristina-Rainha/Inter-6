@@ -11,7 +11,6 @@ public class InteractionZone : MonoBehaviour
     [SerializeField] private GameObject canvasPanel;
     [SerializeField] private GameObject canvasText;
     [SerializeField] private GameObject canvasText2;
-    [SerializeField] private GameObject NPC;
     [SerializeField] private GameObject Item;
 
     //animator
@@ -78,20 +77,12 @@ public class InteractionZone : MonoBehaviour
         if (insideInterationZone && VariableHolder.pinkItem && VariableHolder.pinkNpc)
         {
             canvasText2.SetActive(true);
-            StartCoroutine(Wait());
             VariableHolder.pinkQuest = true;
         }
         if (insideInterationZone && VariableHolder.redItem && VariableHolder.redNpc)
         {
             canvasText2.SetActive(true);
-            StartCoroutine(Wait());
             VariableHolder.redQuest = true;
         }
-    }
-
-    IEnumerator Wait()
-    {
-        yield return new WaitForSeconds(2);
-        NPC.SetActive(false);
     }
 }

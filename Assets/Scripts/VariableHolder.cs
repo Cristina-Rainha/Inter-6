@@ -47,7 +47,5 @@ public class VariableHolder : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log("Pink Item: " + pinkItem);
-        Debug.Log("Red Item: " + redItem);
     }
 }
