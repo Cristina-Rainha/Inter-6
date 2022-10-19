@@ -5,10 +5,18 @@ TagManager:
   serializedVersion: 2
   tags:
   - InteractionZone
-  - pink
-  - red
-  - pinkArea
   - redArea
+  - purpleArea
+  - blueArea
+  - greenArea
+  - greenArea2
+  - orangeArea
+  - red
+  - purple
+  - blue
+  - orange
+  - green
+  - green2
   layers:
   - Default
   - TransparentFX
