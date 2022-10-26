@@ -95,7 +95,6 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         Movemente();
-        MonitorSpeed();
     }
 
     private void Movemente()
@@ -149,19 +148,6 @@ public class PlayerControl : MonoBehaviour
         Quaternion currentRotation = transform.rotation;
         Quaternion TargetRotation = Quaternion.Euler(0, desiredRotation, 0);
         transform.rotation = Quaternion.Lerp(currentRotation, TargetRotation, rotationSpeed * Time.deltaTime);
-
-        if (moveDirection.magnitude > 0)
-        {
-            if (!audioSource.isPlaying && currentSpeed == moveSpeed)
-            {
-                audioSource.clip = clips[0];
-                audioSource.Play();
-            }
-        }
-        else
-        {
-            audioSource.Stop();
-        }
     }
     private void DanceFortinitro(InputAction.CallbackContext ctx)
     {
@@ -171,19 +157,6 @@ public class PlayerControl : MonoBehaviour
     private void CollectItem(InputAction.CallbackContext ctx)
     {
      
-    }
-
-    private void MonitorSpeed()
-    {
-        if (mSprinting)
-        {
-            currentSpeed = sprintSpeed;
-        }
-        else
-        {
-            currentSpeed = moveSpeed;
-        }
-        Debug.Log(currentSpeed);
     }
 
     private void OnTriggerEnter(Collider other)
