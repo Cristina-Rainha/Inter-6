@@ -17,7 +17,6 @@ public class PlayerControl : MonoBehaviour
     //Serialized
     [SerializeField] private Camera myCamera;
     [SerializeField] LayerMask groundLayer;
-    [SerializeField] private List<AudioClip> clips;
 
     //bool
     private bool mSprinting = false;
