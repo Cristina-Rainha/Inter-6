@@ -17,6 +17,8 @@ TagManager:
   - orange
   - green
   - green2
+  - pink
+  - water
   layers:
   - Default
   - TransparentFX

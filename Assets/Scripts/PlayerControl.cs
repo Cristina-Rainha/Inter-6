@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,14 +12,17 @@ public class PlayerControl : MonoBehaviour
     private Vector3 moveDirection;
     private float mSpeedY = 0;
     private float mGravity = -9.81f;
+    private AudioSource audioSource;
 
     //Serialized
     [SerializeField] private Camera myCamera;
     [SerializeField] LayerMask groundLayer;
+    [SerializeField] private List<AudioClip> clips;
 
     //bool
     private bool mSprinting = false;
     private bool mJumping = false;
+    private bool onWater = false;
 
     //InputSystem
     private PlayerInputSystem mInputSystem;
@@ -38,6 +42,9 @@ public class PlayerControl : MonoBehaviour
     [Header("Player Animation")]
     [SerializeField] private float disiredAnimationSpeed = 0f;
     [SerializeField] private float AnimationBlendSpeed = 2f;
+
+    //audio
+    private float currentSpeed = 0f;
 
     private void Awake()
     {
@@ -81,12 +88,14 @@ public class PlayerControl : MonoBehaviour
     {
         myController = GetComponent<CharacterController>();
         myAnimator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
     {
-       Movemente();
+        Movemente();
+        MonitorSpeed();
     }
 
     private void Movemente()
@@ -140,8 +149,20 @@ public class PlayerControl : MonoBehaviour
         Quaternion currentRotation = transform.rotation;
         Quaternion TargetRotation = Quaternion.Euler(0, desiredRotation, 0);
         transform.rotation = Quaternion.Lerp(currentRotation, TargetRotation, rotationSpeed * Time.deltaTime);
+
+        if (moveDirection.magnitude > 0)
+        {
+            if (!audioSource.isPlaying && currentSpeed == moveSpeed)
+            {
+                audioSource.clip = clips[0];
+                audioSource.Play();
+            }
+        }
+        else
+        {
+            audioSource.Stop();
+        }
     }
-    
     private void DanceFortinitro(InputAction.CallbackContext ctx)
     {
         myAnimator.SetTrigger("Fortnitro");
@@ -150,5 +171,34 @@ public class PlayerControl : MonoBehaviour
     private void CollectItem(InputAction.CallbackContext ctx)
     {
      
+    }
+
+    private void MonitorSpeed()
+    {
+        if (mSprinting)
+        {
+            currentSpeed = sprintSpeed;
+        }
+        else
+        {
+            currentSpeed = moveSpeed;
+        }
+        Debug.Log(currentSpeed);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("water"))
+        {
+            onWater = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("water"))
+        {
+            onWater = false;
+        }
     }
 }
