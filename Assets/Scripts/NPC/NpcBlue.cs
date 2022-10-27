@@ -90,6 +90,7 @@ public class NpcBlue : MonoBehaviour
             if (VariableHolder.blueItem == false)
             {
                 Item.SetActive(true);
+                VariableHolder.blueNpc = true;
             }
         }
 

@@ -91,6 +91,7 @@ public class NpcGreen2 : MonoBehaviour
             if (VariableHolder.greenItem2 == false)
             {
                 Item.SetActive(true);
+                VariableHolder.greenNpc2 = true;
             }
         }
 

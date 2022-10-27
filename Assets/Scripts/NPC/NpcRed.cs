@@ -91,6 +91,7 @@ public class NpcRed : MonoBehaviour
             if (VariableHolder.redItem == false)
             {
                 Item.SetActive(true);
+                VariableHolder.redNpc = true;
             }
         }
 

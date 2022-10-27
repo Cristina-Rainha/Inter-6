@@ -91,6 +91,7 @@ public class NpcPurple : MonoBehaviour
             if (VariableHolder.purpleItem == false)
             {
                 Item.SetActive(true);
+                VariableHolder.purpleNpc = true;
             }
         }
 

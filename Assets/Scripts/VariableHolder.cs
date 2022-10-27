@@ -28,9 +28,28 @@ public class VariableHolder : MonoBehaviour
     public static bool orangeQuest = false;
 
     public static bool testItem = false;
-    
+   
     void Start()
     {
-        testItem = false;
+        greenItem = false;
+        greenItem2 = false;
+        redItem = false;
+        blueItem = false;
+        purpleItem = false;
+        orangeItem = false;
+
+        greenNpc = false;
+        greenNpc2 = false;
+        redNpc = false;
+        blueNpc = false;
+        purpleNpc = false;
+        orangeNpc = false;
+
+        greenQuest = false;
+        greenQuest2 = false;
+        redQuest = false;
+        blueQuest = false;
+        purpleQuest = false;
+        orangeQuest = false;  
     }
 }
