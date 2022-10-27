@@ -5,9 +5,11 @@ using UnityEngine.InputSystem;
 
 public class NpcGreenItem2 : MonoBehaviour
 {
-[SerializeField] private GameObject canvasPanel;
+    [SerializeField] private GameObject canvasPanel;
     [SerializeField] private GameObject item;
-    
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClip;
+
     //bool
     private bool inside;
     //Input Action
@@ -20,6 +22,7 @@ public class NpcGreenItem2 : MonoBehaviour
     }
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
     }
     private void OnEnable()
     {
@@ -56,7 +59,13 @@ public class NpcGreenItem2 : MonoBehaviour
         if (inside && VariableHolder.greenItem2 == false)
         {
             VariableHolder.greenItem2 = true;
-            item.SetActive(false);
+            audioSource.PlayOneShot(audioClip);
+            StartCoroutine(destroy());
         }
+    }
+    IEnumerator destroy()
+    {
+        yield return new WaitForSeconds(1);
+        item.SetActive(false);
     }
 }

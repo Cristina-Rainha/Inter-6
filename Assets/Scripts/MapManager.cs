@@ -7,7 +7,9 @@ public class MapManager : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMap;
     [SerializeField] private GameObject interectPronp;
+    [SerializeField] private AudioClip audioClip;
 
+    private AudioSource audioSource;
     private PlayerInputSystem mInputSystem;
     private InputAction InterectInput;
 
@@ -28,6 +30,10 @@ public class MapManager : MonoBehaviour
     void OnDisable()
     {
         InterectInput.Disable();
+    }
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -63,10 +69,12 @@ public class MapManager : MonoBehaviour
             if (pauseMap.activeSelf == false)
             {
                 pauseMap.SetActive(true);
+                audioSource.PlayOneShot(audioClip);
             }
             else
             {
                 pauseMap.SetActive(false);
+                audioSource.PlayOneShot(audioClip);
             }
         }
     }

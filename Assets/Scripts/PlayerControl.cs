@@ -17,6 +17,7 @@ public class PlayerControl : MonoBehaviour
     //Serialized
     [SerializeField] private Camera myCamera;
     [SerializeField] LayerMask groundLayer;
+    [SerializeField] private AudioClip fortnitro;
 
     //bool
     private bool mSprinting = false;
@@ -151,6 +152,8 @@ public class PlayerControl : MonoBehaviour
     private void DanceFortinitro(InputAction.CallbackContext ctx)
     {
         myAnimator.SetTrigger("Fortnitro");
+        audioSource.volume = 0.1f;
+        audioSource.PlayOneShot(fortnitro);
     }
 
     private void CollectItem(InputAction.CallbackContext ctx)

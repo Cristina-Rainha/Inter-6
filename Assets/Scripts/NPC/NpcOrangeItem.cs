@@ -7,6 +7,8 @@ public class NpcOrangeItem : MonoBehaviour
 {
     [SerializeField] private GameObject canvasPanel;
     [SerializeField] private GameObject item;
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClip;
 
     //bool
     private bool inside;
@@ -20,6 +22,7 @@ public class NpcOrangeItem : MonoBehaviour
     }
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
     }
     private void OnEnable()
     {
@@ -56,7 +59,14 @@ public class NpcOrangeItem : MonoBehaviour
         if (inside && VariableHolder.orangeItem == false)
         {
             VariableHolder.orangeItem = true;
-            item.SetActive(false);
+            audioSource.PlayOneShot(audioClip);
+            StartCoroutine(destroy());
         }
+    }
+    
+    IEnumerator destroy()
+    {
+        yield return new WaitForSeconds(1);
+        item.SetActive(false);
     }
 }

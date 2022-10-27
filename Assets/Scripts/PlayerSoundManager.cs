@@ -15,11 +15,6 @@ public class PlayerSoundManager : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
     }
-    private void Update()
-    {
-        Debug.Log(onWater);
-    }
-
     private void Step(AnimationEvent animationEvent)
     {
         if (animationEvent.animatorClipInfo.weight >= 0.5f)
@@ -42,13 +37,13 @@ public class PlayerSoundManager : MonoBehaviour
            if(!onWater)
             {
                 AudioClip clip = GetRandomClipRun();
-                audioSource.volume = 0.02f;
+                audioSource.volume = 0.01f;
                 audioSource.PlayOneShot(clip);
             }
             else
             {
                 AudioClip clip = GetRandomClipRunWater();
-                audioSource.volume = 0.02f;
+                audioSource.volume = 0.01f;
                 audioSource.PlayOneShot(clip);
             }
         }
