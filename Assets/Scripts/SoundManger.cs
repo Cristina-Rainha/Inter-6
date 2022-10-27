@@ -6,8 +6,6 @@ public class SoundManger : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip MainTheme;
-    [SerializeField] private AudioClip[] clips;
-
     void Start()
     {
         if (!audioSource.isPlaying)
