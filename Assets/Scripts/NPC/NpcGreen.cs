@@ -98,6 +98,7 @@ public class NpcGreen : MonoBehaviour
         if (insideInterationZone && VariableHolder.greenItem == true)
         {
             canvasText2.SetActive(true);
+            canvasPanel.SetActive(false);
             StartCoroutine("GoAway");
             VariableHolder.greenQuest = true;
         }

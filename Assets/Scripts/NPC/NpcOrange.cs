@@ -98,6 +98,7 @@ public class NpcOrange : MonoBehaviour
         if (insideInterationZone && VariableHolder.orangeItem == true)
         {
             canvasText2.SetActive(true);
+            canvasPanel.SetActive(false);
             StartCoroutine("GoAway");
             VariableHolder.orangeQuest = true;
         }
