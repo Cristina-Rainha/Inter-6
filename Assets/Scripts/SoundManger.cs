@@ -25,13 +25,12 @@ public class SoundManger : MonoBehaviour
 
     private void Update()
     {
-        NPCMusic();
+       //NPCMusic();
     }
 
 
     IEnumerator LoopMainMusic()
     {
-        yield return new WaitForSeconds(Random.Range(10f, 20f));
         audioSource.PlayOneShot(MainTheme, 0.3f);
 
         yield return new WaitForSeconds(MainTheme.length + Random.Range(10f, 20f));

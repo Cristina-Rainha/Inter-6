@@ -91,9 +91,9 @@ public class NpcGreen : MonoBehaviour
     {
         if (insideInterationZone)
         {
-            canvasText.SetActive(true);
-            if (VariableHolder.greenItem == false)
+            if (VariableHolder.greenItem == false && VariableHolder.testItem == false)
             {
+                canvasText.SetActive(true);
                 Item.SetActive(true);
                 Item2.SetActive(true);
                 VariableHolder.greenNpc = true;
@@ -102,6 +102,7 @@ public class NpcGreen : MonoBehaviour
 
         if (insideInterationZone && VariableHolder.greenItem == true || insideInterationZone && VariableHolder.testItem == true)
         {
+            canvasText.SetActive(false);
             canvasText2.SetActive(true);
         }
 
