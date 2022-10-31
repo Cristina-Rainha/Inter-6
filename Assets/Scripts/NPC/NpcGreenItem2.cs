@@ -66,6 +66,6 @@ public class NpcGreenItem2 : MonoBehaviour
     IEnumerator destroy()
     {
         yield return new WaitForSeconds(1);
-        item.SetActive(false);
+        Destroy(gameObject);
     }
 }

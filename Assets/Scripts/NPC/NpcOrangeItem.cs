@@ -67,6 +67,6 @@ public class NpcOrangeItem : MonoBehaviour
     IEnumerator destroy()
     {
         yield return new WaitForSeconds(1);
-        item.SetActive(false);
+        Destroy(gameObject);
     }
 }

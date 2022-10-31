@@ -50,6 +50,8 @@ public class VariableHolder : MonoBehaviour
         redQuest = false;
         blueQuest = false;
         purpleQuest = false;
-        orangeQuest = false;  
+        orangeQuest = false;
+
+        testItem = false;
     }
 }

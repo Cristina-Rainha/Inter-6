@@ -12,7 +12,10 @@ public class NpcGreen : MonoBehaviour
     [SerializeField] private GameObject canvasPanel;
     [SerializeField] private GameObject canvasText;
     [SerializeField] private GameObject canvasText2;
+    [SerializeField] private GameObject canvasText3;
     [SerializeField] private GameObject Item;
+    [SerializeField] private GameObject Item2;
+
 
     //bool
     bool insideInterationZone;
@@ -80,6 +83,7 @@ public class NpcGreen : MonoBehaviour
             canvasPanel.SetActive(false);
             canvasText.SetActive(false);
             canvasText2.SetActive(false);
+            canvasText3.SetActive(false);
         }
     }
 
@@ -91,13 +95,19 @@ public class NpcGreen : MonoBehaviour
             if (VariableHolder.greenItem == false)
             {
                 Item.SetActive(true);
+                Item2.SetActive(true);
                 VariableHolder.greenNpc = true;
             }
         }
 
-        if (insideInterationZone && VariableHolder.greenItem == true)
+        if (insideInterationZone && VariableHolder.greenItem == true || insideInterationZone && VariableHolder.testItem == true)
         {
             canvasText2.SetActive(true);
+        }
+
+        if (insideInterationZone && VariableHolder.greenItem == true && VariableHolder.testItem == true)
+        {
+            canvasText3.SetActive(true);
             canvasPanel.SetActive(false);
             StartCoroutine("GoAway");
             VariableHolder.greenQuest = true;
