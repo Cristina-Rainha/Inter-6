@@ -19,6 +19,7 @@ public class NpcGreen : MonoBehaviour
 
     //bool
     bool insideInterationZone;
+    bool textOne;
 
     //Input Action
     private PlayerInputSystem mInputSystem;
@@ -48,6 +49,7 @@ public class NpcGreen : MonoBehaviour
         InteractInput.Disable();
         canvasText.SetActive(false);
         canvasText2.SetActive(false);
+        canvasText3.SetActive(false);
         virtualCamera.m_Lens.OrthographicSize = 6;
     }
     void Start()
@@ -81,7 +83,7 @@ public class NpcGreen : MonoBehaviour
             insideInterationZone = false;
             virtualCamera.m_Lens.OrthographicSize = 6;
             canvasPanel.SetActive(false);
-            canvasText.SetActive(false);
+            //canvasText.SetActive(false);
             canvasText2.SetActive(false);
             canvasText3.SetActive(false);
         }
@@ -89,15 +91,13 @@ public class NpcGreen : MonoBehaviour
 
     public void OpenTextBox(InputAction.CallbackContext ctx)
     {
-        if (insideInterationZone)
+        if (insideInterationZone && VariableHolder.greenItem == false && VariableHolder.testItem == false && !textOne)
         {
-            if (VariableHolder.greenItem == false && VariableHolder.testItem == false)
-            {
-                canvasText.SetActive(true);
-                Item.SetActive(true);
-                Item2.SetActive(true);
-                VariableHolder.greenNpc = true;
-            }
+            canvasText.SetActive(true);
+            Item.SetActive(true);
+            Item2.SetActive(true);
+            VariableHolder.greenNpc = true;
+            StartCoroutine(Wait());
         }
 
         if (insideInterationZone && VariableHolder.greenItem == true || insideInterationZone && VariableHolder.testItem == true)
@@ -112,6 +112,12 @@ public class NpcGreen : MonoBehaviour
             canvasPanel.SetActive(false);
             StartCoroutine("GoAway");
             VariableHolder.greenQuest = true;
+        }
+
+        if (textOne)
+        {
+            canvasText.SetActive(false);
+            textOne = false;
         }
     }
 
@@ -140,5 +146,11 @@ public class NpcGreen : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         UpdateDestination();
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1f);
+        textOne = true;
     }
 }
