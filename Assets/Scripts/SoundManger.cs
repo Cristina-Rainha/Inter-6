@@ -5,7 +5,7 @@ using UnityEngine;
 public class SoundManger : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip MainTheme;
+    [SerializeField] private List<AudioClip> MainTheme;
     [SerializeField] private List<AudioClip> NPCSongs;
 
     private int counter = 0;
@@ -31,9 +31,8 @@ public class SoundManger : MonoBehaviour
 
     IEnumerator LoopMainMusic()
     {
-        audioSource.PlayOneShot(MainTheme, 0.3f);
-
-        yield return new WaitForSeconds(MainTheme.length + Random.Range(10f, 20f));
+        audioSource.PlayOneShot(MainTheme[Random.Range(0, MainTheme.Count)]);
+        yield return new WaitForSeconds(audioSource.clip.length + 1 / Random.Range(0.5f, 1.5f));
         StartCoroutine(LoopMainMusic());
     }
 
