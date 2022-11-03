@@ -64,6 +64,7 @@ public class NpcGreen : MonoBehaviour
             GetNextWaypoint();
             UpdateDestination();
         }
+        CameraZoom();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -71,7 +72,6 @@ public class NpcGreen : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             insideInterationZone = true;
-            virtualCamera.m_Lens.OrthographicSize = 4;
             canvasPanel.SetActive(true);
         }
     }
@@ -81,7 +81,6 @@ public class NpcGreen : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             insideInterationZone = false;
-            virtualCamera.m_Lens.OrthographicSize = 6;
             canvasPanel.SetActive(false);
             //canvasText.SetActive(false);
             canvasText2.SetActive(false);
@@ -118,6 +117,24 @@ public class NpcGreen : MonoBehaviour
         {
             canvasText.SetActive(false);
             textOne = false;
+        }
+    }
+
+    private void CameraZoom()
+    {
+        if (insideInterationZone)
+        {
+            if (virtualCamera.m_Lens.OrthographicSize >= 4)
+            {
+                virtualCamera.m_Lens.OrthographicSize -= 1f * Time.deltaTime;
+            }
+        }
+        else
+        {
+            if (virtualCamera.m_Lens.OrthographicSize <= 6)
+            {
+                virtualCamera.m_Lens.OrthographicSize += 1f * Time.deltaTime;
+            }
         }
     }
 
