@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class SoundManger : MonoBehaviour
 {
@@ -15,6 +17,20 @@ public class SoundManger : MonoBehaviour
     private int counter5 = 0;
     private int counter6 = 0;
 
+    public static SoundManger Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
         if (!audioSource.isPlaying)
@@ -28,14 +44,20 @@ public class SoundManger : MonoBehaviour
        //NPCMusic();
     }
 
-
+    public void Music(float value)
+    {
+        audioSource.volume = value;
+    }
+    public void Allsounds(float value)
+    {
+        AudioListener.volume = value;
+    }
     IEnumerator LoopMainMusic()
     {
         audioSource.PlayOneShot(MainTheme[Random.Range(0, MainTheme.Count)]);
         yield return new WaitForSeconds(audioSource.clip.length + 1 / Random.Range(0.5f, 1.5f));
         StartCoroutine(LoopMainMusic());
     }
-
     private void NPCMusic()
     {
         if (VariableHolder.redNpc)
