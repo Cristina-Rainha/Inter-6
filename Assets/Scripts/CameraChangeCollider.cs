@@ -45,7 +45,7 @@ public class CameraChangeCollider : MonoBehaviour
         cam1.SetActive(true);
         cam2.SetActive(false);
         myCamera.orthographic = true;
-        virtualCamera.m_Lens.NearClipPlane = -50;
-        virtualCamera.m_Lens.FarClipPlane = 5000;
+        virtualCamera.m_Lens.NearClipPlane = -200;
+        virtualCamera.m_Lens.FarClipPlane = 500;
     }
 }
