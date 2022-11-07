@@ -15,7 +15,7 @@ public class NpcGreen2 : MonoBehaviour
     [SerializeField] private GameObject Item;
 
     //bool
-    bool insideInterationZone;
+    bool insideInteractionZone;
 
     //Input Action
     private PlayerInputSystem mInputSystem;
@@ -45,7 +45,6 @@ public class NpcGreen2 : MonoBehaviour
         InteractInput.Disable();
         canvasText.SetActive(false);
         canvasText2.SetActive(false);
-        virtualCamera.m_Lens.OrthographicSize = 6;
     }
     void Start()
     {
@@ -59,14 +58,14 @@ public class NpcGreen2 : MonoBehaviour
             GetNextWaypoint();
             UpdateDestination();
         }
+        VariableHolder.Instance.CamZoom();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            insideInterationZone = true;
-            virtualCamera.m_Lens.OrthographicSize = 4;
+            insideInteractionZone = true;
             canvasPanel.SetActive(true);
         }
     }
@@ -75,8 +74,7 @@ public class NpcGreen2 : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            insideInterationZone = false;
-            virtualCamera.m_Lens.OrthographicSize = 6;
+            insideInteractionZone = false;
             canvasPanel.SetActive(false);
             canvasText.SetActive(false);
             canvasText2.SetActive(false);
@@ -85,7 +83,7 @@ public class NpcGreen2 : MonoBehaviour
 
     public void OpenTextBox(InputAction.CallbackContext ctx)
     {
-        if (insideInterationZone)
+        if (insideInteractionZone)
         {
             canvasText.SetActive(true);
             if (VariableHolder.greenItem2 == false)
@@ -95,7 +93,7 @@ public class NpcGreen2 : MonoBehaviour
             }
         }
 
-        if (insideInterationZone && VariableHolder.greenItem2 == true)
+        if (insideInteractionZone && VariableHolder.greenItem2 == true)
         {
             canvasText2.SetActive(true);
             canvasPanel.SetActive(false);

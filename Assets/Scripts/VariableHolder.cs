@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class VariableHolder : MonoBehaviour
 {
@@ -28,7 +29,23 @@ public class VariableHolder : MonoBehaviour
     public static bool orangeQuest = false;
 
     public static bool testItem = false;
-   
+
+    [SerializeField] private CinemachineVirtualCamera virtualCamera;
+
+    public static VariableHolder Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
         greenItem = false;
@@ -53,5 +70,23 @@ public class VariableHolder : MonoBehaviour
         orangeQuest = false;
 
         testItem = false;
+    }
+
+    public void CamZoom()
+    {
+        if (greenNpc || greenNpc2 || redNpc || blueNpc || purpleNpc || orangeNpc)
+        {
+            if (virtualCamera.m_Lens.OrthographicSize >= 4)
+            {
+                virtualCamera.m_Lens.OrthographicSize -= 1.0f * Time.deltaTime;
+            }
+        }
+        else
+        {
+            if (virtualCamera.m_Lens.OrthographicSize <= 6)
+            {
+                virtualCamera.m_Lens.OrthographicSize += 1.5f* Time.deltaTime;
+            }
+        }
     }
 }

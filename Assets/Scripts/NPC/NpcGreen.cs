@@ -18,7 +18,7 @@ public class NpcGreen : MonoBehaviour
 
 
     //bool
-    bool insideInterationZone;
+    bool insideInteractionZone;
     bool textOne;
 
     //Input Action
@@ -50,7 +50,6 @@ public class NpcGreen : MonoBehaviour
         canvasText.SetActive(false);
         canvasText2.SetActive(false);
         canvasText3.SetActive(false);
-        virtualCamera.m_Lens.OrthographicSize = 6;
     }
     void Start()
     {
@@ -64,15 +63,19 @@ public class NpcGreen : MonoBehaviour
             GetNextWaypoint();
             UpdateDestination();
         }
-        CameraZoom();
+
+        VariableHolder.Instance.CamZoom();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            insideInterationZone = true;
-            canvasPanel.SetActive(true);
+            insideInteractionZone = true;
+            if (!VariableHolder.greenQuest)
+            {
+                canvasPanel.SetActive(true);
+            }
         }
     }
 
@@ -80,61 +83,51 @@ public class NpcGreen : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            insideInterationZone = false;
+            insideInteractionZone = false;
             canvasPanel.SetActive(false);
-            //canvasText.SetActive(false);
-            canvasText2.SetActive(false);
-            canvasText3.SetActive(false);
         }
     }
 
     public void OpenTextBox(InputAction.CallbackContext ctx)
     {
-        if (insideInterationZone && VariableHolder.greenItem == false && VariableHolder.testItem == false && !textOne)
+        if (insideInteractionZone && VariableHolder.greenItem == false && VariableHolder.testItem == false && !textOne)
         {
             canvasText.SetActive(true);
             Item.SetActive(true);
             Item2.SetActive(true);
-            VariableHolder.greenNpc = true;
             StartCoroutine(Wait());
         }
 
-        if (insideInterationZone && VariableHolder.greenItem == true || insideInterationZone && VariableHolder.testItem == true)
+        if (insideInteractionZone && VariableHolder.greenItem == true || insideInteractionZone && VariableHolder.testItem == true)
         {
-            canvasText.SetActive(false);
             canvasText2.SetActive(true);
+            StartCoroutine(Wait());
         }
 
-        if (insideInterationZone && VariableHolder.greenItem == true && VariableHolder.testItem == true)
+        if (insideInteractionZone && VariableHolder.greenItem == true && VariableHolder.testItem == true)
         {
             canvasText3.SetActive(true);
-            canvasPanel.SetActive(false);
-            StartCoroutine("GoAway");
-            VariableHolder.greenQuest = true;
+            StartCoroutine(Wait());
         }
 
         if (textOne)
         {
-            canvasText.SetActive(false);
+            if (insideInteractionZone && !VariableHolder.greenItem && !VariableHolder.testItem || !insideInteractionZone && !VariableHolder.greenItem && !VariableHolder.testItem)
+            {
+                canvasText.SetActive(false);
+            }
+            if (insideInteractionZone && VariableHolder.greenItem == true || insideInteractionZone && VariableHolder.testItem == true || !insideInteractionZone && VariableHolder.greenItem == true || !insideInteractionZone && VariableHolder.testItem == true)
+            {
+                canvasText2.SetActive(false);
+            }
+            if (insideInteractionZone && VariableHolder.greenItem == true && VariableHolder.testItem == true || !insideInteractionZone && VariableHolder.greenItem == true && VariableHolder.testItem == true)
+            {
+                canvasText3.SetActive(false);
+                canvasPanel.SetActive(false);
+                StartCoroutine("GoAway");
+                VariableHolder.greenQuest = true;
+            }
             textOne = false;
-        }
-    }
-
-    private void CameraZoom()
-    {
-        if (insideInterationZone)
-        {
-            if (virtualCamera.m_Lens.OrthographicSize >= 4)
-            {
-                virtualCamera.m_Lens.OrthographicSize -= 1f * Time.deltaTime;
-            }
-        }
-        else
-        {
-            if (virtualCamera.m_Lens.OrthographicSize <= 6)
-            {
-                virtualCamera.m_Lens.OrthographicSize += 1f * Time.deltaTime;
-            }
         }
     }
 

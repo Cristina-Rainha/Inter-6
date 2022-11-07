@@ -14,7 +14,7 @@ public class NpcBlue : MonoBehaviour
     [SerializeField] private GameObject Item;
 
     //bool
-    bool insideInterationZone;
+    bool insideInteractionZone;
 
     //Input Action
     private PlayerInputSystem mInputSystem;
@@ -44,7 +44,6 @@ public class NpcBlue : MonoBehaviour
         InteractInput.Disable();
         canvasText.SetActive(false);
         canvasText2.SetActive(false);
-        virtualCamera.m_Lens.OrthographicSize = 6;
     }
     void Start()
     {
@@ -58,14 +57,14 @@ public class NpcBlue : MonoBehaviour
             GetNextWaypoint();
             UpdateDestination();
         }
+        VariableHolder.Instance.CamZoom();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            insideInterationZone = true;
-            virtualCamera.m_Lens.OrthographicSize = 4;
+            insideInteractionZone = true;
             canvasPanel.SetActive(true);
         }
     }
@@ -74,8 +73,7 @@ public class NpcBlue : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            insideInterationZone = false;
-            virtualCamera.m_Lens.OrthographicSize = 6;
+            insideInteractionZone = false;
             canvasPanel.SetActive(false);
             canvasText.SetActive(false);
             canvasText2.SetActive(false);
@@ -84,7 +82,7 @@ public class NpcBlue : MonoBehaviour
 
     public void OpenTextBox(InputAction.CallbackContext ctx)
     {
-        if (insideInterationZone)
+        if (insideInteractionZone)
         {
             canvasText.SetActive(true);
             if (VariableHolder.blueItem == false)
@@ -94,7 +92,7 @@ public class NpcBlue : MonoBehaviour
             }
         }
 
-        if (insideInterationZone && VariableHolder.blueItem == true)
+        if (insideInteractionZone && VariableHolder.blueItem == true)
         {
             canvasText2.SetActive(true);
             StartCoroutine("GoAway");

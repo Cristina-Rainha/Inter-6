@@ -15,7 +15,8 @@ public class NpcRed : MonoBehaviour
     [SerializeField] private GameObject Item;
 
     //bool
-    bool insideInterationZone;
+    bool insideInteractionZone;
+    bool textOne;
 
     //Input Action
     private PlayerInputSystem mInputSystem;
@@ -44,8 +45,7 @@ public class NpcRed : MonoBehaviour
     {
         InteractInput.Disable();
         canvasText.SetActive(false);
-        canvasText2.SetActive(false);
-        virtualCamera.m_Lens.OrthographicSize = 6;
+        canvasText2.SetActive(false);       
     }
     void Start()
     {
@@ -59,15 +59,18 @@ public class NpcRed : MonoBehaviour
             GetNextWaypoint();
             UpdateDestination();
         }
+        VariableHolder.Instance.CamZoom();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            insideInterationZone = true;
-            virtualCamera.m_Lens.OrthographicSize = 4;
-            canvasPanel.SetActive(true);
+            insideInteractionZone = true;
+            if (!VariableHolder.redQuest)
+            {
+                canvasPanel.SetActive(true);
+            }
         }
     }
 
@@ -75,34 +78,41 @@ public class NpcRed : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            insideInterationZone = false;
-            virtualCamera.m_Lens.OrthographicSize = 6;
+            insideInteractionZone = false;
             canvasPanel.SetActive(false);
-            canvasText.SetActive(false);
-            canvasText2.SetActive(false);
         }
     }
 
     public void OpenTextBox(InputAction.CallbackContext ctx)
     {
-        if (insideInterationZone)
+        if(insideInteractionZone && !VariableHolder.redItem && !textOne)
         {
             canvasText.SetActive(true);
-            if (VariableHolder.redItem == false)
-            {
-                Item.SetActive(true);
-                VariableHolder.redNpc = true;
-            }
+            Item.SetActive(true);
+            StartCoroutine(DisableText());
         }
-
-        if (insideInterationZone && VariableHolder.redItem == true)
+        if (insideInteractionZone && VariableHolder.redItem && !textOne)
         {
             canvasText2.SetActive(true);
-            StartCoroutine("GoAway");
-            VariableHolder.redQuest = true;
+            StartCoroutine(DisableText());
+        }
+            
+        if (textOne)
+        {
+            if (insideInteractionZone && !VariableHolder.redItem || !insideInteractionZone && !VariableHolder.redItem)
+            {
+                canvasText.SetActive(false);
+            }
+            if (insideInteractionZone && VariableHolder.redItem || !insideInteractionZone && VariableHolder.redItem)
+            {
+                canvasText2.SetActive(false);
+                canvasPanel.SetActive(false);
+                StartCoroutine(GoAway());
+                VariableHolder.redQuest = true;
+            }
+            textOne = false;
         }
     }
-
     void UpdateDestination()
     {
         target = waypoints[currentWaypoint].position;
@@ -128,5 +138,10 @@ public class NpcRed : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         UpdateDestination();
+    }
+    IEnumerator DisableText()
+    {
+        yield return new WaitForSeconds(1f);
+        textOne = true;
     }
 }
