@@ -16,6 +16,7 @@ public class NpcOrange : MonoBehaviour
 
     //bool
     bool insideInteractionZone;
+    bool text;
 
     //Input Action
     private PlayerInputSystem mInputSystem;
@@ -66,7 +67,10 @@ public class NpcOrange : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             insideInteractionZone = true;
-            canvasPanel.SetActive(true);
+            if (!VariableHolder.orangeQuest)
+            {
+                canvasPanel.SetActive(true);
+            }
         }
     }
 
@@ -76,29 +80,37 @@ public class NpcOrange : MonoBehaviour
         {
             insideInteractionZone = false;
             canvasPanel.SetActive(false);
-            canvasText.SetActive(false);
-            canvasText2.SetActive(false);
         }
     }
 
     public void OpenTextBox(InputAction.CallbackContext ctx)
     {
-        if (insideInteractionZone)
+        if (insideInteractionZone && !VariableHolder.orangeItem && !text)
         {
             canvasText.SetActive(true);
-            if (VariableHolder.orangeItem == false)
-            {
-                Item.SetActive(true);
-                VariableHolder.orangeNpc = true;
-            }
+            Item.SetActive(true);
+            StartCoroutine(DisableText());
         }
-
-        if (insideInteractionZone && VariableHolder.orangeItem == true)
+        if (insideInteractionZone && VariableHolder.orangeItem && !text)
         {
             canvasText2.SetActive(true);
-            canvasPanel.SetActive(false);
-            StartCoroutine("GoAway");
-            VariableHolder.orangeQuest = true;
+            StartCoroutine(DisableText());
+        }
+
+        if (text)
+        {
+            if (insideInteractionZone && !VariableHolder.orangeItem || !insideInteractionZone && !VariableHolder.orangeItem)
+            {
+                canvasText.SetActive(false);
+            }
+            if (insideInteractionZone && VariableHolder.orangeItem || !insideInteractionZone && VariableHolder.orangeItem)
+            {
+                canvasText2.SetActive(false);
+                canvasPanel.SetActive(false);
+                StartCoroutine(GoAway());
+                VariableHolder.orangeQuest = true;
+            }
+            text = false;
         }
     }
 
@@ -127,5 +139,10 @@ public class NpcOrange : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         UpdateDestination();
+    }
+    IEnumerator DisableText()
+    {
+        yield return new WaitForSeconds(1f);
+        text = true;
     }
 }

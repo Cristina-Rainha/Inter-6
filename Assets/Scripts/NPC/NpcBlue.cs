@@ -15,6 +15,7 @@ public class NpcBlue : MonoBehaviour
 
     //bool
     bool insideInteractionZone;
+    bool text;
 
     //Input Action
     private PlayerInputSystem mInputSystem;
@@ -65,7 +66,10 @@ public class NpcBlue : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             insideInteractionZone = true;
-            canvasPanel.SetActive(true);
+            if (!VariableHolder.blueQuest)
+            {
+                canvasPanel.SetActive(true);
+            }
         }
     }
 
@@ -75,28 +79,37 @@ public class NpcBlue : MonoBehaviour
         {
             insideInteractionZone = false;
             canvasPanel.SetActive(false);
-            canvasText.SetActive(false);
-            canvasText2.SetActive(false);
         }
     }
 
     public void OpenTextBox(InputAction.CallbackContext ctx)
     {
-        if (insideInteractionZone)
+        if (insideInteractionZone && !VariableHolder.blueItem && !text)
         {
             canvasText.SetActive(true);
-            if (VariableHolder.blueItem == false)
-            {
-                Item.SetActive(true);
-                VariableHolder.blueNpc = true;
-            }
+            Item.SetActive(true);
+            StartCoroutine(DisableText());
         }
-
-        if (insideInteractionZone && VariableHolder.blueItem == true)
+        if (insideInteractionZone && VariableHolder.blueItem && !text)
         {
             canvasText2.SetActive(true);
-            StartCoroutine("GoAway");
-            VariableHolder.blueQuest = true;
+            StartCoroutine(DisableText());
+        }
+
+        if (text)
+        {
+            if (insideInteractionZone && !VariableHolder.blueItem || !insideInteractionZone && !VariableHolder.blueItem)
+            {
+                canvasText.SetActive(false);
+            }
+            if (insideInteractionZone && VariableHolder.blueItem || !insideInteractionZone && VariableHolder.blueItem)
+            {
+                canvasText2.SetActive(false);
+                canvasPanel.SetActive(false);
+                StartCoroutine(GoAway());
+                VariableHolder.blueQuest = true;
+            }
+            text = false;
         }
     }
 
@@ -125,5 +138,10 @@ public class NpcBlue : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         UpdateDestination();
+    }
+    IEnumerator DisableText()
+    {
+        yield return new WaitForSeconds(1f);
+        text = true;
     }
 }

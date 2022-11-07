@@ -16,6 +16,7 @@ public class NpcPurple : MonoBehaviour
 
     //bool
     bool insideInteractionZone;
+    bool text;
 
     //Input Action
     private PlayerInputSystem mInputSystem;
@@ -66,7 +67,10 @@ public class NpcPurple : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             insideInteractionZone = true;
-            canvasPanel.SetActive(true);
+            if (!VariableHolder.purpleQuest)
+            {
+                canvasPanel.SetActive(true);
+            }
         }
     }
 
@@ -76,28 +80,37 @@ public class NpcPurple : MonoBehaviour
         {
             insideInteractionZone = false;
             canvasPanel.SetActive(false);
-            canvasText.SetActive(false);
-            canvasText2.SetActive(false);
         }
     }
 
     public void OpenTextBox(InputAction.CallbackContext ctx)
     {
-        if (insideInteractionZone)
+        if (insideInteractionZone && !VariableHolder.purpleItem && !text)
         {
             canvasText.SetActive(true);
-            if (VariableHolder.purpleItem == false)
-            {
-                Item.SetActive(true);
-                VariableHolder.purpleNpc = true;
-            }
+            Item.SetActive(true);
+            StartCoroutine(DisableText());
         }
-
-        if (insideInteractionZone && VariableHolder.purpleItem == true)
+        if (insideInteractionZone && VariableHolder.purpleItem && !text)
         {
             canvasText2.SetActive(true);
-            StartCoroutine("GoAway");
-            VariableHolder.purpleQuest = true;
+            StartCoroutine(DisableText());
+        }
+
+        if (text)
+        {
+            if (insideInteractionZone && !VariableHolder.purpleItem || !insideInteractionZone && !VariableHolder.purpleItem)
+            {
+                canvasText.SetActive(false);
+            }
+            if (insideInteractionZone && VariableHolder.purpleItem || !insideInteractionZone && VariableHolder.purpleItem)
+            {
+                canvasText2.SetActive(false);
+                canvasPanel.SetActive(false);
+                StartCoroutine(GoAway());
+                VariableHolder.purpleQuest = true;
+            }
+            text = false;
         }
     }
 
@@ -126,5 +139,10 @@ public class NpcPurple : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         UpdateDestination();
+    }
+    IEnumerator DisableText()
+    {
+        yield return new WaitForSeconds(1f);
+        text = true;
     }
 }

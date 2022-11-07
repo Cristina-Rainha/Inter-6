@@ -16,7 +16,7 @@ public class NpcRed : MonoBehaviour
 
     //bool
     bool insideInteractionZone;
-    bool textOne;
+    bool text;
 
     //Input Action
     private PlayerInputSystem mInputSystem;
@@ -85,19 +85,19 @@ public class NpcRed : MonoBehaviour
 
     public void OpenTextBox(InputAction.CallbackContext ctx)
     {
-        if(insideInteractionZone && !VariableHolder.redItem && !textOne)
+        if(insideInteractionZone && !VariableHolder.redItem && !text)
         {
             canvasText.SetActive(true);
             Item.SetActive(true);
             StartCoroutine(DisableText());
         }
-        if (insideInteractionZone && VariableHolder.redItem && !textOne)
+        if (insideInteractionZone && VariableHolder.redItem && !text)
         {
             canvasText2.SetActive(true);
             StartCoroutine(DisableText());
         }
             
-        if (textOne)
+        if (text)
         {
             if (insideInteractionZone && !VariableHolder.redItem || !insideInteractionZone && !VariableHolder.redItem)
             {
@@ -110,7 +110,7 @@ public class NpcRed : MonoBehaviour
                 StartCoroutine(GoAway());
                 VariableHolder.redQuest = true;
             }
-            textOne = false;
+            text = false;
         }
     }
     void UpdateDestination()
@@ -142,6 +142,6 @@ public class NpcRed : MonoBehaviour
     IEnumerator DisableText()
     {
         yield return new WaitForSeconds(1f);
-        textOne = true;
+        text = true;
     }
 }

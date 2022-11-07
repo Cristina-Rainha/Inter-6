@@ -16,6 +16,7 @@ public class NpcGreen2 : MonoBehaviour
 
     //bool
     bool insideInteractionZone;
+    bool text;
 
     //Input Action
     private PlayerInputSystem mInputSystem;
@@ -66,7 +67,10 @@ public class NpcGreen2 : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             insideInteractionZone = true;
-            canvasPanel.SetActive(true);
+            if (!VariableHolder.greenQuest2)
+            {
+                canvasPanel.SetActive(true);
+            }
         }
     }
 
@@ -76,29 +80,37 @@ public class NpcGreen2 : MonoBehaviour
         {
             insideInteractionZone = false;
             canvasPanel.SetActive(false);
-            canvasText.SetActive(false);
-            canvasText2.SetActive(false);
         }
     }
 
     public void OpenTextBox(InputAction.CallbackContext ctx)
     {
-        if (insideInteractionZone)
+        if (insideInteractionZone && !VariableHolder.greenItem2 && !text)
         {
             canvasText.SetActive(true);
-            if (VariableHolder.greenItem2 == false)
-            {
-                Item.SetActive(true);
-                VariableHolder.greenNpc2 = true;
-            }
+            Item.SetActive(true);
+            StartCoroutine(DisableText());
         }
-
-        if (insideInteractionZone && VariableHolder.greenItem2 == true)
+        if (insideInteractionZone && VariableHolder.greenItem2 && !text)
         {
             canvasText2.SetActive(true);
-            canvasPanel.SetActive(false);
-            StartCoroutine("GoAway");
-            VariableHolder.greenQuest2 = true;
+            StartCoroutine(DisableText());
+        }
+
+        if (text)
+        {
+            if (insideInteractionZone && !VariableHolder.greenItem2 || !insideInteractionZone && !VariableHolder.greenItem2)
+            {
+                canvasText.SetActive(false);
+            }
+            if (insideInteractionZone && VariableHolder.greenItem2 || !insideInteractionZone && VariableHolder.greenItem2)
+            {
+                canvasText2.SetActive(false);
+                canvasPanel.SetActive(false);
+                StartCoroutine(GoAway());
+                VariableHolder.greenQuest2 = true;
+            }
+            text = false;
         }
     }
 
@@ -127,5 +139,10 @@ public class NpcGreen2 : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         UpdateDestination();
+    }
+    IEnumerator DisableText()
+    {
+        yield return new WaitForSeconds(1f);
+        text = true;
     }
 }

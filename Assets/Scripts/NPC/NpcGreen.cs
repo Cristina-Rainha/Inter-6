@@ -19,7 +19,7 @@ public class NpcGreen : MonoBehaviour
 
     //bool
     bool insideInteractionZone;
-    bool textOne;
+    bool text;
 
     //Input Action
     private PlayerInputSystem mInputSystem;
@@ -90,7 +90,7 @@ public class NpcGreen : MonoBehaviour
 
     public void OpenTextBox(InputAction.CallbackContext ctx)
     {
-        if (insideInteractionZone && VariableHolder.greenItem == false && VariableHolder.testItem == false && !textOne)
+        if (insideInteractionZone && VariableHolder.greenItem == false && VariableHolder.testItem == false && !text)
         {
             canvasText.SetActive(true);
             Item.SetActive(true);
@@ -110,7 +110,7 @@ public class NpcGreen : MonoBehaviour
             StartCoroutine(Wait());
         }
 
-        if (textOne)
+        if (text)
         {
             if (insideInteractionZone && !VariableHolder.greenItem && !VariableHolder.testItem || !insideInteractionZone && !VariableHolder.greenItem && !VariableHolder.testItem)
             {
@@ -127,7 +127,7 @@ public class NpcGreen : MonoBehaviour
                 StartCoroutine("GoAway");
                 VariableHolder.greenQuest = true;
             }
-            textOne = false;
+            text = false;
         }
     }
 
@@ -161,6 +161,6 @@ public class NpcGreen : MonoBehaviour
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(1f);
-        textOne = true;
+        text = true;
     }
 }
