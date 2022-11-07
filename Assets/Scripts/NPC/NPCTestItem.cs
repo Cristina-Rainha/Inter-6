@@ -58,7 +58,6 @@ public class NPCTestItem : MonoBehaviour
     {
         if (inside && VariableHolder.testItem == false)
         {
-            VariableHolder.testItem = true;
             audioSource.PlayOneShot(audioClip);
             StartCoroutine(destroy());
         }
@@ -66,6 +65,7 @@ public class NPCTestItem : MonoBehaviour
     IEnumerator destroy()
     {
         yield return new WaitForSeconds(1);
+        VariableHolder.testItem = true;
         Destroy(gameObject);
     }
 }

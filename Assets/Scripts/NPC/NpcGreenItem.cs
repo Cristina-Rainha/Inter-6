@@ -58,7 +58,6 @@ public class NpcGreenItem : MonoBehaviour
     {
         if (inside && VariableHolder.greenItem == false)
         {
-            VariableHolder.greenItem = true;
             audioSource.PlayOneShot(audioClip);
             StartCoroutine(destroy());
         }
@@ -66,6 +65,7 @@ public class NpcGreenItem : MonoBehaviour
     IEnumerator destroy()
     {
         yield return new WaitForSeconds(1);
+        VariableHolder.greenItem = true;
         Destroy(gameObject);
     }
 }
