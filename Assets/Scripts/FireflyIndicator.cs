@@ -31,7 +31,12 @@ public class FireflyIndicator : MonoBehaviour
 
     private void Update()
     {
-        RedQuest();
+        NCPQuest(Redarea,RedNpc);
+        NCPQuest(Purplearea, PurpleNpc);
+        NCPQuest(Bluearea, BlueNpc);
+        NCPQuest(Greenarea, GreenNpc);
+        NCPQuest(Greenarea2, GreenNpc2);
+        NCPQuest(Orangearea, OrangeNpc);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -141,10 +146,10 @@ public class FireflyIndicator : MonoBehaviour
         }
     }
 
-    private void RedQuest()
+    private void NCPQuest(bool npc, Transform npcTranform)
     {
-        float distance = Vector3.Distance(RedNpc.transform.position, transform.position);
-        if (Redarea)
+        float distance = Vector3.Distance(npcTranform.transform.position, transform.position);
+        if (npc)
         {
             if (distance < 40)
             {
