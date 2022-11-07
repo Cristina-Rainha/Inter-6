@@ -78,14 +78,14 @@ public class VariableHolder : MonoBehaviour
         {
             if (virtualCamera.m_Lens.OrthographicSize >= 4)
             {
-                virtualCamera.m_Lens.OrthographicSize -= 1.0f * Time.deltaTime;
+                virtualCamera.m_Lens.OrthographicSize -= 0.5f * Time.deltaTime;
             }
         }
         else
         {
             if (virtualCamera.m_Lens.OrthographicSize <= 6)
             {
-                virtualCamera.m_Lens.OrthographicSize += 1.5f* Time.deltaTime;
+                virtualCamera.m_Lens.OrthographicSize += 1f * Time.deltaTime;
             }
         }
     }
