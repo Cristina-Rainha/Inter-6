@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FireflyIndicator : MonoBehaviour
@@ -9,6 +10,8 @@ public class FireflyIndicator : MonoBehaviour
     [SerializeField] private Material fireflyMaterial;
     [SerializeField] private List<Color> fireflyColors;
     [SerializeField] private List<float> lightIntensity;
+
+    [Header("NPC")]
     [SerializeField] private Transform RedNpc;
     [SerializeField] private Transform PurpleNpc;
     [SerializeField] private Transform BlueNpc;
