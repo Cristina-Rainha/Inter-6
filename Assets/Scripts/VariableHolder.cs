@@ -6,7 +6,6 @@ using Cinemachine;
 public class VariableHolder : MonoBehaviour
 {
     //bool
-
     public static bool greenItem = false;
     public static bool greenItem2 = false;
     public static bool redItem = false;
@@ -44,6 +43,10 @@ public class VariableHolder : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    private void Update()
+    {
+        EndGame();
     }
 
     void Start()
@@ -87,6 +90,14 @@ public class VariableHolder : MonoBehaviour
             {
                 virtualCamera.m_Lens.OrthographicSize += 1f * Time.deltaTime;
             }
+        }
+    }
+
+    private void EndGame()
+    {
+        if (greenQuest && greenQuest2 && redQuest && blueQuest && purpleQuest && orangeQuest)
+        {
+            Debug.Log("End is on");
         }
     }
 }
