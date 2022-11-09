@@ -262,6 +262,61 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""5c7e6a91-2f69-473e-8718-58383ba9eeac"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""640e8069-5cad-4e16-bb22-2d4130b4a867"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""ec25d234-32a0-49ae-a12b-7e851be059d2"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""bdb195c6-827c-4ae3-b8db-41f73a1ac02a"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""cc876647-b19b-4e3a-91ed-97a479bd2933"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""af1a98b5-d1ce-4270-aebf-478b2b2687c5"",
                     ""path"": ""<Gamepad>/leftStick"",
@@ -352,6 +407,15 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Use1"",
+                    ""type"": ""Button"",
+                    ""id"": ""fa2bc155-f5af-4a0a-9005-1d59400c686c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -396,6 +460,50 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Use"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""055c4478-c7b0-4a17-9d23-1206c4068eab"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Use1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""83f742b7-e3a0-42de-aa40-cbf92324af9b"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Use1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6d79a9a8-9912-464a-8688-f4bfc36d1e1c"",
+                    ""path"": ""<XInputController>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Use1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e9884058-9f23-4111-bffb-224ae6bbf9d9"",
+                    ""path"": ""<DualShockGamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Use1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1096,6 +1204,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
         // Interact
         m_Interact = asset.FindActionMap("Interact", throwIfNotFound: true);
         m_Interact_Use = m_Interact.FindAction("Use", throwIfNotFound: true);
+        m_Interact_Use1 = m_Interact.FindAction("Use1", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_XboxInput = m_UI.FindAction("XboxInput", throwIfNotFound: true);
@@ -1227,11 +1336,13 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Interact;
     private IInteractActions m_InteractActionsCallbackInterface;
     private readonly InputAction m_Interact_Use;
+    private readonly InputAction m_Interact_Use1;
     public struct InteractActions
     {
         private @PlayerInputSystem m_Wrapper;
         public InteractActions(@PlayerInputSystem wrapper) { m_Wrapper = wrapper; }
         public InputAction @Use => m_Wrapper.m_Interact_Use;
+        public InputAction @Use1 => m_Wrapper.m_Interact_Use1;
         public InputActionMap Get() { return m_Wrapper.m_Interact; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1244,6 +1355,9 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                 @Use.started -= m_Wrapper.m_InteractActionsCallbackInterface.OnUse;
                 @Use.performed -= m_Wrapper.m_InteractActionsCallbackInterface.OnUse;
                 @Use.canceled -= m_Wrapper.m_InteractActionsCallbackInterface.OnUse;
+                @Use1.started -= m_Wrapper.m_InteractActionsCallbackInterface.OnUse1;
+                @Use1.performed -= m_Wrapper.m_InteractActionsCallbackInterface.OnUse1;
+                @Use1.canceled -= m_Wrapper.m_InteractActionsCallbackInterface.OnUse1;
             }
             m_Wrapper.m_InteractActionsCallbackInterface = instance;
             if (instance != null)
@@ -1251,6 +1365,9 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
                 @Use.started += instance.OnUse;
                 @Use.performed += instance.OnUse;
                 @Use.canceled += instance.OnUse;
+                @Use1.started += instance.OnUse1;
+                @Use1.performed += instance.OnUse1;
+                @Use1.canceled += instance.OnUse1;
             }
         }
     }
@@ -1323,6 +1440,7 @@ public partial class @PlayerInputSystem : IInputActionCollection2, IDisposable
     public interface IInteractActions
     {
         void OnUse(InputAction.CallbackContext context);
+        void OnUse1(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
