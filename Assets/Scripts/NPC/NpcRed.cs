@@ -14,6 +14,8 @@ public class NpcRed : MonoBehaviour
     [SerializeField] private GameObject canvasText2;
     [SerializeField] private GameObject Item;
 
+    private Animator animator; 
+
     //bool
     bool insideInteractionZone;
     bool text;
@@ -22,7 +24,7 @@ public class NpcRed : MonoBehaviour
     private PlayerInputSystem mInputSystem;
     private InputAction InteractInput;
 
-    NavMeshAgent agent;
+    private NavMeshAgent agent;
 
     [SerializeField] private List<Transform> waypoints;
 
@@ -50,6 +52,7 @@ public class NpcRed : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         currentWaypoint = 0;
     }
     private void Update()
@@ -115,6 +118,7 @@ public class NpcRed : MonoBehaviour
     }
     void UpdateDestination()
     {
+        animator.SetTrigger("Walk");
         target = waypoints[currentWaypoint].position;
         agent.SetDestination(target);
 
@@ -141,7 +145,7 @@ public class NpcRed : MonoBehaviour
     }
     IEnumerator DisableText()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         text = true;
     }
 }
