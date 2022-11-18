@@ -19,6 +19,7 @@ public class SceneControl : MonoBehaviour
     [SerializeField] private GameObject ControlePanel;
     [SerializeField] private Button menuButton;
     [SerializeField] private Button controleButton;
+    [SerializeField] private Camera camera;
 
 
     void Awake()
@@ -49,6 +50,7 @@ public class SceneControl : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1f;
+        camera.orthographic = true;
         volume.SetActive(true);
     }
 
