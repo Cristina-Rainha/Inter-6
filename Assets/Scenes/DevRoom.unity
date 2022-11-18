@@ -338,6 +338,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &124886755
+GameObject:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 6041161134600723193, guid: c694a7903a18fab45b2db002717b24b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6852206882817542220}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2132488165}
+  m_Layer: 0
+  m_Name: 'Takoyaki_Shop (Missing Prefab with guid: c694a7903a18fab45b2db002717b24b8)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &229290143
+GameObject:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 7106128854310462307, guid: 3af296ee89800764ca2b8b3b0feea416,
+    type: 3}
+  m_PrefabInstance: {fileID: 7953184708021074323}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1207117730}
+  m_Layer: 0
+  m_Name: 'Lame_Shop (Missing Prefab with guid: 3af296ee89800764ca2b8b3b0feea416)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &281868768
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,12 +812,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1101535398}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1207117730 stripped
+--- !u!4 &1207117730
 Transform:
+  m_ObjectHideFlags: 8
   m_CorrespondingSourceObject: {fileID: 7626241407541606873, guid: 3af296ee89800764ca2b8b3b0feea416,
     type: 3}
   m_PrefabInstance: {fileID: 7953184708021074323}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229290143}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 95445050}
+  m_RootOrder: 51
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1333402138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -859,6 +903,23 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1333402138}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1345046101
+GameObject:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bd76399eb04f5de458f7459fa49a3bf3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1841286830}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1841286831}
+  m_Layer: 0
+  m_Name: 'menina (Missing Prefab with guid: bd76399eb04f5de458f7459fa49a3bf3)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &1841286830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -928,12 +989,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd76399eb04f5de458f7459fa49a3bf3, type: 3}
---- !u!4 &1841286831 stripped
+--- !u!4 &1841286831
 Transform:
+  m_ObjectHideFlags: 8
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bd76399eb04f5de458f7459fa49a3bf3,
     type: 3}
   m_PrefabInstance: {fileID: 1841286830}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345046101}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 95445050}
+  m_RootOrder: 55
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1966116296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,12 +1126,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4671566882099117461}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2132488165 stripped
+--- !u!4 &2132488165
 Transform:
+  m_ObjectHideFlags: 8
   m_CorrespondingSourceObject: {fileID: 6385352927085969475, guid: c694a7903a18fab45b2db002717b24b8,
     type: 3}
   m_PrefabInstance: {fileID: 6852206882817542220}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124886755}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 95445050}
+  m_RootOrder: 52
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &100986261311466341
 PrefabInstance:
   m_ObjectHideFlags: 0

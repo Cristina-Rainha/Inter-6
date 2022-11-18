@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1099025136832852411}
   - component: {fileID: 2928591843471213937}
   - component: {fileID: 1586626012821313279}
+  - component: {fileID: 7898860804440715117}
+  - component: {fileID: 4954043904513988161}
   m_Layer: 0
   m_Name: Staris
   m_TagString: Untagged
@@ -95,5 +97,31 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.5502813, y: 2.915126, z: 0.7800007}
-  m_Center: {x: 0.016647339, y: 1.4663254, z: -0.0004311651}
+  m_Size: {x: 0.12540627, y: 2.915126, z: 0.7800007}
+  m_Center: {x: -1.6957903, y: 1.4663254, z: -0.00043118}
+--- !u!65 &7898860804440715117
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3721256095266301092}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.13256264, y: 2.915126, z: 0.7800007}
+  m_Center: {x: 1.7255068, y: 1.4663254, z: -0.00043118}
+--- !u!65 &4954043904513988161
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3721256095266301092}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.5502813, y: 0.09315014, z: 0.7800007}
+  m_Center: {x: 0.016647339, y: 2.8773131, z: -0.00043118}

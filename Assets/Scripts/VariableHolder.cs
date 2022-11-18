@@ -82,6 +82,10 @@ public class VariableHolder : MonoBehaviour
             if (virtualCamera.m_Lens.OrthographicSize >= 4)
             {
                 virtualCamera.m_Lens.OrthographicSize -= 0.5f * Time.deltaTime;
+                if (virtualCamera.m_Lens.OrthographicSize < 4)
+                {
+                    virtualCamera.m_Lens.OrthographicSize = 4;
+                }
             }
         }
         else
@@ -89,6 +93,10 @@ public class VariableHolder : MonoBehaviour
             if (virtualCamera.m_Lens.OrthographicSize <= 6)
             {
                 virtualCamera.m_Lens.OrthographicSize += 1f * Time.deltaTime;
+                if(virtualCamera.m_Lens.OrthographicSize > 6)
+                {
+                    virtualCamera.m_Lens.OrthographicSize = 6;
+                }
             }
         }
     }

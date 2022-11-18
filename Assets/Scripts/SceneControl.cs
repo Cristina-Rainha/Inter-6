@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.Rendering.PostProcessing;
+using Cinemachine;
 
 public class SceneControl : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class SceneControl : MonoBehaviour
     [SerializeField] private Button menuButton;
     [SerializeField] private Button controleButton;
     [SerializeField] private Camera camera;
+    [SerializeField] CinemachineVirtualCamera virtualCamera;
 
 
     void Awake()
@@ -52,6 +54,8 @@ public class SceneControl : MonoBehaviour
         Time.timeScale = 1f;
         camera.orthographic = true;
         volume.SetActive(true);
+        virtualCamera.m_Lens.NearClipPlane = -200;
+        virtualCamera.m_Lens.FarClipPlane = 2000;
     }
 
     public void Menu()
