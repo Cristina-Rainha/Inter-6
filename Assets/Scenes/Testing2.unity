@@ -8372,8 +8372,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 1285053266}
-  near: -40
-  far: 200
+  near: -50
+  far: 400
 --- !u!1 &732412406 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 98711950272329592, guid: 7f824a1b1d13267458decc446a70da8b,
