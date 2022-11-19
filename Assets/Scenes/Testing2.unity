@@ -1702,6 +1702,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b1da32f3c9859464d88852087ab371c2,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b1da32f3c9859464d88852087ab371c2,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -10976,6 +10981,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Store_Final4
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0500f545ef1861f478788f289e466a25,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0500f545ef1861f478788f289e466a25,
         type: 3}
@@ -28321,6 +28331,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 92c825df03850d845a779fdc41cb7653,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 92c825df03850d845a779fdc41cb7653,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -28860,6 +28875,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Store_Final2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c0d111fc7cdee647821ced95d0dbc60,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0c0d111fc7cdee647821ced95d0dbc60,
         type: 3}
@@ -34191,6 +34211,12 @@ PrefabInstance:
       propertyPath: m_InnerSpotAngle
       value: 89.55842
       objectReference: {fileID: 0}
+    - target: {fileID: 1926396734241932013, guid: 7fbff1def5f9fa84cab139a3661b5e8c,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2885756083127718827, guid: d3d61af34968c4747a9b07434b789c74,
+        type: 3}
     - target: {fileID: 2765180099124385778, guid: 7fbff1def5f9fa84cab139a3661b5e8c,
         type: 3}
       propertyPath: m_Name
