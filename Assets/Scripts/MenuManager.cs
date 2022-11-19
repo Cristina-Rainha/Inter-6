@@ -12,6 +12,11 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject options;
     [SerializeField] private GameObject credits;
     
+    [Header("Load")]
+    [SerializeField] private GameObject load;
+    [SerializeField] private Slider slider;
+    [SerializeField] private GameObject rain;
+
     [SerializeField] private Button primarybutton;
     [SerializeField] private Button back;
 
@@ -83,6 +88,25 @@ public class MenuManager : MonoBehaviour
     {
         Application.Quit();
         //UnityEditor.EditorApplication.isPlaying = false;
+    }
+
+    public void LoadLevelBtn(int levelToLoad)
+    {
+        load.SetActive(true);
+        rain.SetActive(false);
+        StartCoroutine(LoadAsynchronously(levelToLoad));
+    }
+
+    IEnumerator LoadAsynchronously(int levelToLoad)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(levelToLoad);
+
+        while (!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress / .9f);
+            slider.value = progress;
+            yield return null;
+        }
     }
     private void XboxInputControl(InputAction.CallbackContext ctx)
     {
