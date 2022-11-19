@@ -54,8 +54,8 @@ public class SceneControl : MonoBehaviour
         Time.timeScale = 1f;
         camera.orthographic = true;
         volume.SetActive(true);
-        virtualCamera.m_Lens.NearClipPlane = -200;
-        virtualCamera.m_Lens.FarClipPlane = 2000;
+        virtualCamera.m_Lens.NearClipPlane = VariableHolder.NearClipPlane;
+        virtualCamera.m_Lens.FarClipPlane = VariableHolder.FarClipPlane; ;
     }
 
     public void Menu()

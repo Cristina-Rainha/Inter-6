@@ -8,9 +8,8 @@ OcclusionCullingSettings:
     smallestOccluder: 6
     smallestHole: 0.1
     backfaceThreshold: 70.7
-  m_SceneGUID: 959bf32d6dde01f4b9384758cf7dfddb
-  m_OcclusionCullingData: {fileID: 36300000, guid: 34d2bcbdb8d0d91459432c6bf1899eba,
-    type: 2}
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -4463,7 +4462,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
@@ -8473,6 +8472,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 1285053266}
+  near: -40
+  far: 200
 --- !u!1 &732412406 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 98711950272329592, guid: 7f824a1b1d13267458decc446a70da8b,
@@ -32693,6 +32694,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 1285053266}
+  near: 0
+  far: 0
 --- !u!114 &2009279151
 MonoBehaviour:
   m_ObjectHideFlags: 0

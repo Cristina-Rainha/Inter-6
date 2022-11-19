@@ -30,8 +30,12 @@ public class VariableHolder : MonoBehaviour
     public static bool testItem = false;
 
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    [SerializeField] private int near;
+    [SerializeField] private int far;
 
     public static VariableHolder Instance;
+    public static int NearClipPlane;
+    public static int FarClipPlane;
 
     private void Awake()
     {
@@ -43,10 +47,6 @@ public class VariableHolder : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-    private void Update()
-    {
-        EndGame();
     }
 
     void Start()
@@ -73,6 +73,17 @@ public class VariableHolder : MonoBehaviour
         orangeQuest = false;
 
         testItem = false;
+
+        NearClipPlane = near;
+        FarClipPlane = far;
+    }
+
+    private void Update()
+    {
+        EndGame();
+
+        NearClipPlane = near;
+        FarClipPlane = far;
     }
 
     public void CamZoom()
