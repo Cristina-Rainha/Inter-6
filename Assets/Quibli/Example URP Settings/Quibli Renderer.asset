@@ -71,6 +71,8 @@ MonoBehaviour:
     renderersBeforePostProcess:
     - CompoundRendererFeature.PostProcess.ColorGradingRenderer, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    - CompoundRendererFeature.PostProcess.StylizedDetailRenderer, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     renderersAfterPostProcess:
     - CompoundRendererFeature.PostProcess.StylizedDetailRenderer, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -126,12 +128,12 @@ MonoBehaviour:
     failOperation: 0
     zFailOperation: 0
   m_ShadowTransparentReceive: 1
-  m_RenderingMode: 0
+  m_RenderingMode: 1
   m_DepthPrimingMode: 1
-  m_AccurateGbufferNormals: 0
+  m_AccurateGbufferNormals: 1
   m_ClusteredRendering: 0
   m_TileSize: 32
-  m_IntermediateTextureMode: 1
+  m_IntermediateTextureMode: 0
 --- !u!114 &2152225171292489086
 MonoBehaviour:
   m_ObjectHideFlags: 0
