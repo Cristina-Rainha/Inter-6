@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.05952697, g: 0.044025127, b: 0.26415092, a: 1}
   m_AmbientGroundColor: {r: 0.03311994, g: 0.017799918, b: 0.11320752, a: 1}
   m_AmbientIntensity: 0.5
-  m_AmbientMode: 0
+  m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 95810e15e783789489ebe653d23dbb10, type: 2}
   m_HaloStrength: 0.5
@@ -1141,7 +1141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 99284066}
   m_Layer: 0
-  m_Name: NPC_GREEN2
+  m_Name: NPC_GREEN2---------------------------------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1688,7 +1688,7 @@ GameObject:
   m_Component:
   - component: {fileID: 139835000}
   m_Layer: 0
-  m_Name: NPC_GREEN
+  m_Name: NPC_GREEN----------------------
   m_TagString: green
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2855,7 +2855,7 @@ GameObject:
   m_Component:
   - component: {fileID: 205260545}
   m_Layer: 0
-  m_Name: NPC_BLUE
+  m_Name: NPC_BLUE----------------------------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4439,7 +4439,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &321424810
 Transform:
   m_ObjectHideFlags: 0
@@ -5164,7 +5164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 349883090}
   m_Layer: 0
-  m_Name: NPC_RED
+  m_Name: NPC_RED--------------------------------
   m_TagString: red
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11048,7 +11048,7 @@ GameObject:
   - component: {fileID: 587398825}
   - component: {fileID: 587398824}
   m_Layer: 0
-  m_Name: Collider (1)
+  m_Name: Collider_SAVE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13256,7 +13256,6 @@ Transform:
   - {fileID: 939055915}
   - {fileID: 503116134}
   - {fileID: 1285053267}
-  - {fileID: 2009279149}
   - {fileID: 1993906291}
   - {fileID: 482472123}
   m_Father: {fileID: 0}
@@ -15102,6 +15101,8 @@ GameObject:
   - component: {fileID: 725985548}
   - component: {fileID: 725985547}
   - component: {fileID: 725985549}
+  - component: {fileID: 725985551}
+  - component: {fileID: 725985550}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -15127,8 +15128,6 @@ MonoBehaviour:
   ControlePanel: {fileID: 1137233306}
   menuButton: {fileID: 330156928}
   controleButton: {fileID: 1581109588}
-  camera: {fileID: 861325654}
-  virtualCamera: {fileID: 0}
 --- !u!4 &725985548
 Transform:
   m_ObjectHideFlags: 0
@@ -15157,8 +15156,112 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 1285053266}
-  near: -50
-  far: 400
+  near: -600
+  far: 1000
+--- !u!114 &725985550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725985546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e090dbfc8e778c4fb48cc463eddc10f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseText:
+  - {fileID: 1922764571}
+  - {fileID: 2114335845}
+  - {fileID: 1224672386}
+  - {fileID: 344668926}
+  - {fileID: 1215653762}
+  - {fileID: 951278880}
+  - {fileID: 2040842530}
+  - {fileID: 404677683}
+  - {fileID: 1863285120}
+  - {fileID: 996933733}
+  - {fileID: 1944057717}
+  - {fileID: 1640579412}
+  - {fileID: 1496653970}
+  KeyboardControls: {fileID: 817020338}
+  XboxControls: {fileID: 1429515383}
+  PS4Controls: {fileID: 712832039}
+--- !u!114 &725985551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725985546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 46b408569ca9fa549a7d8d90d0926ef2,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9475425e-1e97-44bf-a850-866dd5101182
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 923d5071-69fd-47e0-ae93-b14edb7fa6c4
+    m_ActionName: Player/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0745e1bf-04fc-4cd4-b94e-386a897c58ca
+    m_ActionName: Player/Sprint[/Keyboard/shift,/XInputControllerWindows/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 153da69a-58be-4b31-af51-0f1d882318a9
+    m_ActionName: Player/Use[/Keyboard/e,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4a00a24b-7a15-421b-a603-bc373f0bec34
+    m_ActionName: Player/Dance[/Keyboard/numpad0,/XInputControllerWindows/rightStickPress]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d366f5a8-d73e-43ea-ba8f-a6f5acc78650
+    m_ActionName: Interact/Use[/Keyboard/e,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9e206dcc-d020-4206-8a1b-8810061675e4
+    m_ActionName: UI/New action
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2159efd6-62a2-4d5e-b1d4-cd7dbb1e8de0
+    m_ActionName: UI/PS4Input[/DualShock4GamepadHID/buttonEast,/DualShock4GamepadHID/buttonNorth,/DualShock4GamepadHID/buttonWest,/DualShock4GamepadHID/buttonSouth,/DualShock4GamepadHID/leftStick/down,/DualShock4GamepadHID/leftStick/up,/DualShock4GamepadHID/leftStick/right,/DualShock4GamepadHID/rightStick/right,/DualShock4GamepadHID/rightStick/left,/DualShock4GamepadHID/rightStick/down,/DualShock4GamepadHID/rightStick/up,/DualShock4GamepadHID/dpad/up,/DualShock4GamepadHID/dpad/down,/DualShock4GamepadHID/dpad/left,/DualShock4GamepadHID/dpad/right,/DualShock4GamepadHID/leftShoulder,/DualShock4GamepadHID/leftTrigger,/DualShock4GamepadHID/rightShoulder,/DualShock4GamepadHID/rightTrigger,/DualShock4GamepadHID/leftStickPress,/DualShock4GamepadHID/rightStickPress,/DualShock4GamepadHID/select,/DualShock4GamepadHID/start,/DualShock4GamepadHID/touchpadButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 403908ed-89ef-4b26-a9a7-9a431f6a2a09
+    m_ActionName: UI/KeyboardInput[/Keyboard/anyKey]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9412d5e8-9dcc-43cd-acc5-910c5dd66bb2
+    m_ActionName: UI/PauseGame[/Keyboard/escape,/XInputControllerWindows/start,/DualShock4GamepadHID/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fa2bc155-f5af-4a0a-9005-1d59400c686c
+    m_ActionName: Interact/Use1[/Keyboard/tab,/XInputControllerWindows/buttonNorth]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: UI
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &732412406 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 98711950272329592, guid: 7f824a1b1d13267458decc446a70da8b,
@@ -18541,8 +18644,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -20
-  far clip plane: 2000
+  near clip plane: -600
+  far clip plane: 1000
   field of view: 40
   orthographic: 1
   orthographic size: 6
@@ -24126,7 +24229,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.3
+  m_Intensity: 0.1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -25085,7 +25188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1198301283}
   m_Layer: 0
-  m_Name: NPC_PURPLE
+  m_Name: NPC_PURPLE------------------------------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26648,8 +26751,8 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 6
-    NearClipPlane: -20
-    FarClipPlane: 2000
+    NearClipPlane: -600
+    FarClipPlane: 1000
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
@@ -35415,7 +35518,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1646623908}
   m_Layer: 0
-  m_Name: NPC_ORANGE
+  m_Name: NPC_ORANGE------------------------------------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38346,7 +38449,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
@@ -38372,7 +38475,7 @@ PrefabInstance:
     - target: {fileID: 4144897172415997406, guid: 2b1b4addab14840cc891e30fa292d719,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4144897172415997406, guid: 2b1b4addab14840cc891e30fa292d719,
         type: 3}
@@ -38696,7 +38799,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1712612719}
   m_Layer: 0
-  m_Name: NPC(S)
+  m_Name: NPC(S)---------------------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46931,7 +47034,7 @@ RectTransform:
   - {fileID: 63090641}
   - {fileID: 1095415837}
   m_Father: {fileID: 685960109}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -47365,157 +47468,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0588467, y: 0.18565626, z: 1.6877348}
   m_Center: {x: 2.3901315, y: 0.07720172, z: 3.7860384}
---- !u!1 &2009279148
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2009279149}
-  - component: {fileID: 2009279152}
-  - component: {fileID: 2009279151}
-  - component: {fileID: 2009279150}
-  m_Layer: 0
-  m_Name: Change_UI_Sprites
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!4 &2009279149
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2009279148}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 685960109}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2009279150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2009279148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed45dd3aec4a8ea49998b490fcb4bf45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 1285053266}
-  near: -40
-  far: 1000
---- !u!114 &2009279151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2009279148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e090dbfc8e778c4fb48cc463eddc10f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UseText:
-  - {fileID: 344668926}
-  - {fileID: 1215653762}
-  - {fileID: 951278880}
-  - {fileID: 2040842530}
-  - {fileID: 996933733}
-  - {fileID: 1922764571}
-  - {fileID: 1944057717}
-  - {fileID: 2114335845}
-  - {fileID: 1224672386}
-  - {fileID: 1640579412}
-  - {fileID: 1496653970}
-  KeyboardControls: {fileID: 817020338}
-  XboxControls: {fileID: 1429515383}
-  PS4Controls: {fileID: 712832039}
---- !u!114 &2009279152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2009279148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 46b408569ca9fa549a7d8d90d0926ef2,
-    type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 9475425e-1e97-44bf-a850-866dd5101182
-    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 923d5071-69fd-47e0-ae93-b14edb7fa6c4
-    m_ActionName: Player/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 0745e1bf-04fc-4cd4-b94e-386a897c58ca
-    m_ActionName: Player/Sprint[/Keyboard/shift,/XInputControllerWindows/leftShoulder]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 153da69a-58be-4b31-af51-0f1d882318a9
-    m_ActionName: Player/Use[/Keyboard/e,/XInputControllerWindows/buttonEast]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4a00a24b-7a15-421b-a603-bc373f0bec34
-    m_ActionName: Player/Dance[/Keyboard/numpad0,/XInputControllerWindows/rightStickPress]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: d366f5a8-d73e-43ea-ba8f-a6f5acc78650
-    m_ActionName: Interact/Use[/Keyboard/e,/XInputControllerWindows/buttonEast]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 9e206dcc-d020-4206-8a1b-8810061675e4
-    m_ActionName: UI/New action
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 2159efd6-62a2-4d5e-b1d4-cd7dbb1e8de0
-    m_ActionName: UI/PS4Input[/DualShock4GamepadHID/buttonEast,/DualShock4GamepadHID/buttonNorth,/DualShock4GamepadHID/buttonWest,/DualShock4GamepadHID/buttonSouth,/DualShock4GamepadHID/leftStick/down,/DualShock4GamepadHID/leftStick/up,/DualShock4GamepadHID/leftStick/right,/DualShock4GamepadHID/rightStick/right,/DualShock4GamepadHID/rightStick/left,/DualShock4GamepadHID/rightStick/down,/DualShock4GamepadHID/rightStick/up,/DualShock4GamepadHID/dpad/up,/DualShock4GamepadHID/dpad/down,/DualShock4GamepadHID/dpad/left,/DualShock4GamepadHID/dpad/right,/DualShock4GamepadHID/leftShoulder,/DualShock4GamepadHID/leftTrigger,/DualShock4GamepadHID/rightShoulder,/DualShock4GamepadHID/rightTrigger,/DualShock4GamepadHID/leftStickPress,/DualShock4GamepadHID/rightStickPress,/DualShock4GamepadHID/select,/DualShock4GamepadHID/start,/DualShock4GamepadHID/touchpadButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 403908ed-89ef-4b26-a9a7-9a431f6a2a09
-    m_ActionName: UI/KeyboardInput[/Keyboard/anyKey]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 9412d5e8-9dcc-43cd-acc5-910c5dd66bb2
-    m_ActionName: UI/PauseGame[/Keyboard/escape,/XInputControllerWindows/start,/DualShock4GamepadHID/start]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: fa2bc155-f5af-4a0a-9005-1d59400c686c
-    m_ActionName: Interact/Use1[/Keyboard/tab,/XInputControllerWindows/buttonNorth]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: UI
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1001 &2009568077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50065,7 +50017,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1001 &1397632548369568974
 PrefabInstance:
   m_ObjectHideFlags: 0

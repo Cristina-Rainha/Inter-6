@@ -37,6 +37,7 @@ public class VariableHolder : MonoBehaviour
     public static int NearClipPlane;
     public static int FarClipPlane;
 
+
     private void Awake()
     {
         if (Instance == null)
@@ -73,9 +74,6 @@ public class VariableHolder : MonoBehaviour
         orangeQuest = false;
 
         testItem = false;
-
-        NearClipPlane = near;
-        FarClipPlane = far;
     }
 
     private void Update()
