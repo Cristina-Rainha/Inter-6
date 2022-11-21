@@ -48,7 +48,6 @@ public class Interaction : MonoBehaviour
     {
         if (ctx.performed)
         {
-            Debug.Log("Xbox");
             foreach (TextMeshProUGUI text in UseText)
             {
                 text.text = "B";
@@ -62,7 +61,6 @@ public class Interaction : MonoBehaviour
     {
         if (ctx.performed)
         {
-            Debug.Log("PS4");
             foreach (TextMeshProUGUI text in UseText)
             {
                 text.text = "O";
@@ -77,7 +75,6 @@ public class Interaction : MonoBehaviour
     {
         if (ctx.performed)
         {
-            Debug.Log("Keyboard");
             foreach (TextMeshProUGUI text in UseText)
             {
                 text.text = "E";

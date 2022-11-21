@@ -43,7 +43,7 @@ MonoBehaviour:
   active: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.9
+    m_Value: 0.3
   intensity:
     m_OverrideState: 1
     m_Value: 1
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558a8e2b6826cf840aae193990ba9f2e, type: 3}
   m_Name: ShadowsMidtonesHighlights
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   shadows:
     m_OverrideState: 1
     m_Value: {x: 0.9703288, y: 1, z: 0.87333435, w: 0}
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f8f6e43869a48f991285995d4df1e93, type: 3}
   m_Name: ColorGrading
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   intensity:
     m_OverrideState: 1
     m_Value: 1
@@ -187,7 +187,7 @@ MonoBehaviour:
     m_Value: 0
   vibrance:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   saturation:
     m_OverrideState: 1
     m_Value: 0
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5485954d14dfb9a4c8ead8edb0ded5b1, type: 3}
   m_Name: LiftGammaGain
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   lift:
     m_OverrideState: 1
     m_Value: {x: 0.8824343, y: 0.941066, z: 1, w: 0}
