@@ -145,7 +145,7 @@ public class NpcRed : MonoBehaviour
     }
     IEnumerator DisableText()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         text = true;
     }
 }

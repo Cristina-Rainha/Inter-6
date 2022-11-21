@@ -14,6 +14,8 @@ public class NpcOrange : MonoBehaviour
     [SerializeField] private GameObject canvasText2;
     [SerializeField] private GameObject Item;
 
+    private Animator animator;
+
     //bool
     bool insideInteractionZone;
     bool text;
@@ -51,6 +53,7 @@ public class NpcOrange : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         currentWaypoint = 0;
+        animator = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -116,6 +119,7 @@ public class NpcOrange : MonoBehaviour
 
     void UpdateDestination()
     {
+        animator.SetTrigger("Walk");
         target = waypoints[currentWaypoint].position;
         agent.SetDestination(target);
 
@@ -142,7 +146,7 @@ public class NpcOrange : MonoBehaviour
     }
     IEnumerator DisableText()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.2f);
         text = true;
     }
 }

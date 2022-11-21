@@ -16,6 +16,7 @@ public class NpcGreen : MonoBehaviour
     [SerializeField] private GameObject Item;
     [SerializeField] private GameObject Item2;
 
+    private Animator animator;
 
     //bool
     bool insideInteractionZone;
@@ -55,6 +56,7 @@ public class NpcGreen : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         currentWaypoint = 0;
+        animator = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -133,6 +135,7 @@ public class NpcGreen : MonoBehaviour
 
     void UpdateDestination()
     {
+        animator.SetTrigger("Walk");
         target = waypoints[currentWaypoint].position;
         agent.SetDestination(target);
 
@@ -160,7 +163,7 @@ public class NpcGreen : MonoBehaviour
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.2f);
         text = true;
     }
 }
