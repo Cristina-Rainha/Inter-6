@@ -9,6 +9,7 @@ public class NpcPurpleItem : MonoBehaviour
     [SerializeField] private GameObject item;
     private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
+    private Animator animator;
 
     //bool
     private bool inside;
@@ -23,6 +24,7 @@ public class NpcPurpleItem : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
     }
     private void OnEnable()
     {
@@ -59,13 +61,14 @@ public class NpcPurpleItem : MonoBehaviour
         if (inside && VariableHolder.purpleItem == false)
         {
             VariableHolder.purpleItem = true;
+            animator.SetTrigger("Collect");
             audioSource.PlayOneShot(audioClip);
             StartCoroutine(destroy());
         }
     }
     IEnumerator destroy()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.2f);
         item.SetActive(false);
     }
 }
