@@ -92,11 +92,13 @@ public class NpcPurple : MonoBehaviour
         {
             canvasText.SetActive(true);
             Item.SetActive(true);
+            VariableHolder.PlayerWave = true;
             StartCoroutine(DisableText());
         }
         if (insideInteractionZone && VariableHolder.purpleItem && !text)
         {
             canvasText2.SetActive(true);
+            VariableHolder.PlayerWave = true;
             StartCoroutine(DisableText());
         }
 
@@ -110,7 +112,7 @@ public class NpcPurple : MonoBehaviour
             {
                 canvasText2.SetActive(false);
                 canvasPanel.SetActive(false);
-                StartCoroutine(GoAway());
+                animator.SetTrigger("Walk");
                 VariableHolder.purpleQuest = true;
             }
             text = false;

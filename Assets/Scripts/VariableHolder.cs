@@ -37,6 +37,8 @@ public class VariableHolder : MonoBehaviour
     public static int NearClipPlane;
     public static int FarClipPlane;
 
+    public static bool PlayerWave = false;
+
 
     private void Awake()
     {

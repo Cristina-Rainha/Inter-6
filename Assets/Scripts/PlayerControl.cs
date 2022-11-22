@@ -94,6 +94,7 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         Movemente();
+        WaveToNPC();
     }
 
     private void Movemente()
@@ -158,6 +159,15 @@ public class PlayerControl : MonoBehaviour
     private void CollectItem(InputAction.CallbackContext ctx)
     {
      
+    }
+
+    private void WaveToNPC()
+    {
+        if(VariableHolder.PlayerWave)
+        {
+            myAnimator.SetTrigger("Wave");
+            VariableHolder.PlayerWave = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
