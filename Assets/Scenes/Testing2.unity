@@ -3076,7 +3076,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209326268}
   m_LocalRotation: {x: 0.09904577, y: -0.89239913, z: 0.23911765, w: 0.3696438}
-  m_LocalPosition: {x: 4.33, y: 3.36, z: 5.13}
+  m_LocalPosition: {x: 4.44, y: 3.36, z: 5.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5851,17 +5851,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 46db021e43fe7c74aa6c9f1598f89d52,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46db021e43fe7c74aa6c9f1598f89d52,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.22
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46db021e43fe7c74aa6c9f1598f89d52,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -5.46
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46db021e43fe7c74aa6c9f1598f89d52,
         type: 3}
@@ -6387,7 +6387,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 170
   m_InnerSpotAngle: 160
@@ -9998,7 +9998,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 170
   m_InnerSpotAngle: 160
@@ -20558,7 +20558,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1273526076}
   m_LocalRotation: {x: 0.09904577, y: -0.89239913, z: 0.23911765, w: 0.3696438}
-  m_LocalPosition: {x: 4.14, y: 2.64, z: 5.03}
+  m_LocalPosition: {x: 4.24, y: 2.64, z: 5.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -30220,7 +30220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1712612719
 Transform:
   m_ObjectHideFlags: 0
@@ -31421,7 +31421,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 170
   m_InnerSpotAngle: 160
@@ -34710,7 +34710,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 170
   m_InnerSpotAngle: 160
