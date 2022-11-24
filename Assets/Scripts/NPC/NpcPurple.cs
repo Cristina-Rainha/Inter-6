@@ -10,11 +10,13 @@ public class NpcPurple : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     [SerializeField] private GameObject canvasPanel;
-    [SerializeField] private GameObject canvasText;
-    [SerializeField] private GameObject canvasText2;
+    [SerializeField] private List<GameObject> canvasText;
     [SerializeField] private GameObject Item;
+    [SerializeField] private Collider npcCollider;
 
+    private int index = 0;
     private Animator animator;
+
 
     //bool
     bool insideInteractionZone;
@@ -23,14 +25,12 @@ public class NpcPurple : MonoBehaviour
     //Input Action
     private PlayerInputSystem mInputSystem;
     private InputAction InteractInput;
-
+    
+    //IA
     NavMeshAgent agent;
-
     [SerializeField] private List<Transform> waypoints;
-
     private int currentWaypoint;
     private float waitTime = 0.5f;
-
     private Vector3 target;
 
     private void Awake()
@@ -46,8 +46,6 @@ public class NpcPurple : MonoBehaviour
     private void OnDisable()
     {
         InteractInput.Disable();
-        canvasText.SetActive(false);
-        canvasText2.SetActive(false);
     }
     void Start()
     {
@@ -73,6 +71,7 @@ public class NpcPurple : MonoBehaviour
             if (!VariableHolder.purpleQuest)
             {
                 canvasPanel.SetActive(true);
+                index = 0;
             }
         }
     }
@@ -83,39 +82,52 @@ public class NpcPurple : MonoBehaviour
         {
             insideInteractionZone = false;
             canvasPanel.SetActive(false);
+            index = 0;
         }
     }
 
     public void OpenTextBox(InputAction.CallbackContext ctx)
     {
-        if (insideInteractionZone && !VariableHolder.purpleItem && !text)
+        if (insideInteractionZone && !VariableHolder.purpleItem)
         {
-            canvasText.SetActive(true);
-            Item.SetActive(true);
+            if (index == 0)
+            {
+                canvasText[0].SetActive(true);
+                Item.SetActive(true);
+                VariableHolder.PlayerWave = true;
+                StartCoroutine(AddIndex());
+            }
+            if (index == 1)
+            {
+                canvasText[0].GetComponent<Animator>().SetTrigger("Close");
+                canvasText[1].SetActive(true);
+                StartCoroutine(AddIndex());
+            }
+            if (index == 2)
+            {
+                canvasText[1].GetComponent<Animator>().SetTrigger("Close");
+                canvasText[2].SetActive(true);
+                StartCoroutine(AddIndex());
+            }
+            if (index == 3)
+            {
+                canvasText[2].GetComponent<Animator>().SetTrigger("Close");
+                StartCoroutine(ZeroIndex());
+            }
+        }
+        
+        if (insideInteractionZone && VariableHolder.purpleItem)
+        {
+            canvasText[3].SetActive(true);
             VariableHolder.PlayerWave = true;
             StartCoroutine(DisableText());
         }
-        if (insideInteractionZone && VariableHolder.purpleItem && !text)
+        if (insideInteractionZone && VariableHolder.purpleItem && text)
         {
-            canvasText2.SetActive(true);
-            VariableHolder.PlayerWave = true;
-            StartCoroutine(DisableText());
-        }
-
-        if (text)
-        {
-            if (insideInteractionZone && !VariableHolder.purpleItem || !insideInteractionZone && !VariableHolder.purpleItem)
-            {
-                canvasText.SetActive(false);
-            }
-            if (insideInteractionZone && VariableHolder.purpleItem || !insideInteractionZone && VariableHolder.purpleItem)
-            {
-                canvasText2.SetActive(false);
-                canvasPanel.SetActive(false);
-                animator.SetTrigger("Walk");
-                VariableHolder.purpleQuest = true;
-            }
-            text = false;
+            canvasText[3].GetComponent<Animator>().SetTrigger("Close");
+            animator.SetTrigger("Walk");
+            npcCollider.enabled = false;
+            canvasPanel.SetActive(false);
         }
     }
 
@@ -145,6 +157,18 @@ public class NpcPurple : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         UpdateDestination();
+    }
+
+    IEnumerator AddIndex()
+    {
+        yield return new WaitForSeconds(0.4f);
+        index++;
+    }
+
+    IEnumerator ZeroIndex()
+    {
+        yield return new WaitForSeconds(0.4f);
+        index = 0;
     }
     IEnumerator DisableText()
     {
