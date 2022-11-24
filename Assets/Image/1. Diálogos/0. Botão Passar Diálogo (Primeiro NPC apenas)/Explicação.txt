@@ -1,0 +1,3 @@
+Colocar o "passar o diálogo" apenas no primeiro npc que ela falar, depois não precisa mais aparecer.
+
+Deixar o "para fechar" na primeira fala da Mei sozinha logo no início.
