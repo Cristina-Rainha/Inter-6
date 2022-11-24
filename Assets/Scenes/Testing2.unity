@@ -2300,17 +2300,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: bce52c490718aad4abf744a52b0b43d5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.779999
+      value: 30.62
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bce52c490718aad4abf744a52b0b43d5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.14767838
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bce52c490718aad4abf744a52b0b43d5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.41
+      value: -6.83
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bce52c490718aad4abf744a52b0b43d5,
         type: 3}
@@ -2371,6 +2371,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: House_Miyazaki
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bce52c490718aad4abf744a52b0b43d5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3881445788497869672, guid: bce52c490718aad4abf744a52b0b43d5,
         type: 3}
@@ -4070,17 +4075,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 3b3b83ff1daf6fc4393dc4e97aa84123,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 59.303932
+      value: 60.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3b3b83ff1daf6fc4393dc4e97aa84123,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.13943762
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3b3b83ff1daf6fc4393dc4e97aa84123,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.3
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3b3b83ff1daf6fc4393dc4e97aa84123,
         type: 3}
@@ -4146,6 +4151,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: House_Saito
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3b3b83ff1daf6fc4393dc4e97aa84123,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1123489251276425882, guid: 3b3b83ff1daf6fc4393dc4e97aa84123,
         type: 3}
@@ -6392,7 +6402,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: da8bc21b37b48294e851dab9060ceaaf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 43.86
+      value: 43.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: da8bc21b37b48294e851dab9060ceaaf,
         type: 3}
@@ -6402,7 +6412,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: da8bc21b37b48294e851dab9060ceaaf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.1
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: da8bc21b37b48294e851dab9060ceaaf,
         type: 3}
@@ -6488,6 +6498,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: House_Ozu
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: da8bc21b37b48294e851dab9060ceaaf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4826354387226746663, guid: da8bc21b37b48294e851dab9060ceaaf,
         type: 3}
@@ -8485,17 +8500,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 46db021e43fe7c74aa6c9f1598f89d52,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.4400005
+      value: -3.12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46db021e43fe7c74aa6c9f1598f89d52,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46db021e43fe7c74aa6c9f1598f89d52,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.46
+      value: -4.39
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46db021e43fe7c74aa6c9f1598f89d52,
         type: 3}
@@ -8816,6 +8831,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: House_Tanaka
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 46db021e43fe7c74aa6c9f1598f89d52,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1442450553484104045, guid: 46db021e43fe7c74aa6c9f1598f89d52,
         type: 3}
@@ -15364,17 +15384,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 7506fb3bd544bed49a55a6c055d7e126,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.29
+      value: 19.78
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7506fb3bd544bed49a55a6c055d7e126,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.14767838
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7506fb3bd544bed49a55a6c055d7e126,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.34
+      value: -6.61
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7506fb3bd544bed49a55a6c055d7e126,
         type: 3}
@@ -15435,6 +15455,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: House_Yamauchi
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7506fb3bd544bed49a55a6c055d7e126,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2771104482022425534, guid: 7506fb3bd544bed49a55a6c055d7e126,
         type: 3}
@@ -15651,7 +15676,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 94cb82c17a0bfac4f9c0933c25ee2691,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.7
+      value: 9.76
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94cb82c17a0bfac4f9c0933c25ee2691,
         type: 3}
@@ -15661,7 +15686,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 94cb82c17a0bfac4f9c0933c25ee2691,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.53
+      value: -6.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94cb82c17a0bfac4f9c0933c25ee2691,
         type: 3}
@@ -15717,6 +15742,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: House_Taniguchi
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 94cb82c17a0bfac4f9c0933c25ee2691,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1391724132148829795, guid: 94cb82c17a0bfac4f9c0933c25ee2691,
         type: 3}
@@ -15998,32 +16028,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8.672642, y: 5.707286, z: 0.4194479}
   m_Center: {x: 0.20305634, y: 2.863608, z: -5.721972}
---- !u!65 &733300325
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 733300319}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.62013054, y: 5.707286, z: 10.665209}
-  m_Center: {x: 4.229312, y: 2.863608, z: -0.59909153}
---- !u!65 &733300326
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 733300319}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 8.672642, y: 0.63514805, z: 11.171037}
-  m_Center: {x: 0.20305634, y: 5.399677, z: -0.34617758}
 --- !u!65 &733300327
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16035,8 +16039,47 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8.672642, y: 0.1793909, z: 10.617391}
-  m_Center: {x: 0.20305634, y: 0.0996604, z: -0.6230006}
+  m_Size: {x: 0.69220924, y: 5.404074, z: 10.617391}
+  m_Center: {x: -3.8050137, y: 2.712002, z: -0.6230006}
+--- !u!65 &733300328
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733300319}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.672642, y: 0.49302673, z: 11.171037}
+  m_Center: {x: 0.20305634, y: 5.4707375, z: -0.34617758}
+--- !u!65 &733300329
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733300319}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6303654, y: 5.707286, z: 10.608202}
+  m_Center: {x: 4.2241945, y: 2.863608, z: -0.62759495}
+--- !u!65 &733300330
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733300319}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.672642, y: 0.17482987, z: 10.5521965}
+  m_Center: {x: 0.20305634, y: 0.09737988, z: -0.6555977}
 --- !u!1 &734483664 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 852834536657292455, guid: da8bc21b37b48294e851dab9060ceaaf,
@@ -21271,7 +21314,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9082f962d89c5df4e840628d6e955898,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9082f962d89c5df4e840628d6e955898,
         type: 3}
@@ -21281,7 +21324,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9082f962d89c5df4e840628d6e955898,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.73
+      value: 18.24
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9082f962d89c5df4e840628d6e955898,
         type: 3}
@@ -21832,6 +21875,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: House_Mei
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9082f962d89c5df4e840628d6e955898,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 991293067179185558, guid: 9082f962d89c5df4e840628d6e955898,
         type: 3}
@@ -47975,8 +48023,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 13.382399, y: 0.13978136, z: 0.73413754}
-  m_Center: {x: -0.10718107, y: 0.09009671, z: 5.323934}
+  m_Size: {x: 13.382399, y: 0.13978136, z: 13.117176}
+  m_Center: {x: -0.10718107, y: 0.09009671, z: -0.8675854}
 --- !u!1 &1918516816 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8086585129477031192, guid: da8bc21b37b48294e851dab9060ceaaf,
