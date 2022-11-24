@@ -3,39 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class TextManager : MonoBehaviour
+public class TextBox : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> TextBoxes;
-    [SerializeField] private float delayOnText1;
-
     private PlayerInputSystem mInputSystem;
     private InputAction interaction;
+    private Animator Animator;
 
     private void Awake()
     {
         mInputSystem = new PlayerInputSystem();
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
         interaction = mInputSystem.Interact.Use;
         interaction.Enable();
+        interaction.performed += CloseTextBox;
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         interaction.Disable();
     }
 
     private void Start()
     {
-        //StartCoroutine(InicialDialog());
+        Animator = GetComponent<Animator>();
     }
-
-    IEnumerator InicialDialog()
+    
+    private void CloseTextBox(InputAction.CallbackContext ctx)
     {
-        yield return new WaitForSeconds(delayOnText1);
-        TextBoxes[0].SetActive(true);
+        if (ctx.performed)
+        {
+            Animator.SetTrigger("Close");
+        }
     }
 
+    public void CloseText()
+    {
+        gameObject.SetActive(false);
+    }
 }
