@@ -63,6 +63,7 @@ public class NPCTestItem : MonoBehaviour
         if (inside && VariableHolder.testItem == false)
         {
             VariableHolder.testItem = true;
+            VariableHolder.PlayerPickUp = true;
             animator.SetTrigger("Collect");
             canvasPanel.SetActive(false);
             audioSource.PlayOneShot(audioClip);

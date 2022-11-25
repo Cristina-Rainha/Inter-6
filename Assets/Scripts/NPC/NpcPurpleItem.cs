@@ -64,6 +64,7 @@ public class NpcPurpleItem : MonoBehaviour
         if (inside && VariableHolder.purpleItem == false)
         {
             VariableHolder.purpleItem = true;
+            VariableHolder.PlayerPickUp = true;
             animator.SetTrigger("Collect");
             canvasPanel.SetActive(false);
             audioSource.PlayOneShot(audioClip);

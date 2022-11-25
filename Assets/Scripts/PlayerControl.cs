@@ -95,6 +95,8 @@ public class PlayerControl : MonoBehaviour
     {
         Movemente();
         WaveToNPC();
+        BowDown();
+        PickUP();
     }
 
     private void Movemente()
@@ -167,6 +169,24 @@ public class PlayerControl : MonoBehaviour
         {
             myAnimator.SetTrigger("Wave");
             VariableHolder.PlayerWave = false;
+        }
+    }
+    
+    private void BowDown()
+    {
+        if (VariableHolder.PlayerBowDown)
+        {
+            myAnimator.SetTrigger("BowDown");
+            VariableHolder.PlayerBowDown = false;
+        }
+    }
+    
+    private void PickUP()
+    {
+        if(VariableHolder.PlayerPickUp)
+        {
+            myAnimator.SetTrigger("Pick");
+            VariableHolder.PlayerPickUp = false;
         }
     }
 

@@ -63,6 +63,7 @@ public class NpcBlueItem : MonoBehaviour
         if (inside && VariableHolder.blueNpc == false)
         {
             VariableHolder.blueItem = true;
+            VariableHolder.PlayerPickUp = true;
             animator.SetTrigger("Collect");
             canvasPanel.SetActive(false);
             audioSource.PlayOneShot(audioClip);

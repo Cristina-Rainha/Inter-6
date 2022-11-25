@@ -115,13 +115,13 @@ public class NpcOrange : MonoBehaviour
         if (insideInteractionZone && VariableHolder.orangeItem)
         {
             canvasText[2].SetActive(true);
-            VariableHolder.PlayerWave = true;
             StartCoroutine(DisableText());
         }
 
         if (insideInteractionZone && VariableHolder.orangeItem && text)
         {
             canvasText[2].GetComponent<Animator>().SetTrigger("Close");
+            VariableHolder.PlayerBowDown = true;
             animator.SetTrigger("Walk");
             insideInteractionZone = false;
             VariableHolder.orangeNpc = false;

@@ -38,6 +38,8 @@ public class VariableHolder : MonoBehaviour
     public static int FarClipPlane;
 
     public static bool PlayerWave = false;
+    public static bool PlayerBowDown = false;
+    public static bool PlayerPickUp = false;
 
 
     private void Awake()

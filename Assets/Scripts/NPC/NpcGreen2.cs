@@ -117,12 +117,12 @@ public class NpcGreen2 : MonoBehaviour
         if (insideInteractionZone && VariableHolder.greenItem2)
         {
             canvasText[3].SetActive(true);
-            //VariableHolder.PlayerWave = true;
             StartCoroutine(DisableText());
         }
         if (insideInteractionZone && VariableHolder.greenItem2 && text)
         {
             canvasText[3].GetComponent<Animator>().SetTrigger("Close");
+            VariableHolder.PlayerBowDown = true;
             animator.SetTrigger("Walk");
             insideInteractionZone = false;
             VariableHolder.greenNpc2 = false;
