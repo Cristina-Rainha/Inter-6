@@ -43,6 +43,7 @@ public class HumanNPCTXT : MonoBehaviour
         {
             TextInput.SetActive(true);
             inRange = true;
+            index = 0;
         }
     }
     
@@ -52,6 +53,7 @@ public class HumanNPCTXT : MonoBehaviour
         {
             IconAnimator.SetTrigger("Reset");
             inRange = false;
+            index = 0;
         }
     }
 
@@ -63,6 +65,7 @@ public class HumanNPCTXT : MonoBehaviour
             {
                 texts[0].SetActive(true);
                 StartCoroutine(InicialDialog());
+                VariableHolder.PlayerWaveNPC = true;
             }
             if(index == 1)
             {

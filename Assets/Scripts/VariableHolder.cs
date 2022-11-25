@@ -45,6 +45,7 @@ public class VariableHolder : MonoBehaviour
     public static bool PlayerWave = false;
     public static bool PlayerBowDown = false;
     public static bool PlayerPickUp = false;
+    public static bool PlayerWaveNPC = false;
 
 
     private void Awake()

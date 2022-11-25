@@ -21,6 +21,10 @@ public class Interaction : MonoBehaviour
     [SerializeField] private GameObject XboxControls;
     [SerializeField] private GameObject PS4Controls;
 
+    //FristText
+    [SerializeField] private List<Image> MeiDialogs;
+    [SerializeField] private List<Sprite> MeiDialogSprites;
+
     void Awake()
     {
         mInputSystem = new PlayerInputSystem();
@@ -55,6 +59,8 @@ public class Interaction : MonoBehaviour
                 KeyboardControls.SetActive(false);
                 XboxControls.SetActive(true);
                 PS4Controls.SetActive(false);
+                MeiDialogs[0].sprite = MeiDialogSprites[0];
+                MeiDialogs[1].sprite = MeiDialogSprites[1];
             }
         }
     }
@@ -68,6 +74,8 @@ public class Interaction : MonoBehaviour
                 KeyboardControls.SetActive(false);
                 XboxControls.SetActive(false);
                 PS4Controls.SetActive(true);
+                MeiDialogs[0].sprite = MeiDialogSprites[2];
+                MeiDialogs[1].sprite = MeiDialogSprites[3];
             }
         }
     }
@@ -82,6 +90,9 @@ public class Interaction : MonoBehaviour
                 KeyboardControls.SetActive(true);
                 XboxControls.SetActive(false);
                 PS4Controls.SetActive(false);
+                MeiDialogs[0].sprite = MeiDialogSprites[4];
+                MeiDialogs[1].sprite = MeiDialogSprites[5];
+
             }
         }
     }
