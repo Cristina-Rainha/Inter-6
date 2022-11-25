@@ -29,6 +29,7 @@ public class VariableHolder : MonoBehaviour
 
     public static bool testItem = false;
 
+    [SerializeField] private int questCountTest;
     public static int questCount = 0;
     
     //Cam
@@ -82,12 +83,13 @@ public class VariableHolder : MonoBehaviour
         orangeQuest = false;
 
         testItem = false;
+
+        questCount = questCountTest;
     }
 
     private void Update()
     {
         EndGame();
-
         NearClipPlane = near;
         FarClipPlane = far;
     }
