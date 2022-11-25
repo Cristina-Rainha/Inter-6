@@ -10,12 +10,15 @@ public class NpcGreen2 : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     [SerializeField] private GameObject canvasPanel;
-    [SerializeField] private GameObject canvasText;
-    [SerializeField] private GameObject canvasText2;
+    [SerializeField] private List<GameObject> canvasText;
     [SerializeField] private GameObject Item;
+    [SerializeField] private Collider npcCollider;
+    [SerializeField] private Animator iconanim;
 
+    private int index = 0;
     private Animator animator;
-    
+
+
     //bool
     bool insideInteractionZone;
     bool text;
@@ -24,15 +27,12 @@ public class NpcGreen2 : MonoBehaviour
     private PlayerInputSystem mInputSystem;
     private InputAction InteractInput;
 
+    //IA
     NavMeshAgent agent;
-
     [SerializeField] private List<Transform> waypoints;
-
     private int currentWaypoint;
     private float waitTime = 0.5f;
-
     private Vector3 target;
-
     private void Awake()
     {
         mInputSystem = new PlayerInputSystem();
@@ -46,8 +46,6 @@ public class NpcGreen2 : MonoBehaviour
     private void OnDisable()
     {
         InteractInput.Disable();
-        canvasText.SetActive(false);
-        canvasText2.SetActive(false);
     }
     void Start()
     {
@@ -59,8 +57,8 @@ public class NpcGreen2 : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, target) < 1f)
         {
-            GetNextWaypoint();
-            UpdateDestination();
+            //GetNextWaypoint();
+            //UpdateDestination();
         }
         VariableHolder.Instance.CamZoom();
     }
@@ -88,32 +86,49 @@ public class NpcGreen2 : MonoBehaviour
 
     public void OpenTextBox(InputAction.CallbackContext ctx)
     {
-        if (insideInteractionZone && !VariableHolder.greenItem2 && !text)
+        if (insideInteractionZone && !VariableHolder.greenItem2)
         {
-            canvasText.SetActive(true);
-            Item.SetActive(true);
-            StartCoroutine(DisableText());
-        }
-        if (insideInteractionZone && VariableHolder.greenItem2 && !text)
-        {
-            canvasText2.SetActive(true);
-            StartCoroutine(DisableText());
+            if (index == 0)
+            {
+                canvasText[0].SetActive(true);
+                Item.SetActive(true);
+                VariableHolder.PlayerWave = true;
+                StartCoroutine(AddIndex());
+            }
+            if (index == 1)
+            {
+                canvasText[0].GetComponent<Animator>().SetTrigger("Close");
+                canvasText[1].SetActive(true);
+                StartCoroutine(AddIndex());
+            }
+            if (index == 2)
+            {
+                canvasText[1].GetComponent<Animator>().SetTrigger("Close");
+                canvasText[2].SetActive(true);
+                StartCoroutine(AddIndex());
+            }
+            if (index == 3)
+            {
+                canvasText[2].GetComponent<Animator>().SetTrigger("Close");
+                StartCoroutine(ZeroIndex());
+            }
         }
 
-        if (text)
+        if (insideInteractionZone && VariableHolder.greenItem2)
         {
-            if (insideInteractionZone && !VariableHolder.greenItem2 || !insideInteractionZone && !VariableHolder.greenItem2)
-            {
-                canvasText.SetActive(false);
-            }
-            if (insideInteractionZone && VariableHolder.greenItem2 || !insideInteractionZone && VariableHolder.greenItem2)
-            {
-                canvasText2.SetActive(false);
-                canvasPanel.SetActive(false);
-                StartCoroutine(GoAway());
-                VariableHolder.greenQuest2 = true;
-            }
-            text = false;
+            canvasText[3].SetActive(true);
+            //VariableHolder.PlayerWave = true;
+            StartCoroutine(DisableText());
+        }
+        if (insideInteractionZone && VariableHolder.greenItem2 && text)
+        {
+            canvasText[3].GetComponent<Animator>().SetTrigger("Close");
+            animator.SetTrigger("Walk");
+            insideInteractionZone = false;
+            VariableHolder.greenNpc2 = false;
+            VariableHolder.greenQuest2 = true;
+            Destroy(canvasPanel);
+            npcCollider.enabled = false;
         }
     }
 
@@ -143,6 +158,18 @@ public class NpcGreen2 : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         UpdateDestination();
+    }
+
+    IEnumerator AddIndex()
+    {
+        yield return new WaitForSeconds(0.4f);
+        index++;
+    }
+
+    IEnumerator ZeroIndex()
+    {
+        yield return new WaitForSeconds(0.4f);
+        index = 0;
     }
     IEnumerator DisableText()
     {

@@ -9,13 +9,16 @@ public class NpcGreenItem2 : MonoBehaviour
     [SerializeField] private GameObject item;
     private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
+    private Animator animator;
+
+
+    [SerializeField] private Animator iconanim;
 
     //bool
     private bool inside;
     //Input Action
     private PlayerInputSystem mInputSystem;
     private InputAction InteractInput;
-
     private void Awake()
     {
         mInputSystem = new PlayerInputSystem();
@@ -23,6 +26,7 @@ public class NpcGreenItem2 : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
     }
     private void OnEnable()
     {
@@ -51,21 +55,24 @@ public class NpcGreenItem2 : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             inside = false;
-            canvasPanel.SetActive(false);
+            iconanim.SetTrigger("Reset");
         }
     }
+
     public void collect(InputAction.CallbackContext ctx)
     {
         if (inside && VariableHolder.greenItem2 == false)
         {
             VariableHolder.greenItem2 = true;
+            animator.SetTrigger("Collect");
+            canvasPanel.SetActive(false);
             audioSource.PlayOneShot(audioClip);
             StartCoroutine(destroy());
         }
     }
     IEnumerator destroy()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.2f);
         Destroy(gameObject);
     }
 }
