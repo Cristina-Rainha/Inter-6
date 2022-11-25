@@ -125,6 +125,7 @@ public class NpcRed : MonoBehaviour
             insideInteractionZone = false;
             VariableHolder.redNpc = false;
             VariableHolder.redQuest = true;
+            VariableHolder.Instance.AddQuestCount();
             Destroy(canvasPanel);
             npcCollider.enabled = false;
         }

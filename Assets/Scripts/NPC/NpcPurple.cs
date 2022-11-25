@@ -130,6 +130,7 @@ public class NpcPurple : MonoBehaviour
             insideInteractionZone = false;
             VariableHolder.purpleNpc = false;
             VariableHolder.purpleQuest = true;
+            VariableHolder.Instance.AddQuestCount();
             Destroy(canvasPanel);
             npcCollider.enabled = false;
         }

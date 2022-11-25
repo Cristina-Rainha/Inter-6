@@ -127,6 +127,7 @@ public class NpcGreen2 : MonoBehaviour
             insideInteractionZone = false;
             VariableHolder.greenNpc2 = false;
             VariableHolder.greenQuest2 = true;
+            VariableHolder.Instance.AddQuestCount();
             Destroy(canvasPanel);
             npcCollider.enabled = false;
         }

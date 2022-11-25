@@ -126,6 +126,7 @@ public class NpcOrange : MonoBehaviour
             insideInteractionZone = false;
             VariableHolder.orangeNpc = false;
             VariableHolder.orangeQuest = true;
+            VariableHolder.Instance.AddQuestCount();
             Destroy(canvasPanel);
             npcCollider.enabled = false;
         }

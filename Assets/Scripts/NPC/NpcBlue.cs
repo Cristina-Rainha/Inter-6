@@ -124,6 +124,7 @@ public class NpcBlue : MonoBehaviour
             insideInteractionZone = false;
             VariableHolder.blueNpc = false;
             VariableHolder.blueQuest = true;
+            VariableHolder.Instance.AddQuestCount();
             Destroy(canvasPanel);
             npcCollider.enabled = false;
         }

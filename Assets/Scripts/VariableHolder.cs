@@ -5,7 +5,7 @@ using Cinemachine;
 
 public class VariableHolder : MonoBehaviour
 {
-    //bool
+    //bool Quest
     public static bool greenItem = false;
     public static bool greenItem2 = false;
     public static bool redItem = false;
@@ -29,6 +29,9 @@ public class VariableHolder : MonoBehaviour
 
     public static bool testItem = false;
 
+    public static int questCount = 0;
+    
+    //Cam
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     [SerializeField] private int near;
     [SerializeField] private int far;
@@ -37,6 +40,7 @@ public class VariableHolder : MonoBehaviour
     public static int NearClipPlane;
     public static int FarClipPlane;
 
+    //Player
     public static bool PlayerWave = false;
     public static bool PlayerBowDown = false;
     public static bool PlayerPickUp = false;
@@ -131,5 +135,10 @@ public class VariableHolder : MonoBehaviour
         {
             Debug.Log("End is on");
         }
+    }
+
+    public void AddQuestCount()
+    {
+        questCount++;
     }
 }
