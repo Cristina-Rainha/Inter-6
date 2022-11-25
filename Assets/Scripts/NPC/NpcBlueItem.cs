@@ -11,7 +11,6 @@ public class NpcBlueItem : MonoBehaviour
     [SerializeField] private AudioClip audioClip;
     private Animator animator;
 
-
     [SerializeField] private Animator iconanim;
 
     //bool

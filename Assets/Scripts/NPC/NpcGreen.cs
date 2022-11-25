@@ -10,12 +10,13 @@ public class NpcGreen : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     [SerializeField] private GameObject canvasPanel;
-    [SerializeField] private GameObject canvasText;
-    [SerializeField] private GameObject canvasText2;
-    [SerializeField] private GameObject canvasText3;
+    [SerializeField] private List<GameObject> canvasText;
+    [SerializeField] private Collider npcCollider;
+    [SerializeField] private Animator iconanim;
     [SerializeField] private GameObject Item;
     [SerializeField] private GameObject Item2;
 
+    private int index = 0;
     private Animator animator;
 
     //bool
@@ -26,13 +27,11 @@ public class NpcGreen : MonoBehaviour
     private PlayerInputSystem mInputSystem;
     private InputAction InteractInput;
 
+    //IA
     NavMeshAgent agent;
-
     [SerializeField] private List<Transform> waypoints;
-
     private int currentWaypoint;
     private float waitTime = 0.5f;
-
     private Vector3 target;
 
     private void Awake()
@@ -48,9 +47,6 @@ public class NpcGreen : MonoBehaviour
     private void OnDisable()
     {
         InteractInput.Disable();
-        canvasText.SetActive(false);
-        canvasText2.SetActive(false);
-        canvasText3.SetActive(false);
     }
     void Start()
     {
@@ -62,8 +58,8 @@ public class NpcGreen : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, target) < 1f)
         {
-            GetNextWaypoint();
-            UpdateDestination();
+           //GetNextWaypoint();
+           //UpdateDestination();
         }
 
         VariableHolder.Instance.CamZoom();
@@ -77,6 +73,7 @@ public class NpcGreen : MonoBehaviour
             if (!VariableHolder.greenQuest)
             {
                 canvasPanel.SetActive(true);
+                index = 0;
             }
         }
     }
@@ -86,51 +83,67 @@ public class NpcGreen : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             insideInteractionZone = false;
-            canvasPanel.SetActive(false);
+            iconanim.SetTrigger("Reset");
+            index = 0;
         }
     }
 
     public void OpenTextBox(InputAction.CallbackContext ctx)
     {
-        if (insideInteractionZone && VariableHolder.greenItem == false && VariableHolder.testItem == false && !text)
+        if(insideInteractionZone && !VariableHolder.greenItem && !VariableHolder.testItem)
         {
-            canvasText.SetActive(true);
-            Item.SetActive(true);
-            Item2.SetActive(true);
-            StartCoroutine(Wait());
+            if(index == 0)
+            {
+                canvasText[0].SetActive(true);
+                Item.SetActive(true);
+                Item2.SetActive(true);
+                VariableHolder.PlayerWave = true;
+                StartCoroutine(AddIndex());
+            }
+            if (index == 1)
+            {
+                canvasText[0].GetComponent<Animator>().SetTrigger("Close");
+                canvasText[1].SetActive(true);
+                StartCoroutine(AddIndex());
+            }
+            if (index == 2)
+            {
+                canvasText[1].GetComponent<Animator>().SetTrigger("Close");
+                StartCoroutine(ZeroIndex());
+            }
         }
 
-        if (insideInteractionZone && VariableHolder.greenItem == true || insideInteractionZone && VariableHolder.testItem == true)
+        if (insideInteractionZone && VariableHolder.greenItem && !VariableHolder.testItem || insideInteractionZone && !VariableHolder.greenItem && VariableHolder.testItem)
         {
-            canvasText2.SetActive(true);
-            StartCoroutine(Wait());
+            if (index == 0)
+            {
+                canvasText[2].SetActive(true);
+                StartCoroutine(AddIndex());
+            }
+            if (index == 1)
+            {
+                canvasText[3].GetComponent<Animator>().SetTrigger("Close");
+                StartCoroutine(ZeroIndex());
+            }
+        }
+        
+        if(insideInteractionZone && VariableHolder.greenItem && VariableHolder.testItem)
+        {
+            canvasText[3].SetActive(true);
+            VariableHolder.PlayerWave = true;
+            StartCoroutine(DisableText());
+        }
+        if (insideInteractionZone && VariableHolder.greenItem && VariableHolder.testItem && text)
+        {
+            canvasText[3].GetComponent<Animator>().SetTrigger("Close");
+            animator.SetTrigger("Walk");
+            insideInteractionZone = false;
+            VariableHolder.greenNpc = false;
+            VariableHolder.greenQuest = true;
+            Destroy(canvasPanel);
+            npcCollider.enabled = false;
         }
 
-        if (insideInteractionZone && VariableHolder.greenItem == true && VariableHolder.testItem == true)
-        {
-            canvasText3.SetActive(true);
-            StartCoroutine(Wait());
-        }
-
-        if (text)
-        {
-            if (insideInteractionZone && !VariableHolder.greenItem && !VariableHolder.testItem || !insideInteractionZone && !VariableHolder.greenItem && !VariableHolder.testItem)
-            {
-                canvasText.SetActive(false);
-            }
-            if (insideInteractionZone && VariableHolder.greenItem == true || insideInteractionZone && VariableHolder.testItem == true || !insideInteractionZone && VariableHolder.greenItem == true || !insideInteractionZone && VariableHolder.testItem == true)
-            {
-                canvasText2.SetActive(false);
-            }
-            if (insideInteractionZone && VariableHolder.greenItem == true && VariableHolder.testItem == true || !insideInteractionZone && VariableHolder.greenItem == true && VariableHolder.testItem == true)
-            {
-                canvasText3.SetActive(false);
-                canvasPanel.SetActive(false);
-                StartCoroutine("GoAway");
-                VariableHolder.greenQuest = true;
-            }
-            text = false;
-        }
     }
 
     void UpdateDestination()
@@ -160,8 +173,19 @@ public class NpcGreen : MonoBehaviour
         yield return new WaitForSeconds(3f);
         UpdateDestination();
     }
+    IEnumerator AddIndex()
+    {
+        yield return new WaitForSeconds(0.4f);
+        index++;
+    }
 
-    IEnumerator Wait()
+
+    IEnumerator ZeroIndex()
+    {
+        yield return new WaitForSeconds(0.4f);
+        index = 0;
+    }
+    IEnumerator DisableText()
     {
         yield return new WaitForSeconds(0.2f);
         text = true;
