@@ -15,7 +15,7 @@ public class NpcBlue : MonoBehaviour
     [SerializeField] private GameObject Item;
 
     private int index = 0;
-    private int secondIndex = 3;
+    private int index2 = 2;
     private Animator animator;
     
     //bool
@@ -137,26 +137,33 @@ public class NpcBlue : MonoBehaviour
         {
             if (insideInteractionZone && VariableHolder.blueItem)
             {
-                
-                if (secondIndex == 3)
+
+                if (index2 == 2)
                 {
+                    canvasText[2].SetActive(true);
+                    StartCoroutine(AddIndex2());
+                }
+
+                if (index2 == 3)
+                {
+                    canvasText[2].GetComponent<Animator>().SetTrigger("Close");
                     canvasText[3].SetActive(true);
                     StartCoroutine(AddIndex2());
                 }
 
-                if (secondIndex == 4)
+                if (index2 == 4)
                 {
                     canvasText[3].GetComponent<Animator>().SetTrigger("Close");
                     canvasText[4].SetActive(true);
                     StartCoroutine(AddIndex2());
                 }
-                if (secondIndex == 5)
+                if (index2 == 5)
                 {
                     canvasText[4].GetComponent<Animator>().SetTrigger("Close");
                     canvasText[5].SetActive(true);
                     StartCoroutine(AddIndex2());
                 }
-                if (secondIndex == 6)
+                if (index2 == 6)
                 {
                     canvasText[5].GetComponent<Animator>().SetTrigger("Close");
                     canvasText[6].SetActive(true);
@@ -226,6 +233,6 @@ public class NpcBlue : MonoBehaviour
     IEnumerator AddIndex2()
     {
         yield return new WaitForSeconds(0.4f);
-        secondIndex++;
+        index2++;
     }   
 }

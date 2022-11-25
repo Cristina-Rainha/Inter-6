@@ -16,6 +16,7 @@ public class NpcOrange : MonoBehaviour
     [SerializeField] private GameObject Item;
 
     private int index = 0;
+    private int index2 = 2;
     private Animator animator;
 
     //bool
@@ -112,23 +113,77 @@ public class NpcOrange : MonoBehaviour
             }
         }
 
-        if (insideInteractionZone && VariableHolder.orangeItem)
+        if (VariableHolder.questCount < 5)
         {
-            canvasText[2].SetActive(true);
-            StartCoroutine(DisableText());
-        }
+            if (insideInteractionZone && VariableHolder.orangeItem)
+            {
+                canvasText[2].SetActive(true);
+                StartCoroutine(DisableText());
+            }
 
-        if (insideInteractionZone && VariableHolder.orangeItem && text)
+            if (insideInteractionZone && VariableHolder.orangeItem && text)
+            {
+                canvasText[2].GetComponent<Animator>().SetTrigger("Close");
+                VariableHolder.PlayerBowDown = true;
+                animator.SetTrigger("Walk");
+                insideInteractionZone = false;
+                VariableHolder.orangeNpc = false;
+                VariableHolder.orangeQuest = true;
+                VariableHolder.Instance.AddQuestCount();
+                Destroy(canvasPanel);
+                npcCollider.enabled = false;
+            }
+        }
+        if (VariableHolder.questCount == 5)
         {
-            canvasText[2].GetComponent<Animator>().SetTrigger("Close");
-            VariableHolder.PlayerBowDown = true;
-            animator.SetTrigger("Walk");
-            insideInteractionZone = false;
-            VariableHolder.orangeNpc = false;
-            VariableHolder.orangeQuest = true;
-            VariableHolder.Instance.AddQuestCount();
-            Destroy(canvasPanel);
-            npcCollider.enabled = false;
+            if (insideInteractionZone && VariableHolder.orangeItem)
+            {
+
+                if (index2 == 2)
+                {
+                    canvasText[2].SetActive(true);
+                    StartCoroutine(AddIndex2());
+                }
+
+                if (index2 == 3)
+                {
+                    canvasText[2].GetComponent<Animator>().SetTrigger("Close");
+                    canvasText[3].SetActive(true);
+                    StartCoroutine(AddIndex2());
+                }
+
+                if (index2 == 4)
+                {
+                    canvasText[3].GetComponent<Animator>().SetTrigger("Close");
+                    canvasText[4].SetActive(true);
+                    StartCoroutine(AddIndex2());
+                }
+                if (index2 == 5)
+                {
+                    canvasText[4].GetComponent<Animator>().SetTrigger("Close");
+                    canvasText[5].SetActive(true);
+                    StartCoroutine(AddIndex2());
+                }
+                if (index2 == 6)
+                {
+                    canvasText[5].GetComponent<Animator>().SetTrigger("Close");
+                    canvasText[6].SetActive(true);
+                    StartCoroutine(DisableText());
+                }
+            }
+
+            if (insideInteractionZone && VariableHolder.orangeItem && text)
+            {
+                canvasText[6].GetComponent<Animator>().SetTrigger("Close");
+                VariableHolder.PlayerBowDown = true;
+                animator.SetTrigger("Walk");
+                insideInteractionZone = false;
+                VariableHolder.orangeNpc = false;
+                VariableHolder.orangeQuest = true;
+                VariableHolder.Instance.AddQuestCount();
+                Destroy(canvasPanel);
+                npcCollider.enabled = false;
+            }
         }
     }
 
@@ -174,5 +229,10 @@ public class NpcOrange : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         text = true;
+    }
+    IEnumerator AddIndex2()
+    {
+        yield return new WaitForSeconds(0.4f);
+        index2++;
     }
 }

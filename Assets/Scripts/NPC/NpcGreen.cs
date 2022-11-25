@@ -17,6 +17,7 @@ public class NpcGreen : MonoBehaviour
     [SerializeField] private GameObject Item2;
 
     private int index = 0;
+    private int index2 = 3;
     private Animator animator;
 
     //bool
@@ -126,23 +127,76 @@ public class NpcGreen : MonoBehaviour
                 StartCoroutine(ZeroIndex());
             }
         }
-        
-        if(insideInteractionZone && VariableHolder.greenItem && VariableHolder.testItem)
+
+        if (VariableHolder.questCount < 5)
         {
-            canvasText[3].SetActive(true);
-            StartCoroutine(DisableText());
+            if (insideInteractionZone && VariableHolder.greenItem && VariableHolder.testItem)
+            {
+                canvasText[3].SetActive(true);
+                StartCoroutine(DisableText());
+            }
+            if (insideInteractionZone && VariableHolder.greenItem && VariableHolder.testItem && text)
+            {
+                canvasText[3].GetComponent<Animator>().SetTrigger("Close");
+                VariableHolder.PlayerBowDown = true;
+                animator.SetTrigger("Walk");
+                insideInteractionZone = false;
+                VariableHolder.greenNpc = false;
+                VariableHolder.greenQuest = true;
+                VariableHolder.Instance.AddQuestCount();
+                Destroy(canvasPanel);
+                npcCollider.enabled = false;
+            }
         }
-        if (insideInteractionZone && VariableHolder.greenItem && VariableHolder.testItem && text)
+        if (VariableHolder.questCount == 5)
         {
-            canvasText[3].GetComponent<Animator>().SetTrigger("Close");
-            VariableHolder.PlayerBowDown = true;
-            animator.SetTrigger("Walk");
-            insideInteractionZone = false;
-            VariableHolder.greenNpc = false;
-            VariableHolder.greenQuest = true;
-            VariableHolder.Instance.AddQuestCount();
-            Destroy(canvasPanel);
-            npcCollider.enabled = false;
+            if (insideInteractionZone && VariableHolder.greenItem && VariableHolder.testItem)
+            {
+                if (index2 == 3)
+                {
+                    canvasText[3].SetActive(true);
+                    StartCoroutine(AddIndex2());
+                }
+
+                if (index2 == 4)
+                {
+                    canvasText[3].GetComponent<Animator>().SetTrigger("Close");
+                    canvasText[4].SetActive(true);
+                    StartCoroutine(AddIndex2());
+                }
+
+                if (index2 == 5)
+                {
+                    canvasText[4].GetComponent<Animator>().SetTrigger("Close");
+                    canvasText[5].SetActive(true);
+                    StartCoroutine(AddIndex2());
+                }
+                if (index2 == 6)
+                {
+                    canvasText[5].GetComponent<Animator>().SetTrigger("Close");
+                    canvasText[6].SetActive(true);
+                    StartCoroutine(AddIndex2());
+                }
+                if (index2 == 7)
+                {
+                    canvasText[6].GetComponent<Animator>().SetTrigger("Close");
+                    canvasText[7].SetActive(true);
+                    StartCoroutine(DisableText());
+                }
+            }
+
+            if (insideInteractionZone && VariableHolder.greenItem && VariableHolder.testItem && text)
+            {
+                canvasText[7].GetComponent<Animator>().SetTrigger("Close");
+                VariableHolder.PlayerBowDown = true;
+                animator.SetTrigger("Walk");
+                insideInteractionZone = false;
+                VariableHolder.greenNpc = false;
+                VariableHolder.greenQuest = true;
+                VariableHolder.Instance.AddQuestCount();
+                Destroy(canvasPanel);
+                npcCollider.enabled = false;
+            }
         }
 
     }
@@ -190,5 +244,10 @@ public class NpcGreen : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         text = true;
+    }
+    IEnumerator AddIndex2()
+    {
+        yield return new WaitForSeconds(0.4f);
+        index2++;
     }
 }
