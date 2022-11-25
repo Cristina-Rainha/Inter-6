@@ -71,6 +71,7 @@ public class NpcRed : MonoBehaviour
             if (!VariableHolder.redQuest)
             {
                 canvasPanel.SetActive(true);
+                index = 0;
             }
         }
     }
@@ -81,6 +82,7 @@ public class NpcRed : MonoBehaviour
         {
             insideInteractionZone = false;
             iconanim.SetTrigger("Reset");
+            index = 0;
         }
     }
 

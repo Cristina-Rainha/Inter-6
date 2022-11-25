@@ -81,6 +81,7 @@ public class NpcBlue : MonoBehaviour
         {
             insideInteractionZone = false;
             iconanim.SetTrigger("Reset");
+            index = 0;
         }
     }
 

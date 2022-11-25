@@ -10,10 +10,12 @@ public class NpcOrange : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     [SerializeField] private GameObject canvasPanel;
-    [SerializeField] private GameObject canvasText;
-    [SerializeField] private GameObject canvasText2;
+    [SerializeField] private List<GameObject> canvasText;
+    [SerializeField] private Collider npcCollider;
+    [SerializeField] private Animator iconanim;
     [SerializeField] private GameObject Item;
 
+    private int index = 0;
     private Animator animator;
 
     //bool
@@ -24,14 +26,13 @@ public class NpcOrange : MonoBehaviour
     private PlayerInputSystem mInputSystem;
     private InputAction InteractInput;
 
+    //IA
     NavMeshAgent agent;
-
     [SerializeField] private List<Transform> waypoints;
-
     private int currentWaypoint;
     private float waitTime = 0.5f;
-
     private Vector3 target;
+
 
     private void Awake()
     {
@@ -46,8 +47,6 @@ public class NpcOrange : MonoBehaviour
     private void OnDisable()
     {
         InteractInput.Disable();
-        canvasText.SetActive(false);
-        canvasText2.SetActive(false);
     }
     void Start()
     {
@@ -59,8 +58,8 @@ public class NpcOrange : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, target) < 1f)
         {
-            GetNextWaypoint();
-            UpdateDestination();
+            //GetNextWaypoint();
+            //UpdateDestination();
         }
         VariableHolder.Instance.CamZoom();
     }
@@ -73,6 +72,7 @@ public class NpcOrange : MonoBehaviour
             if (!VariableHolder.orangeQuest)
             {
                 canvasPanel.SetActive(true);
+                index = 0;
             }
         }
     }
@@ -83,37 +83,51 @@ public class NpcOrange : MonoBehaviour
         {
             insideInteractionZone = false;
             canvasPanel.SetActive(false);
+            index = 0;
         }
     }
 
     public void OpenTextBox(InputAction.CallbackContext ctx)
     {
-        if (insideInteractionZone && !VariableHolder.orangeItem && !text)
+        if (insideInteractionZone && !VariableHolder.orangeItem)
         {
-            canvasText.SetActive(true);
-            Item.SetActive(true);
-            StartCoroutine(DisableText());
+            if (index == 0)
+            {
+                canvasText[0].SetActive(true);
+                Item.SetActive(true);
+                VariableHolder.PlayerWave = true;
+                StartCoroutine(AddIndex());
+            }
+
+            if (index == 1)
+            {
+                canvasText[0].GetComponent<Animator>().SetTrigger("Close");
+                canvasText[1].SetActive(true);
+                StartCoroutine(AddIndex());
+            }
+            if (index == 2)
+            {
+                canvasText[1].GetComponent<Animator>().SetTrigger("Close");
+                StartCoroutine(ZeroIndex());
+            }
         }
-        if (insideInteractionZone && VariableHolder.orangeItem && !text)
+
+        if (insideInteractionZone && VariableHolder.orangeItem)
         {
-            canvasText2.SetActive(true);
+            canvasText[2].SetActive(true);
+            VariableHolder.PlayerWave = true;
             StartCoroutine(DisableText());
         }
 
-        if (text)
+        if (insideInteractionZone && VariableHolder.orangeItem && text)
         {
-            if (insideInteractionZone && !VariableHolder.orangeItem || !insideInteractionZone && !VariableHolder.orangeItem)
-            {
-                canvasText.SetActive(false);
-            }
-            if (insideInteractionZone && VariableHolder.orangeItem || !insideInteractionZone && VariableHolder.orangeItem)
-            {
-                canvasText2.SetActive(false);
-                canvasPanel.SetActive(false);
-                StartCoroutine(GoAway());
-                VariableHolder.orangeQuest = true;
-            }
-            text = false;
+            canvasText[2].GetComponent<Animator>().SetTrigger("Close");
+            animator.SetTrigger("Walk");
+            insideInteractionZone = false;
+            VariableHolder.orangeNpc = false;
+            VariableHolder.orangeQuest = true;
+            Destroy(canvasPanel);
+            npcCollider.enabled = false;
         }
     }
 
@@ -143,6 +157,17 @@ public class NpcOrange : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         UpdateDestination();
+    }
+    IEnumerator AddIndex()
+    {
+        yield return new WaitForSeconds(0.4f);
+        index++;
+    }
+
+    IEnumerator ZeroIndex()
+    {
+        yield return new WaitForSeconds(0.4f);
+        index = 0;
     }
     IEnumerator DisableText()
     {

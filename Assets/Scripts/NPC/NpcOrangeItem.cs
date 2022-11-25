@@ -9,6 +9,10 @@ public class NpcOrangeItem : MonoBehaviour
     [SerializeField] private GameObject item;
     private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
+    private Animator animator;
+
+
+    [SerializeField] private Animator iconanim;
 
     //bool
     private bool inside;
@@ -23,6 +27,7 @@ public class NpcOrangeItem : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
     }
     private void OnEnable()
     {
@@ -51,7 +56,7 @@ public class NpcOrangeItem : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             inside = false;
-            canvasPanel.SetActive(false);
+            iconanim.SetTrigger("Reset");
         }
     }
     public void collect(InputAction.CallbackContext ctx)
@@ -59,6 +64,8 @@ public class NpcOrangeItem : MonoBehaviour
         if (inside && VariableHolder.orangeItem == false)
         {
             VariableHolder.orangeItem = true;
+            animator.SetTrigger("Collect");
+            canvasPanel.SetActive(false);
             audioSource.PlayOneShot(audioClip);
             StartCoroutine(destroy());
         }
@@ -66,7 +73,7 @@ public class NpcOrangeItem : MonoBehaviour
     
     IEnumerator destroy()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.2f);
         Destroy(gameObject);
     }
 }
