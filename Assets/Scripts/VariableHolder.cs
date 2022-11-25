@@ -48,6 +48,9 @@ public class VariableHolder : MonoBehaviour
     public static bool PlayerWaveNPC = false;
 
 
+    //Text
+    public static bool Text1 = false;
+
     private void Awake()
     {
         if (Instance == null)
