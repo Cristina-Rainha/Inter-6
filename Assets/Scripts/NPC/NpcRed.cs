@@ -10,11 +10,13 @@ public class NpcRed : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     [SerializeField] private GameObject canvasPanel;
-    [SerializeField] private GameObject canvasText;
-    [SerializeField] private GameObject canvasText2;
+    [SerializeField] private List<GameObject> canvasText;
+    [SerializeField] private Collider npcCollider;
+    [SerializeField] private Animator iconanim;
     [SerializeField] private GameObject Item;
 
-    private Animator animator; 
+    private int index = 0;
+    private Animator animator;
 
     //bool
     bool insideInteractionZone;
@@ -24,13 +26,11 @@ public class NpcRed : MonoBehaviour
     private PlayerInputSystem mInputSystem;
     private InputAction InteractInput;
 
+    //IA
     private NavMeshAgent agent;
-
     [SerializeField] private List<Transform> waypoints;
-
     private int currentWaypoint;
     private float waitTime = 0.5f;
-
     private Vector3 target;
 
     private void Awake()
@@ -45,9 +45,7 @@ public class NpcRed : MonoBehaviour
     }
     private void OnDisable()
     {
-        InteractInput.Disable();
-        canvasText.SetActive(false);
-        canvasText2.SetActive(false);       
+        InteractInput.Disable();   
     }
     void Start()
     {
@@ -82,38 +80,51 @@ public class NpcRed : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             insideInteractionZone = false;
-            canvasPanel.SetActive(false);
+            iconanim.SetTrigger("Reset");
         }
     }
 
     public void OpenTextBox(InputAction.CallbackContext ctx)
     {
-        if(insideInteractionZone && !VariableHolder.redItem && !text)
+        if (insideInteractionZone && !VariableHolder.redItem)
         {
-            canvasText.SetActive(true);
-            Item.SetActive(true);
+            if (index == 0)
+            {
+                canvasText[0].SetActive(true);
+                Item.SetActive(true);
+                VariableHolder.PlayerWave = true;
+                StartCoroutine(AddIndex());
+            }
+
+            if (index == 1)
+            {
+                canvasText[0].GetComponent<Animator>().SetTrigger("Close");
+                canvasText[1].SetActive(true);
+                StartCoroutine(AddIndex());
+            }
+            if (index == 2)
+            {
+                canvasText[1].GetComponent<Animator>().SetTrigger("Close");
+                StartCoroutine(ZeroIndex());
+            }
+        }
+
+        if (insideInteractionZone && VariableHolder.redItem)
+        {
+            canvasText[2].SetActive(true);
+            VariableHolder.PlayerWave = true;
             StartCoroutine(DisableText());
         }
-        if (insideInteractionZone && VariableHolder.redItem && !text)
+
+        if (insideInteractionZone && VariableHolder.redItem && text)
         {
-            canvasText2.SetActive(true);
-            StartCoroutine(DisableText());
-        }
-            
-        if (text)
-        {
-            if (insideInteractionZone && !VariableHolder.redItem || !insideInteractionZone && !VariableHolder.redItem)
-            {
-                canvasText.SetActive(false);
-            }
-            if (insideInteractionZone && VariableHolder.redItem || !insideInteractionZone && VariableHolder.redItem)
-            {
-                canvasText2.SetActive(false);
-                canvasPanel.SetActive(false);
-                StartCoroutine(GoAway());
-                VariableHolder.redQuest = true;
-            }
-            text = false;
+            canvasText[2].GetComponent<Animator>().SetTrigger("Close");
+            animator.SetTrigger("Walk");
+            insideInteractionZone = false;
+            VariableHolder.redNpc = false;
+            VariableHolder.redQuest = true;
+            Destroy(canvasPanel);
+            npcCollider.enabled = false;
         }
     }
     void UpdateDestination()
@@ -142,6 +153,17 @@ public class NpcRed : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         UpdateDestination();
+    }
+    IEnumerator AddIndex()
+    {
+        yield return new WaitForSeconds(0.4f);
+        index++;
+    }
+
+    IEnumerator ZeroIndex()
+    {
+        yield return new WaitForSeconds(0.4f);
+        index = 0;
     }
     IEnumerator DisableText()
     {

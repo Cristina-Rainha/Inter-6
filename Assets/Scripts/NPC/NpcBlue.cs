@@ -30,7 +30,6 @@ public class NpcBlue : MonoBehaviour
     [SerializeField] private List<Transform> waypoints;
     private int currentWaypoint;
     private float waitTime = 0.5f;
-
     private Vector3 target;
 
     private void Awake()
@@ -126,7 +125,6 @@ public class NpcBlue : MonoBehaviour
             VariableHolder.blueQuest = true;
             Destroy(canvasPanel);
             npcCollider.enabled = false;
-
         }
     }
     void UpdateDestination()

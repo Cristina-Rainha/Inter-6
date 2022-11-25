@@ -9,7 +9,10 @@ public class NpcRedItem : MonoBehaviour
     [SerializeField] private GameObject item;
     private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
-      
+    private Animator animator;
+
+    [SerializeField] private Animator iconanim;
+
     //bool
     private bool inside;
     //Input Action
@@ -23,6 +26,7 @@ public class NpcRedItem : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
     }
     private void OnEnable()
     {
@@ -51,7 +55,7 @@ public class NpcRedItem : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             inside = false;
-            canvasPanel.SetActive(false);
+            iconanim.SetTrigger("Reset");
         }
     }
     public void collect(InputAction.CallbackContext ctx)
@@ -59,6 +63,8 @@ public class NpcRedItem : MonoBehaviour
         if (inside && VariableHolder.redItem == false)
         {
             VariableHolder.redItem = true;
+            animator.SetTrigger("Collect");
+            canvasPanel.SetActive(false);
             audioSource.PlayOneShot(audioClip);
             StartCoroutine(destroy());
         }
