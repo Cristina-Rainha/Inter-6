@@ -1,0 +1,4 @@
+Então, eu ia deixar uma parte da interface do inventário pra fora, mas desisti.
+Achei que ia dar a entender que era pra usar o mouse pra abrir e não era isso que a gente queria.
+Enfim, não coloquei.
+Vou deixar no tutorial do chão escrito que a barra de espaço (ou qualquer outra tecla que você quiser) abre e fecha o inventário, pode ser?

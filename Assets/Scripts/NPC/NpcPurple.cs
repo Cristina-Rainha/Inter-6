@@ -12,7 +12,7 @@ public class NpcPurple : MonoBehaviour
     [SerializeField] private GameObject canvasPanel;
     [SerializeField] private List<GameObject> canvasText;
     [SerializeField] private GameObject Item;
-    [SerializeField] private Collider npcCollider;
+    [SerializeField]     private Collider npcCollider;
 
     private int index = 0;
     private Animator animator;
@@ -57,8 +57,8 @@ public class NpcPurple : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, target) < 1f)
         {
-            GetNextWaypoint();
-            UpdateDestination();
+           // GetNextWaypoint();
+           // UpdateDestination();
         }
         VariableHolder.Instance.CamZoom();
     }
@@ -126,8 +126,11 @@ public class NpcPurple : MonoBehaviour
         {
             canvasText[3].GetComponent<Animator>().SetTrigger("Close");
             animator.SetTrigger("Walk");
+            insideInteractionZone = false;
+            VariableHolder.purpleNpc = false;
+            VariableHolder.purpleQuest = true;
+            Destroy(canvasPanel);
             npcCollider.enabled = false;
-            canvasPanel.SetActive(false);
         }
     }
 

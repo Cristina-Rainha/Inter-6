@@ -18,7 +18,7 @@ public class TextBox : MonoBehaviour
     {
         interaction = mInputSystem.Interact.Use;
         interaction.Enable();
-        //interaction.performed += CloseTextBox;
+        interaction.performed += CloseTextBox;
     }
 
     private void OnDisable()

@@ -111,7 +111,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _GustEnabled: 1
+    - _GustEnabled: 0
     - _GustFrequency: 0.2
     - _GustIntensity: 0.2
     - _GustSpeed: 0.2
@@ -143,11 +143,11 @@ Material:
     - Color_fa7bfd953c0f468faf964c3a5545c86d: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorBottom: {r: 0, g: 0, b: 0, a: 1}
-    - _ColorTop: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorBottom: {r: 0.16546048, g: 0.3490566, b: 0, a: 1}
+    - _ColorTop: {r: 0.21934445, g: 0.7924528, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GustColor: {r: 1, g: 1, b: 1, a: 1}
-    - _PatchesColor: {r: 1, g: 1, b: 1, a: 1}
+    - _GustColor: {r: 0.22126281, g: 0.4056604, b: 0, a: 1}
+    - _PatchesColor: {r: 0.39353356, g: 0.6509434, b: 0.33570662, a: 1}
     - _PatchesOffset: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

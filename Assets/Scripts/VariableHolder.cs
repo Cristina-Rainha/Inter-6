@@ -112,6 +112,17 @@ public class VariableHolder : MonoBehaviour
         }
     }
 
+    public void CamZoomOut()
+    {
+        if (virtualCamera.m_Lens.OrthographicSize <= 6)
+        {
+            virtualCamera.m_Lens.OrthographicSize += 1f * Time.deltaTime;
+            if (virtualCamera.m_Lens.OrthographicSize > 6)
+            {
+                virtualCamera.m_Lens.OrthographicSize = 6;
+            }
+        }
+    }
     private void EndGame()
     {
         if (greenQuest && greenQuest2 && redQuest && blueQuest && purpleQuest && orangeQuest)
