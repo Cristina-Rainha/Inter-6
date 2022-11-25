@@ -15,7 +15,8 @@ public class Interaction : MonoBehaviour
     private InputAction KeyboardInput;
 
     //UI
-    [SerializeField] private List<TextMeshProUGUI> UseText;
+    [SerializeField] private List<Image> iconImage;
+    [SerializeField] private List<Sprite> iconSprite;
     [SerializeField] private GameObject KeyboardControls;
     [SerializeField] private GameObject XboxControls;
     [SerializeField] private GameObject PS4Controls;
@@ -48,9 +49,9 @@ public class Interaction : MonoBehaviour
     {
         if (ctx.performed)
         {
-            foreach (TextMeshProUGUI text in UseText)
+            foreach (Image image in iconImage)
             {
-                text.text = "B";
+                image.sprite = iconSprite[0];
                 KeyboardControls.SetActive(false);
                 XboxControls.SetActive(true);
                 PS4Controls.SetActive(false);
@@ -61,9 +62,9 @@ public class Interaction : MonoBehaviour
     {
         if (ctx.performed)
         {
-            foreach (TextMeshProUGUI text in UseText)
+            foreach (Image image in iconImage)
             {
-                text.text = "O";
+                image.sprite = iconSprite[1];
                 KeyboardControls.SetActive(false);
                 XboxControls.SetActive(false);
                 PS4Controls.SetActive(true);
@@ -75,9 +76,9 @@ public class Interaction : MonoBehaviour
     {
         if (ctx.performed)
         {
-            foreach (TextMeshProUGUI text in UseText)
+            foreach (Image image in iconImage)
             {
-                text.text = "E";
+                image.sprite = iconSprite[2];
                 KeyboardControls.SetActive(true);
                 XboxControls.SetActive(false);
                 PS4Controls.SetActive(false);

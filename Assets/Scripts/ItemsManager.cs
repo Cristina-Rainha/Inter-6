@@ -1,82 +1,96 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class ItemsManager : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> items;
+    [SerializeField] private List<Image> itemsIconBlack;
+    [SerializeField] private List<Sprite> itemsIconSprite;
+    
+    
+    [SerializeField] private Animator inventoryAnimator;
+    private bool isOpen = false;
+    
+
+    private PlayerInputSystem mInputSystem;
+    private InputAction interaction;
+
+    private void Awake()
+    {
+        mInputSystem = new PlayerInputSystem();
+    }
+
+    void OnEnable()
+    {
+        interaction = mInputSystem.Interact.Use1;
+        interaction.Enable();
+        interaction.performed += OpenItem;
+    }
+
+    void OnDisable()
+    {
+        interaction.Disable();
+    }
 
     void Update()
     {
-        ItemVerification();
+        ChangeIconSprite();
     }
 
-    private void ItemVerification()
+    private void ChangeIconSprite()
     {
-        if (VariableHolder.greenItem == true)
+        if (VariableHolder.greenItem)
         {
-            items[0].SetActive(true);
+            itemsIconBlack[0].sprite = itemsIconSprite[0];
         }
 
-        if (VariableHolder.testItem == true)
+        if (VariableHolder.testItem)
         {
-            items[6].SetActive(true);
+            itemsIconBlack[6].sprite = itemsIconSprite[6];
         }
 
-        if (VariableHolder.redItem == true)
+        if (VariableHolder.redItem)
         {
-            items[3].SetActive(true);
+            itemsIconBlack[3].sprite = itemsIconSprite[3];
         }
 
-        if (VariableHolder.blueItem == true)
+        if (VariableHolder.blueItem)
         {
-            items[1].SetActive(true);
+            itemsIconBlack[1].sprite = itemsIconSprite[1];
         }
 
-        if (VariableHolder.purpleItem == true)
+        if (VariableHolder.purpleItem)
         {
-            items[2].SetActive(true);
+            itemsIconBlack[2].sprite = itemsIconSprite[2];
         }
 
-        if (VariableHolder.orangeItem == true)
+        if (VariableHolder.orangeItem)
         {
-            items[5].SetActive(true);
+            itemsIconBlack[5].sprite = itemsIconSprite[5];
         }
 
-        if (VariableHolder.greenItem2 == true)
+        if (VariableHolder.greenItem2)
         {
-            items[4].SetActive(true);
+            itemsIconBlack[4].sprite = itemsIconSprite[4];
         }
+    }
 
-        if(VariableHolder.greenQuest)
+    private void OpenItem(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
         {
-            items[0].SetActive(false);
-            items[6].SetActive(false);
-        }
-
-        if (VariableHolder.redQuest)
-        {
-            items[3].SetActive(false);
-        }
-
-        if (VariableHolder.blueQuest)
-        {
-            items[1].SetActive(false);
-        }
-
-        if (VariableHolder.purpleQuest)
-        {
-            items[2].SetActive(false);
-        }
-
-        if (VariableHolder.orangeQuest)
-        {
-            items[5].SetActive(false);
-        }
-
-        if (VariableHolder.greenQuest2)
-        {
-            items[4].SetActive(false);
+            if (!isOpen)
+            {
+                inventoryAnimator.SetTrigger("Open");
+                isOpen = true;
+            }
+            else
+            {
+                inventoryAnimator.SetTrigger("Close");
+                isOpen = false;
+            }
         }
     }
 }

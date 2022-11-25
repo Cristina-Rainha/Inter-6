@@ -10,6 +10,7 @@ public class HumanNPCTXT : MonoBehaviour
     [SerializeField] private float TextTiming;
     [SerializeField] private List<GameObject> texts;
     [SerializeField] private List<Animator> textAnimator;
+    [SerializeField] private Animator IconAnimator;
     private PlayerInputSystem mInputSystem;
     private InputAction interaction;
 
@@ -49,7 +50,7 @@ public class HumanNPCTXT : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            TextInput.SetActive(false);
+            IconAnimator.SetTrigger("Reset");
             inRange = false;
         }
     }

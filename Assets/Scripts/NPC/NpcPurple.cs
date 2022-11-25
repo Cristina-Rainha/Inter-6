@@ -12,7 +12,8 @@ public class NpcPurple : MonoBehaviour
     [SerializeField] private GameObject canvasPanel;
     [SerializeField] private List<GameObject> canvasText;
     [SerializeField] private GameObject Item;
-    [SerializeField]     private Collider npcCollider;
+    [SerializeField] private Collider npcCollider;
+    [SerializeField] private Animator iconanim;
 
     private int index = 0;
     private Animator animator;
@@ -81,7 +82,7 @@ public class NpcPurple : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             insideInteractionZone = false;
-            canvasPanel.SetActive(false);
+            iconanim.SetTrigger("Reset");
             index = 0;
         }
     }

@@ -11,6 +11,9 @@ public class NpcPurpleItem : MonoBehaviour
     [SerializeField] private AudioClip audioClip;
     private Animator animator;
 
+    
+    [SerializeField] private Animator iconanim;
+
     //bool
     private bool inside;
     //Input Action
@@ -53,7 +56,7 @@ public class NpcPurpleItem : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             inside = false;
-            canvasPanel.SetActive(false);
+            iconanim.SetTrigger("Reset");
         }
     }
     public void collect(InputAction.CallbackContext ctx)
@@ -62,6 +65,7 @@ public class NpcPurpleItem : MonoBehaviour
         {
             VariableHolder.purpleItem = true;
             animator.SetTrigger("Collect");
+            canvasPanel.SetActive(false);
             audioSource.PlayOneShot(audioClip);
             StartCoroutine(destroy());
         }
