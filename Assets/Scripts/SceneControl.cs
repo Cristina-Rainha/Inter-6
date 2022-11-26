@@ -186,6 +186,7 @@ public class SceneControl : MonoBehaviour
 
     private void KeyboardInputControl(InputAction.CallbackContext ctx)
     {
-      
+        ps4 = false;
+        xbox = false;
     }
 }
