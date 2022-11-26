@@ -8,8 +8,6 @@ public class ItemsManager : MonoBehaviour
 {
     [SerializeField] private List<Image> itemsIconBlack;
     [SerializeField] private List<Sprite> itemsIconSprite;
-    
-    
     [SerializeField] private Animator inventoryAnimator;
     private bool isOpen = false;
     

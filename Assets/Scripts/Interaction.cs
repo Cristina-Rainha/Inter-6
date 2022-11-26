@@ -17,6 +17,8 @@ public class Interaction : MonoBehaviour
     //UI
     [SerializeField] private List<Image> iconImage;
     [SerializeField] private List<Sprite> iconSprite;
+    [SerializeField] private Image meiIcon;
+    [SerializeField] private List<Sprite> meiSprite;
     [SerializeField] private GameObject KeyboardControls;
     [SerializeField] private GameObject XboxControls;
     [SerializeField] private GameObject PS4Controls;
@@ -59,6 +61,7 @@ public class Interaction : MonoBehaviour
                 KeyboardControls.SetActive(false);
                 XboxControls.SetActive(true);
                 PS4Controls.SetActive(false);
+                meiIcon.sprite = meiSprite[0];
                 MeiDialogs[0].sprite = MeiDialogSprites[0];
                 MeiDialogs[1].sprite = MeiDialogSprites[1];
             }
@@ -74,6 +77,7 @@ public class Interaction : MonoBehaviour
                 KeyboardControls.SetActive(false);
                 XboxControls.SetActive(false);
                 PS4Controls.SetActive(true);
+                meiIcon.sprite = meiSprite[1];
                 MeiDialogs[0].sprite = MeiDialogSprites[2];
                 MeiDialogs[1].sprite = MeiDialogSprites[3];
             }
@@ -90,9 +94,9 @@ public class Interaction : MonoBehaviour
                 KeyboardControls.SetActive(true);
                 XboxControls.SetActive(false);
                 PS4Controls.SetActive(false);
+                meiIcon.sprite = meiSprite[2];
                 MeiDialogs[0].sprite = MeiDialogSprites[4];
                 MeiDialogs[1].sprite = MeiDialogSprites[5];
-
             }
         }
     }
