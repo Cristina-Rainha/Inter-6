@@ -201,6 +201,11 @@ public class NpcGreen : MonoBehaviour
 
     }
 
+    public void TurnOFFNPC()
+    {
+        gameObject.SetActive(false);
+    }
+
     void UpdateDestination()
     {
         animator.SetTrigger("Walk");
@@ -233,8 +238,6 @@ public class NpcGreen : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         index++;
     }
-
-
     IEnumerator ZeroIndex()
     {
         yield return new WaitForSeconds(0.4f);
