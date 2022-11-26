@@ -44,15 +44,15 @@ public class SceneControl : MonoBehaviour
         UIinput.performed += Pause;
 
         XboxInput = mInputSystem.UI.XboxInput;
-        //XboxInput.Enable();
+        XboxInput.Enable();
         XboxInput.performed += XboxInputControl;
 
         PS4Input = mInputSystem.UI.PS4Input;
-        //PS4Input.Enable();
+        PS4Input.Enable();
         PS4Input.performed += PS4InputControl;
 
         KeyboardInput = mInputSystem.UI.KeyboardInput;
-        //KeyboardInput.Enable();
+        KeyboardInput.Enable();
         KeyboardInput.performed += KeyboardInputControl;
         
     }
@@ -67,6 +67,13 @@ public class SceneControl : MonoBehaviour
     {
         Time.timeScale = 1f;
         volume.SetActive(true);
+    }
+
+    private void Update()
+    {
+        Debug.Log(ps4);
+        Debug.Log(xbox);
+        
     }
 
     private void Pause(InputAction.CallbackContext ctx)
@@ -86,12 +93,21 @@ public class SceneControl : MonoBehaviour
             else
             {
                 pauseMenu.SetActive(true);
-                if(ps4 || xbox)
+                if (!MenuButtonsGrup.activeSelf)
+                {
+                    MenuButtonsGrup.SetActive(true);
+                }
+                if (ps4 || xbox)
                 {
                     menuButton.Select();
+                    Cursor.lockState = CursorLockMode.Locked;
+                }
+                else
+                {
+                    Cursor.lockState = CursorLockMode.None;
                 }
                 Time.timeScale = 0f;
-                Cursor.lockState = CursorLockMode.None;
+
             }
         }
     }
@@ -99,26 +115,38 @@ public class SceneControl : MonoBehaviour
     public void OpenControlMenu()
     {
         ControlePanel.SetActive(true);
-        controleButton.Select();
+        if (ps4 || xbox)
+        {
+            controleButton.Select();
+        }
         MenuButtonsGrup.SetActive(false);
     }
     public void OpenExitOption()
     {
         exitPanel.SetActive(true);
-        noToExitButton.Select();
+        if (ps4 || xbox)
+        {
+            noToExitButton.Select();
+        }
         MenuButtonsGrup.SetActive(false);
     }
 
     public void OpenMenuOption()
     {
         menuPanel.SetActive(true);
-        noToMenuButton.Select();
+        if (ps4 || xbox)
+        {
+            noToMenuButton.Select();
+        }
         MenuButtonsGrup.SetActive(false);
     }
     public void OpenSoundMenu()
     {
         SoundPanel.SetActive(true);
-        soundButton.Select();
+        if (ps4 || xbox)
+        {
+            soundButton.Select();
+        }
         MenuButtonsGrup.SetActive(false);
     }
     public void Menu()
@@ -144,28 +172,40 @@ public class SceneControl : MonoBehaviour
     {
         ControlePanel.SetActive(false);
         MenuButtonsGrup.SetActive(true);
-        menuButton.Select();
+        if (ps4 || xbox)
+        {
+            menuButton.Select();
+        }
     }
 
     public void CloseSoundMenu()
     {
         SoundPanel.SetActive(false);
         MenuButtonsGrup.SetActive(true);
-        menuButton.Select();
+        if (ps4 || xbox)
+        {
+            menuButton.Select();
+        }
     }
 
     public void CloseExit()
     {
         exitPanel.SetActive(false);
         MenuButtonsGrup.SetActive(true);
-        menuButton.Select();
+        if (ps4 || xbox)
+        {
+            menuButton.Select();
+        }
     }
     
     public void CloseMenu()
     {
         menuPanel.SetActive(false);
         MenuButtonsGrup.SetActive(true);
-        menuButton.Select();
+        if (ps4 || xbox)
+        {
+            menuButton.Select();
+        }
     }
 
     private void XboxInputControl(InputAction.CallbackContext ctx)
@@ -186,7 +226,10 @@ public class SceneControl : MonoBehaviour
 
     private void KeyboardInputControl(InputAction.CallbackContext ctx)
     {
-        ps4 = false;
-        xbox = false;
+        if (ctx.performed)
+        {
+            ps4 = false;
+            xbox = false;
+        }
     }
 }
