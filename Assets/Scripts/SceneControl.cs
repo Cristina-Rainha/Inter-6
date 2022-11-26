@@ -18,6 +18,7 @@ public class SceneControl : MonoBehaviour
     [SerializeField] private string sceneMenu;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject ControlePanel;
+    [SerializeField] private GameObject SoundPanel;
     [SerializeField] private Button menuButton;
     [SerializeField] private Button controleButton;
 
@@ -96,6 +97,25 @@ public class SceneControl : MonoBehaviour
                 menuButton.Select();
                 Cursor.lockState= CursorLockMode.None;
             }
+        }
+    }
+
+    public void CotinueButton()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void SoundMenu()
+    {
+        if (SoundPanel.activeSelf == false)
+        {
+            SoundPanel.SetActive(true);
+        }
+        else
+        {
+            SoundPanel.SetActive(false);
         }
     }
 

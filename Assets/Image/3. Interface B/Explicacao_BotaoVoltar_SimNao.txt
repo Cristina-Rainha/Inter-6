@@ -1,0 +1,4 @@
+Voltar e Sim/Não
+
+Funciona do mesmo jeito que os botões de Pause.
+Se a setinha tá em cima, versão escura. Se não está, versão clara.

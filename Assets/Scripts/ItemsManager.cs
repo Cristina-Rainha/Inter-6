@@ -8,6 +8,7 @@ public class ItemsManager : MonoBehaviour
 {
     [SerializeField] private List<Image> itemsIconBlack;
     [SerializeField] private List<Sprite> itemsIconSprite;
+    [SerializeField] private List<GameObject> itemsSlot;
     [SerializeField] private Animator inventoryAnimator;
     private bool isOpen = false;
     
@@ -30,11 +31,13 @@ public class ItemsManager : MonoBehaviour
     void OnDisable()
     {
         interaction.Disable();
+
     }
 
     void Update()
     {
         ChangeIconSprite();
+        DeactivateItem();
     }
 
     private void ChangeIconSprite()
@@ -72,6 +75,38 @@ public class ItemsManager : MonoBehaviour
         if (VariableHolder.greenItem2)
         {
             itemsIconBlack[4].sprite = itemsIconSprite[4];
+        }
+    }
+
+    private void DeactivateItem()
+    {
+        if(VariableHolder.blueQuest)
+        {
+            itemsSlot[1].SetActive(false);
+        }
+        if (VariableHolder.greenQuest)
+        {
+            itemsSlot[0].SetActive(false);
+        }
+
+        if (VariableHolder.purpleQuest)
+        {
+            itemsSlot[2].SetActive(false);
+        }
+
+        if (VariableHolder.orangeQuest)
+        {
+            itemsSlot[5].SetActive(false);
+        }
+
+        if (VariableHolder.greenQuest2)
+        {
+            itemsSlot[4].SetActive(false);
+        }
+
+        if (VariableHolder.redQuest)
+        {
+            itemsSlot[3].SetActive(false);
         }
     }
 
