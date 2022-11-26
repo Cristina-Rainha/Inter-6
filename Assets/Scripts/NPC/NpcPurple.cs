@@ -188,6 +188,10 @@ public class NpcPurple : MonoBehaviour
             }
         }
     }
+    public void TurnOFFNPC()
+    {
+        gameObject.SetActive(false);
+    }
 
     void UpdateDestination()
     {

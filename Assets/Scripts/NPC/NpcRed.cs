@@ -185,6 +185,11 @@ public class NpcRed : MonoBehaviour
             }
         }
     }
+    public void TurnOFFNPC()
+    {
+        gameObject.SetActive(false);
+    }
+
     void UpdateDestination()
     {
         animator.SetTrigger("Walk");

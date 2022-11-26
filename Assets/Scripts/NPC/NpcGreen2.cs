@@ -186,6 +186,11 @@ public class NpcGreen2 : MonoBehaviour
             }
         }
     }
+    public void TurnOFFNPC()
+    {
+        gameObject.SetActive(false);
+    }
+
 
     void UpdateDestination()
     {

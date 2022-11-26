@@ -186,6 +186,11 @@ public class NpcOrange : MonoBehaviour
             }
         }
     }
+    public void TurnOFFNPC()
+    {
+        gameObject.SetActive(false);
+    }
+
 
     void UpdateDestination()
     {

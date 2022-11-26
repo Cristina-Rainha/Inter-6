@@ -185,7 +185,12 @@ public class NpcBlue : MonoBehaviour
             }
         }
     }
-    
+    public void TurnOFFNPC()
+    {
+        gameObject.SetActive(false);
+    }
+
+
     void UpdateDestination()
     {
         animator.SetTrigger("Walk");
