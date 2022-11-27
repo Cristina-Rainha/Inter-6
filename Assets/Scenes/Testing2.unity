@@ -31146,7 +31146,7 @@ MonoBehaviour:
   Text: {fileID: 494812350}
   icon: {fileID: 904313668}
   iconAnim: {fileID: 904313671}
-  SceneNum: 0
+  SceneNum: 2
 --- !u!1 &1064118842
 GameObject:
   m_ObjectHideFlags: 0

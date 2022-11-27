@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Testing2.unity
     guid: 959bf32d6dde01f4b9384758cf7dfddb
-  - enabled: 0
-    path: Assets/Scenes/Testing.unity
-    guid: 9b7be3ff4f552d942969cd397a733d60
+  - enabled: 1
+    path: Assets/Scenes/EndGame.unity
+    guid: 151857581c23f204dbca4b4e4c6b5382
+  - enabled: 1
+    path: Assets/Scenes/EndGameOutro.unity
+    guid: efc6c5902d65ece408b14d81be6b69e0
   m_configObjects: {}
