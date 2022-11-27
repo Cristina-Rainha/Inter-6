@@ -8,15 +8,27 @@ public class MeiEndGameManager : MonoBehaviour
     [SerializeField] private int sceneToLoad;
     [SerializeField] private GameObject endMap;
     [SerializeField] private GameObject endGameCanvas;
+    [SerializeField] private AudioSource endGameMusic;
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    private void Update()
+    {
+        if (!endGameMusic.isPlaying)
+        {
+            StartCoroutine(LoadSceneAfterDelay());
+        }
+    }
+
     public void LoadScene()
     {
-        StartCoroutine(LoadSceneAfterDelay());
+        if (!endGameMusic.isPlaying)
+        {
+           // StartCoroutine(LoadSceneAfterDelay());
+        }
     }
 
     public void DisableAndEnable()
@@ -27,7 +39,7 @@ public class MeiEndGameManager : MonoBehaviour
 
     IEnumerator LoadSceneAfterDelay()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene(sceneToLoad);
     }
 }
