@@ -4,6 +4,22 @@ using UnityEngine;
 
 public class PlayerVerification : MonoBehaviour
 {
+    [SerializeField] private GameObject NPCTutorial;
+
+    private bool canshow = true;
+
+    private void Update()
+    {
+        if (VariableHolder.greenNpc || VariableHolder.redNpc || VariableHolder.blueNpc || VariableHolder.purpleNpc || VariableHolder.orangeNpc || VariableHolder.greenNpc2)
+        {
+            if (canshow)
+            {
+                NPCTutorial.SetActive(true);
+                canshow = false;
+            }
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("purple"))
