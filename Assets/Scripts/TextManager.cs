@@ -31,7 +31,7 @@ public class TextManager : MonoBehaviour
 
     private void Start()
     {
-        //aStartCoroutine(InicialDialog());
+        //StartCoroutine(InicialDialog());
     }
 
     private void NextText(InputAction.CallbackContext ctx)
