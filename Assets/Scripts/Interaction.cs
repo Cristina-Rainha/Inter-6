@@ -27,6 +27,11 @@ public class Interaction : MonoBehaviour
     [SerializeField] private List<Image> MeiDialogs;
     [SerializeField] private List<Sprite> MeiDialogSprites;
 
+    //Tutorial
+    [SerializeField] private List<Image> tutorialImage;
+    [SerializeField] private List<Sprite> tutorialSprite1;
+    [SerializeField] private List<Sprite> tutorialSprite2;
+    
     void Awake()
     {
         mInputSystem = new PlayerInputSystem();
@@ -64,6 +69,8 @@ public class Interaction : MonoBehaviour
                 meiIcon.sprite = meiSprite[0];
                 MeiDialogs[0].sprite = MeiDialogSprites[0];
                 MeiDialogs[1].sprite = MeiDialogSprites[1];
+                tutorialImage[0].sprite = tutorialSprite1[0];
+                tutorialImage[1].sprite = tutorialSprite2[0];
             }
         }
     }
@@ -80,6 +87,8 @@ public class Interaction : MonoBehaviour
                 meiIcon.sprite = meiSprite[1];
                 MeiDialogs[0].sprite = MeiDialogSprites[2];
                 MeiDialogs[1].sprite = MeiDialogSprites[3];
+                tutorialImage[0].sprite = tutorialSprite1[2];
+                tutorialImage[1].sprite = tutorialSprite2[2];
             }
         }
     }
@@ -97,6 +106,8 @@ public class Interaction : MonoBehaviour
                 meiIcon.sprite = meiSprite[2];
                 MeiDialogs[0].sprite = MeiDialogSprites[4];
                 MeiDialogs[1].sprite = MeiDialogSprites[5];
+                tutorialImage[0].sprite = tutorialSprite1[1];
+                tutorialImage[1].sprite = tutorialSprite2[1];
             }
         }
     }

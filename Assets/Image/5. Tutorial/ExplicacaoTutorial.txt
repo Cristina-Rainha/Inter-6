@@ -1,0 +1,8 @@
+Explicação do Tutorial:
+Surgir em momentos específicos. Ex.: quando um vagalume aparece ou quando ela fala com um NPC.
+Quando o tutorial aparece, tudo trava. E só volta depois que o jogador clicar no E/A/X.
+O tutorial surge na direita, de fora para dentro (que nem no inventário).
+
+Opcional:
+Pensei no fundo opcional surgir primeiro, no centro da tela mesmo. Daí o jogo para.
+Quando o jogo parar, o tutorial surge no canto direito, de fora para dentro (que nem no inventário).
