@@ -59,7 +59,7 @@ public class MeiUse : MonoBehaviour
         {
             if (MeiEndGame)
             {
-                Text.SetActive(false);
+                Text.SetActive(true);
                 StartCoroutine(EndGame());
             }
         }
@@ -67,7 +67,7 @@ public class MeiUse : MonoBehaviour
 
     IEnumerator EndGame()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         SceneManager.LoadScene(LevelNumber);
     }
 

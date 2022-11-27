@@ -13,6 +13,11 @@ public class DelayOnObj : MonoBehaviour
     public void ActivateObj()
     {
         objToSetActive.SetActive(true);
+
+    }
+
+    public void DeactivateObj()
+    {
         gameObject.SetActive(false);
     }
 }
