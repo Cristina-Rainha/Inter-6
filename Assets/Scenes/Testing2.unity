@@ -3885,7 +3885,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &134335049
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19382,6 +19382,8 @@ MonoBehaviour:
   - {fileID: 681574871}
   - {fileID: 1779477448}
   - {fileID: 1880749921}
+  - {fileID: 610097619}
+  - {fileID: 1314078767}
   iconSprite:
   - {fileID: 21300000, guid: 8239baf5445b58742b94e3326f0d59d3, type: 3}
   - {fileID: 21300000, guid: 46c306bc284468642bf22bf08f33b072, type: 3}
@@ -19735,7 +19737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38bceb8b25141f547b1f837b4bb21275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToGoDissolve: 10
+  timeToGoDissolve: 25
 --- !u!1 &736802254
 GameObject:
   m_ObjectHideFlags: 0
@@ -20154,7 +20156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &744235132
 RectTransform:
   m_ObjectHideFlags: 0
