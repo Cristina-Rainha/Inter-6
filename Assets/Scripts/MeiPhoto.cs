@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
-public class MeiUse : MonoBehaviour
+public class MeiPhoto : MonoBehaviour
 {
+
     [SerializeField] private GameObject Text;
     [SerializeField] private GameObject icon;
     [SerializeField] private Animator iconAnim;
+    [SerializeField] private int SceneNum;
 
     private PlayerInputSystem mInputSystem;
     private InputAction interaction;
 
     private bool canshow = false;
+
     private void Awake()
     {
         mInputSystem = new PlayerInputSystem();
@@ -24,6 +28,7 @@ public class MeiUse : MonoBehaviour
         interaction.Enable();
         interaction.performed += OpenTextBox;
     }
+
     void OnDisable()
     {
         interaction.Disable();
@@ -35,17 +40,18 @@ public class MeiUse : MonoBehaviour
         {
             if (canshow)
             {
-                if (Text.activeSelf)
-                {
-                    Text.SetActive(false);
-                }
-                else
-                {
-                    Text.SetActive(true);
-                }
+                Text.SetActive(true);
+                StartCoroutine(LoadScene());
             }
         }
     }
+
+    IEnumerator LoadScene()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(SceneNum);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
