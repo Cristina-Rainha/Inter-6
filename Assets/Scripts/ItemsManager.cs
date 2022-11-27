@@ -87,6 +87,7 @@ public class ItemsManager : MonoBehaviour
         if (VariableHolder.greenQuest)
         {
             itemsSlot[0].SetActive(false);
+            itemsSlot[6].SetActive(false);
         }
 
         if (VariableHolder.purpleQuest)

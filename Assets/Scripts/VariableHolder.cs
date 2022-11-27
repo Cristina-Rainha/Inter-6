@@ -46,10 +46,12 @@ public class VariableHolder : MonoBehaviour
     public static bool PlayerBowDown = false;
     public static bool PlayerPickUp = false;
     public static bool PlayerWaveNPC = false;
-
-
+    
     //Text
     public static bool Text1 = false;
+
+    //EndGame
+    [SerializeField] private GameObject MeiPhoto;
 
     private void Awake()
     {
@@ -140,6 +142,7 @@ public class VariableHolder : MonoBehaviour
         if (greenQuest && greenQuest2 && redQuest && blueQuest && purpleQuest && orangeQuest)
         {
             Debug.Log("End is on");
+            MeiPhoto.SetActive(true);
         }
     }
 

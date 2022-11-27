@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class MeiUse : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class MeiUse : MonoBehaviour
     private InputAction interaction;
 
     private bool canshow = false;
+
+    //End
+    [SerializeField]private bool MeiEndGame = false;
+    [SerializeField] private int LevelNumber;
     private void Awake()
     {
         mInputSystem = new PlayerInputSystem();
@@ -23,6 +28,7 @@ public class MeiUse : MonoBehaviour
         interaction = mInputSystem.Interact.Use;
         interaction.Enable();
         interaction.performed += OpenTextBox;
+        interaction.performed += PhotoEndGame;
     }
     void OnDisable()
     {
@@ -45,6 +51,24 @@ public class MeiUse : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void PhotoEndGame(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            if (MeiEndGame)
+            {
+                Text.SetActive(false);
+                StartCoroutine(EndGame());
+            }
+        }
+    }
+
+    IEnumerator EndGame()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(LevelNumber);
     }
 
     private void OnTriggerEnter(Collider other)
