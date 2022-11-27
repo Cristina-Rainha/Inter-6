@@ -17,7 +17,14 @@ public class RotateUI : MonoBehaviour
     {
         if(cameraTransform)
         {
-            localTransform.LookAt(2 * localTransform.position - cameraTransform.position);
+            if (VariableHolder.outside)
+            {
+                transform.rotation = Quaternion.LookRotation(-2 * transform.position - cameraTransform.position);
+            }
+            else
+            {
+                transform.rotation = Quaternion.LookRotation(transform.position - cameraTransform.position);
+            }
         }
     }
 }

@@ -37,9 +37,11 @@ public class VariableHolder : MonoBehaviour
     [SerializeField] private int near;
     [SerializeField] private int far;
 
+    //Cam
     public static VariableHolder Instance;
     public static int NearClipPlane;
     public static int FarClipPlane;
+    public static bool outside = true;
 
     //Player
     public static bool PlayerWave = false;

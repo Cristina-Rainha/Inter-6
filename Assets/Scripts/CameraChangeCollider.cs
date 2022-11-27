@@ -37,6 +37,7 @@ public class CameraChangeCollider : MonoBehaviour
         cam1.SetActive(false);
         cam2.SetActive(true);
         myCamera.orthographic = false;
+        VariableHolder.outside = false;
     }
 
     IEnumerator OutsideCam()
@@ -47,5 +48,6 @@ public class CameraChangeCollider : MonoBehaviour
         myCamera.orthographic = true;
         virtualCamera.m_Lens.NearClipPlane= VariableHolder.NearClipPlane;
         virtualCamera.m_Lens.FarClipPlane = VariableHolder.FarClipPlane;
+        VariableHolder.outside = true;
     }
 }
