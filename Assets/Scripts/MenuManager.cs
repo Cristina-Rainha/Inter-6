@@ -17,8 +17,10 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Slider slider;
     [SerializeField] private GameObject rain;
 
+    //buttons
     [SerializeField] private Button primarybutton;
     [SerializeField] private Button back;
+    [SerializeField] private GameObject buttons;
 
     private PlayerInputSystem mInputSystem;
     private InputAction XboxInput;
@@ -72,6 +74,7 @@ public class MenuManager : MonoBehaviour
         credits.SetActive(true);
         if(credits.activeSelf)
         {
+            buttons.SetActive(false);
             back.Select();
         }
     }
@@ -81,6 +84,7 @@ public class MenuManager : MonoBehaviour
         credits.SetActive(false);
         if (credits.activeSelf == false)
         {
+            buttons.SetActive(true);
             primarybutton.Select();
         }
     }
@@ -111,10 +115,12 @@ public class MenuManager : MonoBehaviour
     private void XboxInputControl(InputAction.CallbackContext ctx)
     {
         Cursor.lockState = CursorLockMode.Locked;
+        primarybutton.Select();
     }
     private void PS4InputControl(InputAction.CallbackContext ctx)
     {
         Cursor.lockState = CursorLockMode.Locked;
+        primarybutton.Select();
 
     }
     private void KeyboardInputControl(InputAction.CallbackContext ctx)
