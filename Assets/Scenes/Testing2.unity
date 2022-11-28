@@ -29120,6 +29120,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.8176106, z: 1}
   m_Center: {x: 0, y: 0.9069522, z: -0}
+--- !u!114 &917000786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917000777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb5d8adcd38ba7428b374f311b38d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MeiText: {fileID: 1440218983}
 --- !u!1001 &917874118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36648,6 +36661,19 @@ MonoBehaviour:
   npcCollider: {fileID: 1101368983}
   iconanim: {fileID: 610097618}
   waypoints: []
+--- !u!114 &1101368986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101368977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb5d8adcd38ba7428b374f311b38d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MeiText: {fileID: 1440218983}
 --- !u!1 &1102062780 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2337326077826242012, guid: 9082f962d89c5df4e840628d6e955898,
@@ -48109,6 +48135,7 @@ GameObject:
   - component: {fileID: 1440218987}
   - component: {fileID: 1440218986}
   - component: {fileID: 1440218985}
+  - component: {fileID: 1440218990}
   m_Layer: 5
   m_Name: Comment_Spechless
   m_TagString: Untagged
@@ -48237,6 +48264,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440218983}
   m_CullTransparentMesh: 1
+--- !u!114 &1440218990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440218983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb5d8adcd38ba7428b374f311b38d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MeiText: {fileID: 0}
 --- !u!1 &1440925389
 GameObject:
   m_ObjectHideFlags: 3
@@ -50878,6 +50918,19 @@ MonoBehaviour:
   m_DefaultActionMap: Interact
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1510272412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510272403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb5d8adcd38ba7428b374f311b38d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MeiText: {fileID: 1440218983}
 --- !u!1 &1512161928 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8783340758332071219, guid: 3b3b83ff1daf6fc4393dc4e97aa84123,
@@ -53448,6 +53501,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1563246516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637577237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb5d8adcd38ba7428b374f311b38d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MeiText: {fileID: 1440218983}
 --- !u!1 &1563909523 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 401122468259050895, guid: 9082f962d89c5df4e840628d6e955898,
@@ -64861,6 +64927,19 @@ MonoBehaviour:
   m_DefaultActionMap: Interact
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1899850820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899850811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb5d8adcd38ba7428b374f311b38d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MeiText: {fileID: 1440218983}
 --- !u!1 &1900020385
 GameObject:
   m_ObjectHideFlags: 0
@@ -71305,6 +71384,19 @@ MonoBehaviour:
   m_DefaultActionMap: Interact
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &2095041132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095041123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb5d8adcd38ba7428b374f311b38d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MeiText: {fileID: 1440218983}
 --- !u!1 &2095397566
 GameObject:
   m_ObjectHideFlags: 0

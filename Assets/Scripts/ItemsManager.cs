@@ -12,7 +12,6 @@ public class ItemsManager : MonoBehaviour
     [SerializeField] private Animator inventoryAnimator;
     private bool isOpen = false;
     
-
     private PlayerInputSystem mInputSystem;
     private InputAction interaction;
 
