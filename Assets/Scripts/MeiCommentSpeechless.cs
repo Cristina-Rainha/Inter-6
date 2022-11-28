@@ -13,7 +13,7 @@ public class MeiCommentSpeechless : MonoBehaviour
         {
             MeiText.SetActive(true);
             count++;
-            Destroy(MeiText, 1f);
+            Destroy(MeiText, 3f);
         }
     }
 }

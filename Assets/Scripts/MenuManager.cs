@@ -27,7 +27,8 @@ public class MenuManager : MonoBehaviour
     private InputAction PS4Input;
     private InputAction KeyboardInput;
 
-
+    private bool xbox;
+    private bool ps;
     void Awake()
     {
         mInputSystem = new PlayerInputSystem();
@@ -57,6 +58,11 @@ public class MenuManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1f;
+        primarybutton.Select();
+    }
+    private void Update()
+    {
+         
     }
 
     public void StartGame()
@@ -71,11 +77,23 @@ public class MenuManager : MonoBehaviour
 
     public void Credits()
     {
-        credits.SetActive(true);
-        if(credits.activeSelf)
+        if (credits.activeSelf == false)
         {
+            credits.SetActive(true);
+            if (xbox || ps)
+            {
+                back.Select();
+            }
             buttons.SetActive(false);
-            back.Select();
+        }
+        else
+        {
+            credits.SetActive(false);
+            buttons.SetActive(true);
+            if (xbox || ps)
+            {
+                primarybutton.Select();
+            }
         }
     }
     
@@ -84,8 +102,11 @@ public class MenuManager : MonoBehaviour
         credits.SetActive(false);
         if (credits.activeSelf == false)
         {
+            if (ps || xbox)
+            {
+                back.Select();
+            }
             buttons.SetActive(true);
-            primarybutton.Select();
         }
     }
     public void CloseGame()
@@ -115,17 +136,18 @@ public class MenuManager : MonoBehaviour
     private void XboxInputControl(InputAction.CallbackContext ctx)
     {
         Cursor.lockState = CursorLockMode.Locked;
-        primarybutton.Select();
+        xbox = true;
     }
     private void PS4InputControl(InputAction.CallbackContext ctx)
     {
         Cursor.lockState = CursorLockMode.Locked;
-        primarybutton.Select();
-
+        ps = true;
     }
     private void KeyboardInputControl(InputAction.CallbackContext ctx)
     {
         Cursor.lockState = CursorLockMode.None;
+        ps = false;
+        xbox = false;
     }
 }
 
