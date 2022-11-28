@@ -132,12 +132,33 @@ public class NpcGreen : MonoBehaviour
         {
             if (insideInteractionZone && VariableHolder.greenItem && VariableHolder.testItem)
             {
-                canvasText[3].SetActive(true);
-                StartCoroutine(DisableText());
+                if (index == 0)
+                {
+                    canvasText[3].SetActive(true);
+                    StartCoroutine(AddIndex());
+                }
+                if (index == 1)
+                {
+                    canvasText[3].GetComponent<Animator>().SetTrigger("Close");
+                    canvasText[4].SetActive(true);
+                    StartCoroutine(AddIndex());
+                }
+                if (index == 2)
+                {
+                    canvasText[4].GetComponent<Animator>().SetTrigger("Close");
+                    canvasText[5].SetActive(true);
+                    StartCoroutine(AddIndex());
+                }
+                if (index == 3)
+                {
+                    canvasText[5].GetComponent<Animator>().SetTrigger("Close");
+                    canvasText[6].SetActive(true);
+                    StartCoroutine(DisableText());
+                }
             }
             if (insideInteractionZone && VariableHolder.greenItem && VariableHolder.testItem && text)
             {
-                canvasText[3].GetComponent<Animator>().SetTrigger("Close");
+                canvasText[6].GetComponent<Animator>().SetTrigger("Close");
                 VariableHolder.PlayerBowDown = true;
                 animator.SetTrigger("Walk");
                 insideInteractionZone = false;
@@ -181,13 +202,31 @@ public class NpcGreen : MonoBehaviour
                 {
                     canvasText[6].GetComponent<Animator>().SetTrigger("Close");
                     canvasText[7].SetActive(true);
+                    StartCoroutine(AddIndex2());
+                }
+                if (index2 == 8)
+                {
+                    canvasText[7].GetComponent<Animator>().SetTrigger("Close");
+                    canvasText[8].SetActive(true);
+                    StartCoroutine(AddIndex2());
+                }
+                if (index2 == 9)
+                {
+                    canvasText[8].GetComponent<Animator>().SetTrigger("Close");
+                    canvasText[9].SetActive(true);
+                    StartCoroutine(AddIndex2());
+                }
+                if (index2 == 10)
+                {
+                    canvasText[9].GetComponent<Animator>().SetTrigger("Close");
+                    canvasText[10].SetActive(true);
                     StartCoroutine(DisableText());
                 }
             }
 
             if (insideInteractionZone && VariableHolder.greenItem && VariableHolder.testItem && text)
             {
-                canvasText[7].GetComponent<Animator>().SetTrigger("Close");
+                canvasText[10].GetComponent<Animator>().SetTrigger("Close");
                 VariableHolder.PlayerBowDown = true;
                 animator.SetTrigger("Walk");
                 insideInteractionZone = false;

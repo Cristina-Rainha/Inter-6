@@ -60,6 +60,9 @@ public class VariableHolder : MonoBehaviour
     [SerializeField] private AudioClip audioClip;
     [SerializeField] private AudioClip audioClip2;
 
+    //cat
+    [SerializeField] private GameObject Cat;
+
     private void Awake()
     {
         if (Instance == null)
@@ -105,6 +108,11 @@ public class VariableHolder : MonoBehaviour
         EndGame();
         NearClipPlane = near;
         FarClipPlane = far;
+
+        if (greenItem == true && testItem == true)
+        {
+            Cat.SetActive(false);
+        }
     }
 
     public void CamZoom()
