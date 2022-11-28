@@ -15,7 +15,7 @@ public class PlayerSoundManager : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
     }
-    private void Step(AnimationEvent animationEvent)
+    public void Step(AnimationEvent animationEvent)
     {
         if (animationEvent.animatorClipInfo.weight >= 0.5f)
         {
@@ -46,6 +46,38 @@ public class PlayerSoundManager : MonoBehaviour
                 audioSource.volume = 0.01f;
                 audioSource.PlayOneShot(clip);
             }
+        }
+    }
+
+    public void Step2()
+    {
+        if (!onWater)
+        {
+            AudioClip clip = GetRandomClip();
+            audioSource.volume = 0.09f;
+            audioSource.PlayOneShot(clip);
+        }
+        else
+        {
+            AudioClip clip = GetRandomClipWater();
+            audioSource.volume = 0.09f;
+            audioSource.PlayOneShot(clip);
+        }
+    }
+
+    public void Step3()
+    {
+        if (!onWater)
+        {
+            AudioClip clip = GetRandomClipRun();
+            audioSource.volume = 0.01f;
+            audioSource.PlayOneShot(clip);
+        }
+        else
+        {
+            AudioClip clip = GetRandomClipRunWater();
+            audioSource.volume = 0.01f;
+            audioSource.PlayOneShot(clip);
         }
     }
     private AudioClip GetRandomClip()

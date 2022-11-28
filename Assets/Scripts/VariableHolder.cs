@@ -55,6 +55,14 @@ public class VariableHolder : MonoBehaviour
     //EndGame
     [SerializeField] private GameObject MeiPhoto;
 
+    //sound
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClip;
+    [SerializeField] private AudioClip audioClip2;
+
+    //cat
+    [SerializeField] private GameObject Cat;
+
     private void Awake()
     {
         if (Instance == null)
@@ -100,6 +108,11 @@ public class VariableHolder : MonoBehaviour
         EndGame();
         NearClipPlane = near;
         FarClipPlane = far;
+
+        if (greenItem == true && testItem == true)
+        {
+            Cat.SetActive(false);
+        }
     }
 
     public void CamZoom()
@@ -151,5 +164,15 @@ public class VariableHolder : MonoBehaviour
     public void AddQuestCount()
     {
         questCount++;
+    }
+
+    public void OpenTextSound()
+    {
+        audioSource.PlayOneShot(audioClip);
+    }
+
+    public void InventorySound()
+    {
+        audioSource.PlayOneShot(audioClip2);
     }
 }

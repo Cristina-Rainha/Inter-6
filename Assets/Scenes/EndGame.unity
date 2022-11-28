@@ -2013,6 +2013,10 @@ MonoBehaviour:
   near: -60
   far: 1000
   MeiPhoto: {fileID: 1062475652}
+  audioSource: {fileID: 0}
+  audioClip: {fileID: 0}
+  audioClip2: {fileID: 0}
+  Cat: {fileID: 0}
 --- !u!114 &725985550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2653,7 +2657,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 861325653}
-  m_LocalRotation: {x: 0.3223446, y: 0.38351604, z: -0.14488825, w: 0.853239}
+  m_LocalRotation: {x: 0.32234463, y: 0.38351604, z: -0.14488825, w: 0.853239}
   m_LocalPosition: {x: -20.042793, y: 2.5970001, z: -23.372793}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7188,7 +7192,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1881602896}
-  m_LocalRotation: {x: 0.3223446, y: 0.38351604, z: -0.14488825, w: 0.853239}
+  m_LocalRotation: {x: 0.32234463, y: 0.38351604, z: -0.14488825, w: 0.853239}
   m_LocalPosition: {x: -20.042793, y: 2.5970001, z: -23.372793}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

@@ -45,6 +45,8 @@ public class PlayerControl : MonoBehaviour
     //audio
     private float currentSpeed = 0f;
 
+    private bool canmove = false;
+
     private void Awake()
     {
         mInputSystem = new PlayerInputSystem();
@@ -93,11 +95,14 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
-        Movemente();
-        WaveToNPC();
-        BowDown();
-        PickUP();
-        WaveNPCCAncel();
+        if (canmove)
+        {
+            Movemente();
+            WaveToNPC();
+            BowDown();
+            PickUP();
+            WaveNPCCAncel();
+        }
     }
 
     private void Movemente()
@@ -191,6 +196,10 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    public void CanMove()
+    {
+        canmove = true;
+    }
     private void WaveNPCCAncel()
     {
         if (VariableHolder.PlayerWaveNPC)

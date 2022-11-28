@@ -12,7 +12,6 @@ public class ItemsManager : MonoBehaviour
     [SerializeField] private Animator inventoryAnimator;
     private bool isOpen = false;
     
-
     private PlayerInputSystem mInputSystem;
     private InputAction interaction;
 
@@ -119,11 +118,13 @@ public class ItemsManager : MonoBehaviour
             {
                 inventoryAnimator.SetTrigger("Open");
                 isOpen = true;
+                VariableHolder.Instance.InventorySound();
             }
             else
             {
                 inventoryAnimator.SetTrigger("Close");
                 isOpen = false;
+                VariableHolder.Instance.InventorySound();
             }
         }
     }

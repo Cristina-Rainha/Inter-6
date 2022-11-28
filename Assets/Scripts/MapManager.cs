@@ -6,8 +6,11 @@ using UnityEngine.InputSystem;
 public class MapManager : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMap;
-    [SerializeField] private GameObject interectPronp;
+    [SerializeField] private GameObject icon;
+    [SerializeField] private Animator iconAnim;
     [SerializeField] private AudioClip audioClip;
+
+    private Animator animator;
 
     private AudioSource audioSource;
     private PlayerInputSystem mInputSystem;
@@ -34,6 +37,7 @@ public class MapManager : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -49,7 +53,7 @@ public class MapManager : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerOnRange = true;
-            interectPronp.SetActive(true);
+            icon.SetActive(true);
         }
     }
 
@@ -58,7 +62,7 @@ public class MapManager : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerOnRange = false;
-            interectPronp.SetActive(false);
+            iconAnim.SetTrigger("Reset");
         }
     }
 
@@ -73,7 +77,7 @@ public class MapManager : MonoBehaviour
             }
             else
             {
-                pauseMap.SetActive(false);
+                animator.SetTrigger("Close");
                 audioSource.PlayOneShot(audioClip);
             }
         }

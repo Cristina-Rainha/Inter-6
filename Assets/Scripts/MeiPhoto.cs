@@ -27,6 +27,7 @@ public class MeiPhoto : MonoBehaviour
         interaction = mInputSystem.Interact.Use;
         interaction.Enable();
         interaction.performed += OpenTextBox;
+        VariableHolder.Instance.OpenTextSound();
     }
 
     void OnDisable()

@@ -17,15 +17,18 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Slider slider;
     [SerializeField] private GameObject rain;
 
+    //buttons
     [SerializeField] private Button primarybutton;
     [SerializeField] private Button back;
+    [SerializeField] private GameObject buttons;
 
     private PlayerInputSystem mInputSystem;
     private InputAction XboxInput;
     private InputAction PS4Input;
     private InputAction KeyboardInput;
 
-
+    private bool xbox;
+    private bool ps;
     void Awake()
     {
         mInputSystem = new PlayerInputSystem();
@@ -55,6 +58,11 @@ public class MenuManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1f;
+        primarybutton.Select();
+    }
+    private void Update()
+    {
+         
     }
 
     public void StartGame()
@@ -69,10 +77,23 @@ public class MenuManager : MonoBehaviour
 
     public void Credits()
     {
-        credits.SetActive(true);
-        if(credits.activeSelf)
+        if (credits.activeSelf == false)
         {
-            back.Select();
+            credits.SetActive(true);
+            if (xbox || ps)
+            {
+                back.Select();
+            }
+            buttons.SetActive(false);
+        }
+        else
+        {
+            credits.SetActive(false);
+            buttons.SetActive(true);
+            if (xbox || ps)
+            {
+                primarybutton.Select();
+            }
         }
     }
     
@@ -81,7 +102,11 @@ public class MenuManager : MonoBehaviour
         credits.SetActive(false);
         if (credits.activeSelf == false)
         {
-            primarybutton.Select();
+            if (ps || xbox)
+            {
+                back.Select();
+            }
+            buttons.SetActive(true);
         }
     }
     public void CloseGame()
@@ -111,15 +136,18 @@ public class MenuManager : MonoBehaviour
     private void XboxInputControl(InputAction.CallbackContext ctx)
     {
         Cursor.lockState = CursorLockMode.Locked;
+        xbox = true;
     }
     private void PS4InputControl(InputAction.CallbackContext ctx)
     {
         Cursor.lockState = CursorLockMode.Locked;
-
+        ps = true;
     }
     private void KeyboardInputControl(InputAction.CallbackContext ctx)
     {
         Cursor.lockState = CursorLockMode.None;
+        ps = false;
+        xbox = false;
     }
 }
 
