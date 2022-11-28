@@ -119,11 +119,13 @@ public class ItemsManager : MonoBehaviour
             {
                 inventoryAnimator.SetTrigger("Open");
                 isOpen = true;
+                VariableHolder.Instance.InventorySound();
             }
             else
             {
                 inventoryAnimator.SetTrigger("Close");
                 isOpen = false;
+                VariableHolder.Instance.InventorySound();
             }
         }
     }

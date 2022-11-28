@@ -19,7 +19,7 @@ public class Tutorial : MonoBehaviour
         interaction = mInputSystem.Interact.Use;
         interaction.Enable();
         interaction.performed += CloseTutorial;
-        VariableHolder.Instance.OpenTextSound();
+        VariableHolder.Instance.InventorySound();
     }
 
     void OnDisable()
@@ -37,6 +37,7 @@ public class Tutorial : MonoBehaviour
         if (ctx.performed)
         {
             anim.SetTrigger("Close");
+            VariableHolder.Instance.InventorySound();
         }
     }
 

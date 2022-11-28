@@ -58,6 +58,7 @@ public class VariableHolder : MonoBehaviour
     //sound
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
+    [SerializeField] private AudioClip audioClip2;
 
     private void Awake()
     {
@@ -160,5 +161,10 @@ public class VariableHolder : MonoBehaviour
     public void OpenTextSound()
     {
         audioSource.PlayOneShot(audioClip);
+    }
+
+    public void InventorySound()
+    {
+        audioSource.PlayOneShot(audioClip2);
     }
 }
