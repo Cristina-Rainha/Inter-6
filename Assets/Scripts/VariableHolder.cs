@@ -55,6 +55,10 @@ public class VariableHolder : MonoBehaviour
     //EndGame
     [SerializeField] private GameObject MeiPhoto;
 
+    //sound
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClip;
+
     private void Awake()
     {
         if (Instance == null)
@@ -151,5 +155,10 @@ public class VariableHolder : MonoBehaviour
     public void AddQuestCount()
     {
         questCount++;
+    }
+
+    public void OpenTextSound()
+    {
+        audioSource.PlayOneShot(audioClip);
     }
 }

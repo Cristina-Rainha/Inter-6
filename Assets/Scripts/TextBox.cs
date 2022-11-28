@@ -19,6 +19,7 @@ public class TextBox : MonoBehaviour
         interaction = mInputSystem.Interact.Use;
         interaction.Enable();
         interaction.performed += CloseTextBox;
+        VariableHolder.Instance.OpenTextSound();
     }
 
     private void OnDisable()

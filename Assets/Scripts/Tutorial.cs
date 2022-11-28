@@ -19,6 +19,7 @@ public class Tutorial : MonoBehaviour
         interaction = mInputSystem.Interact.Use;
         interaction.Enable();
         interaction.performed += CloseTutorial;
+        VariableHolder.Instance.OpenTextSound();
     }
 
     void OnDisable()
