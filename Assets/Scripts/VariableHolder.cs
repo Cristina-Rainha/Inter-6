@@ -100,6 +100,8 @@ public class VariableHolder : MonoBehaviour
 
         testItem = false;
 
+        outside = true;
+
         questCount = questCountTest;
     }
 

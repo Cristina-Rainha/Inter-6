@@ -45,7 +45,7 @@ public class PlayerControl : MonoBehaviour
     //audio
     private float currentSpeed = 0f;
 
-    private bool canmove = false;
+    [SerializeField] private bool canmove = false;
 
     private void Awake()
     {

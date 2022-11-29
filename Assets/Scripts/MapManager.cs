@@ -77,7 +77,7 @@ public class MapManager : MonoBehaviour
             }
             else
             {
-                animator.SetTrigger("Close");
+                //animator.SetTrigger("Close");
                 audioSource.PlayOneShot(audioClip);
             }
         }

@@ -6,6 +6,7 @@ public class RotateUI : MonoBehaviour
 {
     [SerializeField] private Transform cameraTransform;
 
+    public int value;
     private Transform localTransform;
     void Start()
     {
@@ -15,16 +16,13 @@ public class RotateUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(cameraTransform)
+        if (VariableHolder.outside)
         {
-            if (VariableHolder.outside)
-            {
-                transform.rotation = Quaternion.LookRotation(-2 * transform.position - cameraTransform.position);
-            }
-            else
-            {
-                transform.rotation = Quaternion.LookRotation(transform.position - cameraTransform.position);
-            }
+            transform.rotation = Quaternion.LookRotation(-2 * localTransform.position - cameraTransform.position);
+        }
+        else
+        {
+            transform.rotation = Quaternion.LookRotation(localTransform.position - cameraTransform.position);
         }
     }
 }
