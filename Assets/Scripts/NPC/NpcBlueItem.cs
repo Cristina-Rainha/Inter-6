@@ -67,6 +67,7 @@ public class NpcBlueItem : MonoBehaviour
             animator.SetTrigger("Collect");
             canvasPanel.SetActive(false);
             audioSource.PlayOneShot(audioClip);
+            VariableHolder.Instance.InventoryIcon();
             StartCoroutine(destroy());
         }
     }

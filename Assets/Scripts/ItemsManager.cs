@@ -10,6 +10,9 @@ public class ItemsManager : MonoBehaviour
     [SerializeField] private List<Sprite> itemsIconSprite;
     [SerializeField] private List<GameObject> itemsSlot;
     [SerializeField] private Animator inventoryAnimator;
+
+    [SerializeField] private List<Image> bagSpace;
+    [SerializeField] private GameObject bagsmall;
     private bool isOpen = false;
     
     private PlayerInputSystem mInputSystem;
@@ -30,6 +33,9 @@ public class ItemsManager : MonoBehaviour
     void OnDisable()
     {
         interaction.Disable();
+    }
+    private void Start()
+    {
 
     }
 
@@ -37,6 +43,7 @@ public class ItemsManager : MonoBehaviour
     {
         ChangeIconSprite();
         DeactivateItem();
+        InvenIconAnim();
     }
 
     private void ChangeIconSprite()
@@ -126,6 +133,18 @@ public class ItemsManager : MonoBehaviour
                 isOpen = false;
                 VariableHolder.Instance.InventorySound();
             }
+        }
+    }
+
+    private void InvenIconAnim()
+    {
+        if (VariableHolder.greenQuest && VariableHolder.redQuest && VariableHolder.blueQuest && VariableHolder.purpleQuest && VariableHolder.orangeQuest && VariableHolder.greenQuest2)
+        {
+            foreach (Image image in bagSpace)
+            {
+                image.color = new Color(0, 0, 0, 0f);
+            }
+            bagsmall.SetActive(true);
         }
     }
 }

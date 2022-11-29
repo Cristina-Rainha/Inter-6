@@ -63,6 +63,9 @@ public class VariableHolder : MonoBehaviour
     //cat
     [SerializeField] private GameObject Cat;
 
+    //bagicon
+    [SerializeField] private GameObject BagIcon;
+
     private void Awake()
     {
         if (Instance == null)
@@ -176,5 +179,10 @@ public class VariableHolder : MonoBehaviour
     public void InventorySound()
     {
         audioSource.PlayOneShot(audioClip2);
+    }
+
+    public void InventoryIcon()
+    {
+        BagIcon.SetActive(true);
     }
 }

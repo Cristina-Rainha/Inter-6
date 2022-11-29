@@ -68,6 +68,7 @@ public class NpcGreenItem2 : MonoBehaviour
             animator.SetTrigger("Collect");
             canvasPanel.SetActive(false);
             audioSource.PlayOneShot(audioClip);
+            VariableHolder.Instance.InventoryIcon();
             StartCoroutine(destroy());
         }
     }
