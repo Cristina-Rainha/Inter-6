@@ -181,10 +181,6 @@ public class FireflyIndicator : MonoBehaviour
             if (distance < 5)
             {
                 fireflyLight.intensity = lightIntensity[4];
-            }
-
-            if (distance < 2)
-            {
                 Navi.SetActive(false);
             }
         }
