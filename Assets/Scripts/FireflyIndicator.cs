@@ -19,6 +19,9 @@ public class FireflyIndicator : MonoBehaviour
     [SerializeField] private Transform GreenNpc2;
     [SerializeField] private Transform OrangeNpc;
 
+    //npc texto
+    [SerializeField] private GameObject TextTips;
+
     private bool Redarea = false;
     private bool Purplearea = false;
     private bool Bluearea = false;
@@ -172,6 +175,7 @@ public class FireflyIndicator : MonoBehaviour
             if (distance < 10)
             {
                 fireflyLight.intensity = lightIntensity[3];
+                TextTips.SetActive(true);
             }
 
             if (distance < 5)

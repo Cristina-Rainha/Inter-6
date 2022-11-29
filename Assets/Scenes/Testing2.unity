@@ -71698,6 +71698,7 @@ MonoBehaviour:
   GreenNpc: {fileID: 139835000}
   GreenNpc2: {fileID: 99284066}
   OrangeNpc: {fileID: 1646623908}
+  TextTips: {fileID: 31310905}
 --- !u!114 &1414185076
 MonoBehaviour:
   m_ObjectHideFlags: 0

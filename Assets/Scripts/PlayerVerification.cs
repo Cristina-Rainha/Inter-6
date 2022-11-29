@@ -14,8 +14,8 @@ public class PlayerVerification : MonoBehaviour
         {
             if (canshow)
             {
-                NPCTutorial.SetActive(true);
-                canshow = false;
+                //NPCTutorial.SetActive(true);
+                //canshow = false;
             }
         }
     }
