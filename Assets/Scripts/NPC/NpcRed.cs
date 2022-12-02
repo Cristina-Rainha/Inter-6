@@ -180,6 +180,7 @@ public class NpcRed : MonoBehaviour
                 VariableHolder.redNpc = false;
                 VariableHolder.redQuest = true;
                 VariableHolder.Instance.AddQuestCount();
+                VariableHolder.Instance.FireflyOff();
                 Destroy(canvasPanel);
                 npcCollider.enabled = false;
             }

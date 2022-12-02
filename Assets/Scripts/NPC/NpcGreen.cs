@@ -233,6 +233,7 @@ public class NpcGreen : MonoBehaviour
                 VariableHolder.greenNpc = false;
                 VariableHolder.greenQuest = true;
                 VariableHolder.Instance.AddQuestCount();
+                VariableHolder.Instance.FireflyOff();
                 Destroy(canvasPanel);
                 npcCollider.enabled = false;
             }

@@ -181,6 +181,7 @@ public class NpcOrange : MonoBehaviour
                 VariableHolder.orangeNpc = false;
                 VariableHolder.orangeQuest = true;
                 VariableHolder.Instance.AddQuestCount();
+                VariableHolder.Instance.FireflyOff();
                 Destroy(canvasPanel);
                 npcCollider.enabled = false;
             }

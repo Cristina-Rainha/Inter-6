@@ -66,6 +66,9 @@ public class VariableHolder : MonoBehaviour
     //bagicon
     [SerializeField] private GameObject BagIcon;
 
+    //firefly
+    [SerializeField] private GameObject Firefly;
+
     private void Awake()
     {
         if (Instance == null)
@@ -184,5 +187,10 @@ public class VariableHolder : MonoBehaviour
     public void InventoryIcon()
     {
         BagIcon.SetActive(true);
+    }
+
+    public void FireflyOff()
+    {
+        Firefly.SetActive(false);
     }
 }

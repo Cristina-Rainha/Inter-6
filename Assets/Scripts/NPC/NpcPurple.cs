@@ -183,6 +183,7 @@ public class NpcPurple : MonoBehaviour
                 VariableHolder.purpleNpc = false;
                 VariableHolder.purpleQuest = true;
                 VariableHolder.Instance.AddQuestCount();
+                VariableHolder.Instance.FireflyOff();
                 Destroy(canvasPanel);
                 npcCollider.enabled = false;
             }
