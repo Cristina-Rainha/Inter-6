@@ -98,11 +98,11 @@ public class PlayerControl : MonoBehaviour
         if (VariableHolder.playercanwalk)
         {
             Movemente();
-            WaveToNPC();
-            BowDown();
-            PickUP();
             WaveNPCCAncel();
         }
+        WaveToNPC();
+        BowDown();
+        PickUP();
     }
 
     private void Movemente()

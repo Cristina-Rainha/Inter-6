@@ -159,6 +159,7 @@ public class NpcGreen : MonoBehaviour
             if (insideInteractionZone && VariableHolder.greenItem && VariableHolder.testItem && text)
             {
                 canvasText[6].GetComponent<Animator>().SetTrigger("Close");
+                VariableHolder.playercanwalk = false;
                 VariableHolder.PlayerBowDown = true;
                 animator.SetTrigger("Walk");
                 insideInteractionZone = false;

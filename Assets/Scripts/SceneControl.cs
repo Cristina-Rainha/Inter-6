@@ -71,9 +71,7 @@ public class SceneControl : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(ps4);
-        Debug.Log(xbox);
-        
+ 
     }
 
     private void Pause(InputAction.CallbackContext ctx)
