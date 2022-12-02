@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class TextManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> TextBoxes;
-    [SerializeField] private float delayOnText1;
 
     private PlayerInputSystem mInputSystem;
     private InputAction interaction;
@@ -31,7 +30,6 @@ public class TextManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(InicialDialog());
     }
 
     private void NextText(InputAction.CallbackContext ctx)
@@ -46,13 +44,13 @@ public class TextManager : MonoBehaviour
             if (TextBoxes[1].activeSelf)
             {
                 TextBoxes[1].GetComponent<Animator>().SetTrigger("Close");
+                VariableHolder.playercanwalk = true;
             }
         }
     }
 
-    IEnumerator InicialDialog()
+    public void InicialDialogueStart()
     {
-        yield return new WaitForSeconds(delayOnText1);
         TextBoxes[0].SetActive(true);
     }
 

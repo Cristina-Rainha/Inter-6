@@ -177,6 +177,7 @@ public class NpcPurple : MonoBehaviour
             if (insideInteractionZone && VariableHolder.purpleItem && text)
             {
                 canvasText[7].GetComponent<Animator>().SetTrigger("Close");
+                VariableHolder.playercanwalk = false;
                 VariableHolder.PlayerBowDown = true;
                 animator.SetTrigger("Walk");
                 insideInteractionZone = false;
@@ -191,6 +192,7 @@ public class NpcPurple : MonoBehaviour
     }
     public void TurnOFFNPC()
     {
+        VariableHolder.playercanwalk = true;
         gameObject.SetActive(false);
     }
 

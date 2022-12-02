@@ -95,7 +95,7 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
-        if (canmove)
+        if (VariableHolder.playercanwalk)
         {
             Movemente();
             WaveToNPC();

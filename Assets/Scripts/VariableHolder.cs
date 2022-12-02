@@ -66,8 +66,9 @@ public class VariableHolder : MonoBehaviour
     //bagicon
     [SerializeField] private GameObject BagIcon;
 
-    //firefly
+    //firefly and palyer
     [SerializeField] private GameObject Firefly;
+    public static bool playercanwalk = false;
 
     private void Awake()
     {

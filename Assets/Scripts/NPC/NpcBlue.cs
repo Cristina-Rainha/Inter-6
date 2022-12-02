@@ -174,6 +174,7 @@ public class NpcBlue : MonoBehaviour
             if (insideInteractionZone && VariableHolder.blueItem && text)
             {
                 canvasText[6].GetComponent<Animator>().SetTrigger("Close");
+                VariableHolder.playercanwalk = false;
                 VariableHolder.PlayerBowDown = true;
                 animator.SetTrigger("Walk");
                 insideInteractionZone = false;
@@ -188,6 +189,7 @@ public class NpcBlue : MonoBehaviour
     }
     public void TurnOFFNPC()
     {
+        VariableHolder.playercanwalk = true;
         gameObject.SetActive(false);
     }
 
