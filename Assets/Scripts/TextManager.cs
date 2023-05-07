@@ -44,7 +44,6 @@ public class TextManager : MonoBehaviour
             if (TextBoxes[1].activeSelf)
             {
                 TextBoxes[1].GetComponent<Animator>().SetTrigger("Close");
-                VariableHolder.playercanwalk = true;
             }
         }
     }
@@ -52,6 +51,7 @@ public class TextManager : MonoBehaviour
     public void InicialDialogueStart()
     {
         TextBoxes[0].SetActive(true);
+        VariableHolder.playercanwalk = true;
     }
 
     IEnumerator SecoundDialog()
