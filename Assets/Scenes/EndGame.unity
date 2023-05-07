@@ -2017,6 +2017,8 @@ MonoBehaviour:
   audioClip: {fileID: 0}
   audioClip2: {fileID: 0}
   Cat: {fileID: 0}
+  BagIcon: {fileID: 0}
+  Firefly: {fileID: 0}
 --- !u!114 &725985550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2157,7 +2159,6 @@ MonoBehaviour:
   TextBoxes:
   - {fileID: 0}
   - {fileID: 0}
-  delayOnText1: 2
 --- !u!1 &727394810 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -37784167301714975, guid: 9082f962d89c5df4e840628d6e955898,
@@ -5803,7 +5804,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6a18776b3c03ce840ad07e01a96c3180, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 97ed0affae462d548ae1af6cf12d8e7a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
