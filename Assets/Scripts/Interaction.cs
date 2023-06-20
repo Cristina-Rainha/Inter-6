@@ -22,6 +22,9 @@ public class Interaction : MonoBehaviour
     [SerializeField] private GameObject KeyboardControls;
     [SerializeField] private GameObject XboxControls;
     [SerializeField] private GameObject PS4Controls;
+    [SerializeField] private GameObject keyboardOnStart;
+    [SerializeField] private GameObject xboxOnStart;
+    [SerializeField] private GameObject ps4OnStart;
 
     //FristText
     [SerializeField] private List<Image> MeiDialogs;
