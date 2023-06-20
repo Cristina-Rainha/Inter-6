@@ -33,10 +33,7 @@ public class SoundManger : MonoBehaviour
 
     void Start()
     {
-        if (!audioSource.isPlaying)
-        {
-            StartCoroutine(LoopMainMusic());
-        }
+        PlayRandomMusic();
     }
 
     private void Update()
@@ -52,12 +49,23 @@ public class SoundManger : MonoBehaviour
     {
         AudioListener.volume = value;
     }
+    private void PlayRandomMusic()
+    {
+        int randomIndex = Random.Range(0, MainTheme.Count);
+        audioSource.clip = MainTheme[randomIndex];
+        audioSource.Play();
+
+        float clipLenght = audioSource.clip.length;
+        Invoke("PlayRandomMusic", clipLenght);
+    }
+
     IEnumerator LoopMainMusic()
     {
         audioSource.PlayOneShot(MainTheme[Random.Range(0, MainTheme.Count)]);
         yield return new WaitForSeconds(audioSource.clip.length + 1 / Random.Range(0.5f, 1.5f));
         StartCoroutine(LoopMainMusic());
     }
+
     private void NPCMusic()
     {
         if (VariableHolder.redNpc)
