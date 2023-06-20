@@ -285,13 +285,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1351687187}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: LoadLevelBtn
+        m_TargetAssemblyTypeName: Choice, Assembly-CSharp
+        m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -836,13 +836,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1351687187}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: Credits
-        m_Mode: 1
+        m_TargetAssemblyTypeName: Choice, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1054,7 +1054,7 @@ GameObject:
   - component: {fileID: 1351687186}
   - component: {fileID: 1351687187}
   m_Layer: 0
-  m_Name: MenuManager
+  m_Name: ChoiceManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1084,19 +1084,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1351687185}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8e3a7be404897b4fb362cef35b74c7b, type: 3}
+  m_Script: {fileID: 11500000, guid: 457d1b4bc00932b4ca8eb9c2fa002c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 1
-  menu: {fileID: 0}
-  options: {fileID: 0}
-  credits: {fileID: 0}
-  load: {fileID: 0}
-  slider: {fileID: 0}
-  rain: {fileID: 2125661781}
-  primarybutton: {fileID: 541997339}
-  back: {fileID: 0}
-  buttons: {fileID: 1996118020}
 --- !u!1 &1478052402
 GameObject:
   m_ObjectHideFlags: 0
