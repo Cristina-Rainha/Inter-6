@@ -6,11 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/CRvideo.unity
+    guid: 24c86ad1cb0acfd47b14123b0c3fed69
+  - enabled: 1
+    path: Assets/Scenes/Choice.unity
+    guid: 6f074e7e6d1929b46931bb9c36b0dac0
+  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 521d0d1e02e3dc74b89a9ced1a1ee0cb
   - enabled: 1
     path: Assets/Scenes/Level.unity
     guid: 959bf32d6dde01f4b9384758cf7dfddb
+  - enabled: 1
+    path: Assets/Scenes/Menu 1.unity
+    guid: 7daac628cf6cd1e4a826d4b47de0a5e3
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: 823e29e787766e24b8e3c2b071ab7693
   - enabled: 1
     path: Assets/Scenes/EndGame.unity
     guid: 151857581c23f204dbca4b4e4c6b5382
