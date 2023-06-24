@@ -69,6 +69,9 @@ public class Interaction : MonoBehaviour
                 KeyboardControls.SetActive(false);
                 XboxControls.SetActive(true);
                 PS4Controls.SetActive(false);
+                keyboardOnStart.SetActive(false);
+                xboxOnStart.SetActive(true);
+                ps4OnStart.SetActive(false);
                 meiIcon.sprite = meiSprite[0];
                 MeiDialogs[0].sprite = MeiDialogSprites[0];
                 MeiDialogs[1].sprite = MeiDialogSprites[1];
@@ -87,6 +90,9 @@ public class Interaction : MonoBehaviour
                 KeyboardControls.SetActive(false);
                 XboxControls.SetActive(false);
                 PS4Controls.SetActive(true);
+                keyboardOnStart.SetActive(false);
+                xboxOnStart.SetActive(false);
+                ps4OnStart.SetActive(true);
                 meiIcon.sprite = meiSprite[1];
                 MeiDialogs[0].sprite = MeiDialogSprites[2];
                 MeiDialogs[1].sprite = MeiDialogSprites[3];
@@ -106,6 +112,9 @@ public class Interaction : MonoBehaviour
                 KeyboardControls.SetActive(true);
                 XboxControls.SetActive(false);
                 PS4Controls.SetActive(false);
+                keyboardOnStart.SetActive(true);
+                xboxOnStart.SetActive(false);
+                ps4OnStart.SetActive(false);
                 meiIcon.sprite = meiSprite[2];
                 MeiDialogs[0].sprite = MeiDialogSprites[4];
                 MeiDialogs[1].sprite = MeiDialogSprites[5];
