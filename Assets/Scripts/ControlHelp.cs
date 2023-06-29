@@ -16,6 +16,6 @@ public class ControlHelp : MonoBehaviour
     IEnumerator CloseHelp()
     {
         yield return new WaitForSeconds(timeToGoDissolve);
-        anim.SetTrigger("Dissolve");
+        gameObject.SetActive(false);
     }
 }

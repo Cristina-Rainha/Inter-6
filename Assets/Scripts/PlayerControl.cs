@@ -71,9 +71,9 @@ public class PlayerControl : MonoBehaviour
         UseInput.Enable();
         UseInput.performed += CollectItem;
 
-        DanceInput = mInputSystem.Player.Dance;
-        DanceInput.Enable();
-        DanceInput.performed += DanceFortinitro;
+        //DanceInput = mInputSystem.Player.Dance;
+        //DanceInput.Enable();
+        //DanceInput.performed += DanceFortinitro;
     }
 
     private void OnDisable()
@@ -159,9 +159,9 @@ public class PlayerControl : MonoBehaviour
     }
     private void DanceFortinitro(InputAction.CallbackContext ctx)
     {
-        myAnimator.SetTrigger("Fortnitro");
-        audioSource.volume = 0.1f;
-        audioSource.PlayOneShot(fortnitro);
+        //myAnimator.SetTrigger("Fortnitro");
+        //audioSource.volume = 0.1f;
+        //audioSource.PlayOneShot(fortnitro);
     }
 
     private void CollectItem(InputAction.CallbackContext ctx)
